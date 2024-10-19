@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-scene-composer"
+description = "A collection of nodes to facilitate the creation of scenes in ComfyUI."
+version = "1.0.0"
+license = {file = "LICENSE"}
+dependencies = ["numpy==2.1.2", "PyYAML==6.0.2", "toml==0.10.2"]
+
+[project.urls]
+Repository = "https://github.com/taches-ai/comfyui-scene-composer"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "comfyui-scene-composer"
+Icon = ""
