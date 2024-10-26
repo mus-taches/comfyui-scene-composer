@@ -1,9 +1,9 @@
-from .src.scene import Scene
-from .src.components.composition import Composition
-from .src.components.action import Action
-from .src.components.character.character import Character
-from .src.components.clothes import Clothes
-from .src.components.environment import Environment
+from .py.scene import Scene
+from .py.components.composition import Composition
+from .py.components.action import Action
+from .py.components.character.character import Character
+from .py.components.clothes import Clothes
+from .py.components.environment import Environment
 
 NODE_CLASS_MAPPINGS = {
     "🎞️ Scene": Scene,
