@@ -1,7 +1,7 @@
 import numpy as np
 import toml
 
-from .utils import ROOT_DIR, get_nested_dict_value
+from .utils import ROOT_DIR
 
 
 class Node:
@@ -13,14 +13,9 @@ class Node:
         self.seed = seed
         self.data = self.load_data(data_file)
 
-        self.components = {}
-        self.build_components()
-
-        self.prompt = []
-
     @classmethod
     def INPUT_TYPES(cls):
-        """ComfyUI node inputs"""
+        """ComfyUI node's inputs"""
         required = {
             "seed": ("INT", {
                 "default": 0,
@@ -36,68 +31,30 @@ class Node:
         return inputs
 
     RETURN_TYPES = ("STRING",)
-    FUNCTION = "run_node"
+    FUNCTION = "build_prompt"
     CATEGORY = "🎞️ Scene Composer"
 
-    def run_node(self, seed, **kwargs):
-        """ComfyUI node function
-        Will change the data before building the components"""
-
-        # Update data based on node inputs
-        # If it's "random", keep the previous value:
-        # it will be chosen randomly by the build_components method
-        for arg, value in kwargs.items():
-            if value != "random":
-                output = get_nested_dict_value(self.data, value)
-            self.data[arg] = output
-
-        self.update_seed(seed)
-        prompt = self.get_prompt()
-        return (prompt,)
-
-    def get_prompt(self):
-        """Build the prompt and return it as a string"""
-        self.build_prompt()
-        prompt = self.stringify_tags(self.prompt)
-        return prompt
-
     def build_prompt(self):
-        """Build the prompt according to the components"""
-        self.build_components()
-        self.prompt = [self.components[component]
-                       for component in self.components]
-
-    def build_components(self):
         pass
 
-    def update_seed(self, seed):
-        """Update the seed of the node and its components"""
-        self.seed = seed
-        for component in self.components:
-            if hasattr(self.components[component], "seed"):
-                self.components[component].seed = seed
+    def select_tags(self, tags, p=1, n=1, selected="random", recursive=True):
+        """Return n tags from a string, list or dict
+        p: probability of selecting the tags
+        n: number of tags to select
+        selected: fallback tag to select if not random
+        recursive: go deeper randomly to select last children tags"""
+        rng = np.random.default_rng(self.seed)
 
-    def select_tags(self, tags, p=1, n=1, seed=None):
-        """Return n tags from a string, list or dict"""
-        seed = seed or self.seed
-        rng = np.random.default_rng(seed)
-
-        if isinstance(tags, str):
-            return tags
+        if selected != "random":
+            return selected
 
         if isinstance(tags, dict):
 
             p = tags.get("probability", p)
             n = tags.get("repeat", n)
 
-            # TODO: list is just an extra unnecessary step
-            # Remove it and chose directly among the defined properties
-            if "list" in tags:
-                selected_from_list = self.select_tags(tags["list"], p, n)
-                tags = tags[selected_from_list]
-
-            if "tags" in tags:
-                tags = tags.get("tags", [])
+            if rng.random() > p:
+                return ""
 
             # If n is a list, choose a random number between the 2 first values
             if isinstance(n, list):
@@ -105,31 +62,49 @@ class Node:
                 max_n = min(n[1], len(tags))
                 n = rng.integers(int(min_n), int(max_n))
 
-            if rng.random() > p:
-                return ""
+            # Handle "list" and "tags" special keys
+            if "list" in tags:
+                selected_from_list = self.select_tags(tags["list"], p, n)
+                tags = tags[selected_from_list]
 
-        tag_names, weights = self.parse_tag_distribution(tags)
+            elif "tags" in tags:
+                tags = tags.get("tags", [])
 
-        selected_tags = rng.choice(
-            tag_names,
-            size=n,
-            replace=False,
-            p=weights
-        )
+            # Handle recursive tags
+            else:
+                first_level_keys = list(tags.keys())
+                chosen_key = rng.choice(first_level_keys)
+                chosen_value = tags[chosen_key]
 
-        tags = self.stringify_tags(selected_tags)
+                if isinstance(chosen_value, (list, dict)):
+                    tags = self.select_tags(chosen_value, p, n)
+
+                if not recursive:
+                    tags = first_level_keys
+
+        if isinstance(tags, list):
+            tag_names, weights = self.parse_tag_distribution(tags)
+
+            selected_tags = rng.choice(
+                tag_names,
+                size=n,
+                replace=False,
+                p=weights
+            )
+            tags = self.stringify_tags(selected_tags)
+
         return tags
 
     @staticmethod
     def parse_tag_distribution(tags):
         """Choose tags randomly according to defined weights
         If none are defined, tag weight is 1
-        Example: "foo:1.5, bar:0.5" -> 75% chance of foo, 25% chance of bar"""
+        Example: "foo?1.5, bar?0.5" -> 75% chance of foo, 25% chance of bar"""
         tag_names = []
         weights = []
         for tag in tags:
-            if ':' in tag:
-                tag_name, weight = tag.split(':')
+            if '?' in tag:
+                tag_name, weight = tag.split('?')
                 tag_names.append(tag_name)
                 weights.append(float(weight))
             else:
@@ -152,7 +127,7 @@ class Node:
     @staticmethod
     def build_inputs_list(data):
         """Build a list with a random option"""
-        data = [tag.split(':')[0] for tag in data]
+        data = [tag.split('?')[0] for tag in data]
         inputs_list = ["random"] + data
 
         return inputs_list
@@ -164,5 +139,5 @@ class Node:
         tags = tags.replace(", ,", ",")
         return tags
 
-    def __str__(self):
-        return self.get_prompt()
+    def __str__(self, **kwargs):
+        return self.build_prompt(**kwargs)[0]

@@ -1,13 +1,27 @@
-[normal]
-position = ["standing", "sitting", "walking", "running"]
-gesture = ["waving", "pointing", "adjusting hair"]
-interaction = ["holding hand"]
-activity = ["drinking", "reading"]
+# SFW
+[sfw]
+positions = ["standing", "sitting", "walking", "running", "lying"]
+gestures = ["waving", "adjusting hair", "holding hand", "drinking", "reading"]
 
-[nsfw]
-list = ["preliminary", "main"]
-preliminary = ["fingering", "handjob", "fellatio", "licking penis", "paizuri"]
-main = [
+# NSFW
+[nsfw.settings]
+insertions = ["vaginal", "anal"]
+
+# Male
+hide_male = false
+penis_sizes = ["small?0.5", "", "large", "huge?0.5"]
+testicles_sizes = ["small?0.5", "", "large", "huge?0.5"]
+
+# Intensity (float number)
+sweat = 1.0
+cum = 1.0
+pussy_juice = 1.0
+
+# NSFW Actions
+[nsfw.acts]
+teasing = ["flashing"]
+preliminaries = ["fingering", "handjob", "fellatio", "licking penis", "paizuri"]
+intercourses = [
   "doggystyle",
   "cowgirl",
   "reversed cowgirl",
@@ -15,12 +29,3 @@ main = [
   "suspended congress",
   "full nelson",
 ]
-
-[nsfw.settings]
-hide_male = false
-penis_size = ["small:0.5", "normal", "large", "huge:0.5"]
-testicles_size = ["small:0.5", "normal", "large", "huge:0.5"]
-insertion = ["vaginal", "anal"]
-sweat = 1
-cum = 1
-pussy_juice = 1

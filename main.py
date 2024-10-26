@@ -3,17 +3,14 @@ import random
 from src.scene import Scene
 
 
-def main(node, seed=0):
+def main(seed, nsfw):
 
     if not seed:
         seed = random.randint(0, 0xffffffffffffffff)
 
-    scene = Scene(seed)
-
-    if node:
-        output = scene.components[node]
-
-    output = scene
+    scene = Scene()
+    scene.components["action"]["default"].INPUT_TYPES()
+    output = scene.build_prompt(seed)
 
     print(f"SEED: {seed}")
     print(f"TAGS: {output}")
@@ -31,11 +28,11 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
-        "--node", "-n",
-        type=str,
-        choices=["composition", "subject", "action", "environment"],
-        help="Name of the node to simulate"
+        "--nsfw", "-n",
+        type=bool,
+        default=False,
+        help="Whether the scene is NSFW"
     )
 
     args = parser.parse_args()
-    main(args.node, args.seed)
+    main(args.seed, args.nsfw)

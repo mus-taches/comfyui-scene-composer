@@ -15,13 +15,14 @@ $ pip install -r requirements.txt
 
 ### Scene
 
-The Scene node generates a procedural random prompt as a string. The prompt follows the CASE structure:
+The Scene node generates a procedural random prompt as a string. The prompt follows the following structure:
 
 | Component       | Description                                                   |
 | --------------- | ------------------------------------------------------------- |
 | **C**omposition | The layout of the scene, cameras, number of protagonists, etc |
-| **A**ctions     | Activites done by the subject/protagonist(s)                  |
-| **S**ubject     | Main character, including appearance, clothes, attitude, etc  |
+| **A**ctions     | Activites done by the character/protagonist(s)                |
+| **C**haracter   | Main character, focusing on body type and faces, etc          |
+| **C**lothes     | Include casual clothes, uniforms, swimsuits, underwear, etc   |
 | **E**nvironment | The setting, including background, weather, time of day, etc  |
 
 You can define some aspects of the scene directly in the node. If you want to have more control over what's generated, you can override these components by passing a string as input. This work particularly well with the node components, which are explained just below.
@@ -47,10 +48,10 @@ tags = ["foo", "bar"] # -> bar
 
 ### Weighted lists
 
-You can change the distribution by assigning a `:weight` next to the tag. By default, every tag has a weight of 1.
+You can change the distribution by assigning a `?weight` next to the tag. By default, every tag has a weight of 1.
 
 ```toml
-tags = ["foo:2", "bar", "baz"]
+tags = ["foo?2", "bar", "baz"]
 ```
 
 In this example, `foo` has a 50% chance to be chosen over `bar` or `baz`. This is because its weight is 2x the sum of all weights:
@@ -60,7 +61,7 @@ $\cfrac{\text{foo}}{\text{foo+bar+baz}} = \cfrac{2}{2+1+1}=0.5$
 You can of course add fractions to the weights to make it _less_ likely to be chosen.
 
 ```toml
-tags = ["foo:0.5", "bar", "baz"]
+tags = ["foo?0.5", "bar", "baz"]
 ```
 
 In this example, `foo` has a 20% chance to be chosen over `bar` or `baz`.

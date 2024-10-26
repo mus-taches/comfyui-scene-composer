@@ -1,5 +1,5 @@
 # State: how clothed the character is
-states = ["clothed", "underwear:0.5", "nude:0.5"]
+states = ["clothed", "underwear?0.3", "nude?0.1"]
 
 # Types: if clothed, what type of clothing
 types = ["casual", "dress", "swimsuit", "uniform"]
@@ -20,9 +20,11 @@ colors = [
   "pink",
 ]
 
+# Swimsuit & Uniforms
 swimsuit = ["bikini", "one-piece swimsuit"]
 uniform = ["school", "sport", "military", "maid"]
 
+# Casual clothing
 [casual]
 top = ["shirt", "blouse", "sweater", "hoodie"]
 bottom = ["jeans", "pants", "shorts", "skirt"]
@@ -31,6 +33,7 @@ bottom = ["jeans", "pants", "shorts", "skirt"]
 probability = 0.3
 tags = ["vest", "coat", "trenchoat", "jacket"]
 
+# Dress
 [dress]
 length = ["short", "long"]
 

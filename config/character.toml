@@ -1,8 +1,8 @@
 # BODY
 [body.colors]
 probability = 0.4
-list = ["standard_colors", "special_colors:0.5"]
-standard_colors = ["dark:1.5", "pale"]
+list = ["standard_colors", "special_colors?0.5"]
+standard_colors = ["dark?1.5", "pale"]
 special_colors = ["black", "red", "green", "blue", "purple", "pink"]
 
 [body.types]
@@ -15,8 +15,8 @@ tags = [
   "muscular",
   "curvy",
   "plump",
-  "chubby:0.2",
-  "fat:0.1",
+  "chubby?0.2",
+  "fat?0.1",
 ]
 
 [body.breasts]
@@ -25,7 +25,7 @@ sizes = [
   "small breasts",
   "medium breasts",
   "large breasts",
-  "huge breasts:0.5",
+  "huge breasts?0.5",
 ]
 
 [body.breasts.nipples]
@@ -36,7 +36,7 @@ tags = ["dark", "puffy"]
 [body.extras]
 probability = 0.75
 repeat = [1, 3]
-tags = ["freckles:2", "tattoos", "piercings", "scars:0.2"]
+tags = ["freckles?2", "tattoos", "piercings", "scars?0.2"]
 
 # HAIR
 [hair]
@@ -49,7 +49,7 @@ styles = ["ponytail", "bun", "braid", "pigtails"]
 appearances = ["curly", "straight", "wavy"]
 
 [hair.colors]
-list = ["standard_colors", "special_colors:0.5"]
+list = ["standard_colors", "special_colors?0.5"]
 standard_colors = ["black", "brown", "blonde", "ginger"]
 special_colors = [
   "red",
@@ -65,7 +65,7 @@ special_colors = [
 
 # EYES & EYEWEAR
 [eyes.colors]
-list = ["standard_colors", "special_colors:0.8"]
+list = ["standard_colors", "special_colors?0.8"]
 standard_colors = ["black", "brown", "blue", "green"]
 special_colors = ["red", "yellow", "orange", "pink", "purple", "grey", "white"]
 

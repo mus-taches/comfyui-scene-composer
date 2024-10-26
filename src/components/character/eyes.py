@@ -1,5 +1,5 @@
-from ..node import Node
-from ..utils import is_true
+from ...node import Node
+from ...utils import is_true
 
 
 class Eyes(Node):
@@ -7,16 +7,14 @@ class Eyes(Node):
     def __init__(self, seed):
         super().__init__(seed, data_file="character.toml")
 
-    def build_components(self):
+    def build_prompt(self):
         data = self.data["eyes"]
         suffix = "eyes"
         color = self.select_tags(data["colors"])
         eyewear = self.build_eyewear_prompt(data["eyewears"])
 
-        self.components = {
-            "color": f"{color} {suffix}",
-            "eyewear": eyewear
-        }
+        prompt = f"{color} {suffix}, {eyewear}"
+        return (prompt,)
 
     def build_eyewear_prompt(self, eyewear):
         p = eyewear["probability"]

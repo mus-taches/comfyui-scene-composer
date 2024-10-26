@@ -1,4 +1,4 @@
-from ..node import Node
+from ...node import Node
 
 
 class Hair(Node):
@@ -6,7 +6,7 @@ class Hair(Node):
     def __init__(self, seed):
         super().__init__(seed, data_file="character.toml")
 
-    def build_components(self):
+    def build_prompt(self):
         data = self.data["hair"]
         suffix = "hair"
 
@@ -14,8 +14,5 @@ class Hair(Node):
         length = self.select_tags(data["lengths"])
         style = self.select_tags(data["styles"])
 
-        self.components = {
-            "color": f"{color} {suffix}",
-            "length": f"{length} {suffix}",
-            "style": style
-        }
+        prompt = f"{color} {suffix}, {length} {suffix}, {style}"
+        return (prompt,)
