@@ -4,9 +4,9 @@ from ..node import Node
 class Clothes(Node):
 
     def __init__(self, seed=0, state="random", type="random"):
+        super().__init__(seed, data_file="clothes.toml")
         self.state = state
         self.type = type
-        super().__init__(seed, data_file="clothes.toml")
 
     def build_prompt(self, seed):
         self.seed = seed

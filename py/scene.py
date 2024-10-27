@@ -63,6 +63,7 @@ class Scene(Node):
         return inputs
 
     def build_prompt(self, seed, **kwargs):
+        self.seed = seed
         components = self.components
         prompt = []
 
