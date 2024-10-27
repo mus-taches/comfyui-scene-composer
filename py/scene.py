@@ -22,7 +22,7 @@ class Scene(Node):
             },
             "action": {
                 "default": Action(),
-                "nsfw": True,
+                "nsfw": False,
                 "position": "random",
                 "gesture": "random",
                 "act_type": "random",
