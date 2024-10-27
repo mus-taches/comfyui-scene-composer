@@ -9,8 +9,8 @@ insertions = ["vaginal", "anal"]
 
 # Male
 hide_male = false
-penis_sizes = ["small?0.5", "", "large", "huge?0.5"]
-testicles_sizes = ["small?0.5", "", "large", "huge?0.5"]
+penis_sizes = ["small[0.5]", "", "large", "huge[0.5]"]
+testicles_sizes = ["small[0.5]", "", "large", "huge[0.5]"]
 
 # Intensity (float number)
 sweat = 1.0

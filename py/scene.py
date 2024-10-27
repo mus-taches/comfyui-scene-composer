@@ -1,6 +1,5 @@
 from .node import Node
 from .components.composition import Composition
-# from .components.action.action import Action
 from .components.action import Action
 from .components.character.character import Character
 from .components.clothes import Clothes

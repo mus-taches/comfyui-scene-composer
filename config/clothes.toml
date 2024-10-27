@@ -1,5 +1,5 @@
 # State: how clothed the character is
-states = ["clothed", "underwear?0.3", "nude?0.1"]
+states = ["clothed", "underwear[0.3]", "nude[0.1]"]
 
 # Types: if clothed, what type of clothing
 types = ["casual", "dress", "swimsuit", "uniform"]
