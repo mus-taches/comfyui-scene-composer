@@ -102,9 +102,9 @@ function filterInputList(node, actWidget, actTypeWidget) {
   toggleWidget(node, actWidget, actTypeWidget.value !== "random");
 
   // Filter the act list based on the selected act_type
-  actWidget.options.values = actWidget.options.values
-    .filter(act => act.startsWith(`${actTypeWidget.value}_`) || act == "random")
-    .map(act => act.replace(`${actTypeWidget.value}_`, ""));
+  actWidget.options.values = actWidget.options.values.filter(
+    act => act.startsWith(`${actTypeWidget.value}_`) || act == "random"
+  );
 
   // Set the value to the first act in the list
   actWidget.value = actWidget.options.values[0];
