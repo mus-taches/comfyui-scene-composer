@@ -12,11 +12,8 @@ class Clothes(Node):
         self.seed = seed
         prompt = ""
 
-        if self.state == "random":
-            self.state = self.select_tags(self.data["states"])
-
-        if self.type == "random":
-            self.type = self.select_tags(self.data["types"])
+        self.state = self.select_tags(self.data["states"], selected=self.state)
+        self.type = self.select_tags(self.data["types"], selected=self.type)
 
         match self.state:
             case "clothed":
