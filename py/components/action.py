@@ -69,7 +69,8 @@ class Action(Node):
 
         gesture = self.select_tags(
             tags=data["gestures"],
-            selected=gesture
+            selected=gesture,
+            seed=self.seed+1
         )
 
         prompt = f"{position}, {gesture}"
@@ -87,7 +88,8 @@ class Action(Node):
 
         act = self.select_tags(
             tags=data["acts"][act_type],
-            selected=act
+            selected=act,
+            seed=self.seed+1
         )
 
         settings = self.apply_settings(data["settings"])

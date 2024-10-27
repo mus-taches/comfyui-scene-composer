@@ -37,13 +37,16 @@ class Node:
     def build_prompt(self):
         pass
 
-    def select_tags(self, tags, p=1, n=1, selected="random", recursive=True):
+    def select_tags(self, tags, p=1, n=1,
+                    selected="random", recursive=True, seed=None):
         """Return n tags from a string, list or dict
         p: probability of selecting the tags
         n: number of tags to select
         selected: fallback tag to select if not random
         recursive: go deeper randomly to select last children tags"""
-        rng = np.random.default_rng(self.seed)
+        if seed is None:
+            seed = self.seed
+        rng = np.random.default_rng(seed)
 
         if selected != "random":
             return selected
