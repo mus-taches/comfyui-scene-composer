@@ -1,5 +1,4 @@
 from ...node import Node
-from ...utils import is_true
 
 
 class Eyes(Node):
@@ -30,5 +29,5 @@ class Eyes(Node):
         ]
 
         eyewear_prompt = self.stringify_tags(
-            tags) if is_true(self.seed, p) else ""
+            tags) if self.rng.random() < p else ""
         return eyewear_prompt

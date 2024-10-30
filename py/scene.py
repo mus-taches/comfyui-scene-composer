@@ -13,14 +13,14 @@ class Scene(Node):
 
         self.components = {
             "composition": {
-                "default": Composition(),
+                "default": None,
                 "prefix": '',
                 "protagonists": '1girl, solo',
                 "camera_framing": 'random',
                 "camera_angle": 'random'
             },
             "action": {
-                "default": Action(),
+                "default": None,
                 "nsfw": False,
                 "position": "random",
                 "gesture": "random",
@@ -28,13 +28,13 @@ class Scene(Node):
                 "act": "random"
             },
             "character": {
-                "default": Character(),
+                "default": None,
             },
             "clothes": {
-                "default": Clothes(),
+                "default": None,
             },
             "environment": {
-                "default": Environment(),
+                "default": None,
             }
         }
 
@@ -62,9 +62,17 @@ class Scene(Node):
         return inputs
 
     def build_prompt(self, seed, **kwargs):
-        self.seed = seed
-        components = self.components
+
         prompt = []
+        components = self.components
+
+        default_components = {
+            "composition": Composition(seed),
+            "action": Action(seed),
+            "character": Character(seed),
+            "clothes": Clothes(seed),
+            "environment": Environment(seed)
+        }
 
         # Build each component's prompt
         # If the component is in the kwargs, use it
@@ -74,10 +82,10 @@ class Scene(Node):
             tags = ""
 
             if "default" in component_data:
-                default = component_data["default"]
+                default = default_components[component_name]
                 args = component_data.copy()
                 args.pop("default")
-                tags = default.build_prompt(seed, **args)[0]
+                tags = default.build_prompt(**args)[0]
 
             if component_name in kwargs.keys():
                 tags = kwargs[component_name] + ", "

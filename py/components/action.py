@@ -1,5 +1,4 @@
 from ..node import Node
-from ..utils import is_true
 
 
 class Action(Node):
@@ -46,9 +45,8 @@ class Action(Node):
 
         return inputs
 
-    def build_prompt(self, seed, nsfw, position, gesture, act_type, act):
+    def build_prompt(self, nsfw, position, gesture, act_type, act):
 
-        self.seed = seed
         prompt = ""
 
         if nsfw:
@@ -70,7 +68,6 @@ class Action(Node):
         gesture = self.select_tags(
             tags=data["gestures"],
             selected=gesture,
-            seed=self.seed+1
         )
 
         prompt = f"{position}, {gesture}"
@@ -88,8 +85,7 @@ class Action(Node):
 
         act = self.select_tags(
             tags=data["acts"][act_type],
-            selected=act,
-            seed=self.seed+1
+            selected=act
         )
 
         settings = self.apply_settings(data["settings"])
@@ -125,7 +121,7 @@ class Action(Node):
         if act_type in data["preliminaries"]:
             if "fingering" in act_type:
                 penis = ""
-                if is_true(self.seed, 0.5):
+                if self.rng.random() < 0.5:
                     act += ", fingering from behind"
             else:
                 pussy = ""
@@ -152,7 +148,7 @@ class Action(Node):
 
         # Testicles
         testicles = ""
-        if is_true(self.seed, 0.3):
+        if self.rng.random() < 0.3:
             testicles = f"{settings['testicles_sizes']} testicles"
 
         # Pussy

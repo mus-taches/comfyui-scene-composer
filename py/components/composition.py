@@ -26,10 +26,8 @@ class Composition(Node):
         }
         return inputs
 
-    def build_prompt(self, seed, prefix, protagonists,
+    def build_prompt(self, prefix, protagonists,
                      camera_framing, camera_angle):
-
-        self.seed = seed
 
         components = {
             "prefix": {

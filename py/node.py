@@ -11,6 +11,7 @@ class Node:
 
     def __init__(self, seed=0, data_file=""):
         self.seed = seed
+        self.rng = np.random.default_rng(seed)
         self.data = self.load_data(data_file)
 
     @classmethod
@@ -37,16 +38,12 @@ class Node:
     def build_prompt(self):
         pass
 
-    def select_tags(self, tags, p=1, n=1,
-                    selected="random", recursive=True, seed=None):
+    def select_tags(self, tags, p=1, n=1, selected="random", recursive=True):
         """Return n tags from a string, list or dict
         p: probability of selecting the tags
         n: number of tags to select
         selected: fallback tag to select if not random
         recursive: go deeper randomly to select last children tags"""
-        if seed is None:
-            seed = self.seed
-        rng = np.random.default_rng(seed)
 
         if selected != "random":
             return selected
@@ -56,14 +53,14 @@ class Node:
             p = tags.get("probability", p)
             n = tags.get("repeat", n)
 
-            if rng.random() > p:
+            if self.rng.random() > p:
                 return ""
 
             # If n is a list, choose a random number between the 2 first values
             if isinstance(n, list):
                 min_n = n[0]
                 max_n = min(n[1], len(tags))
-                n = rng.integers(int(min_n), int(max_n))
+                n = self.rng.integers(int(min_n), int(max_n))
 
             # Handle "list" and "tags" special keys
             if "list" in tags:
@@ -76,7 +73,7 @@ class Node:
             # Handle recursive tags
             else:
                 first_level_keys = list(tags.keys())
-                chosen_key = rng.choice(first_level_keys)
+                chosen_key = self.rng.choice(first_level_keys)
                 chosen_value = tags[chosen_key]
 
                 if isinstance(chosen_value, (list, dict)):
@@ -88,7 +85,7 @@ class Node:
         if isinstance(tags, list):
             tag_names, weights = self.parse_tag_distribution(tags)
 
-            selected_tags = rng.choice(
+            selected_tags = self.rng.choice(
                 tag_names,
                 size=n,
                 replace=False,

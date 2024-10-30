@@ -8,8 +8,7 @@ class Clothes(Node):
         self.state = state
         self.type = type
 
-    def build_prompt(self, seed):
-        self.seed = seed
+    def build_prompt(self):
         prompt = ""
 
         self.state = self.select_tags(self.data["states"], selected=self.state)
