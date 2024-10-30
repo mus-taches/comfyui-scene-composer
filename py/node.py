@@ -138,7 +138,7 @@ class Node:
         for tag in data:
             if '[' in tag and ']' in tag:
                 tag = tag.split('[')[0]
-                inputs_list.append(tag)
+            inputs_list.append(tag)
 
         return inputs_list
 
