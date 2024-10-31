@@ -1,16 +1,25 @@
-time = ["day", "night", "dawn", "dusk", "sunset", "sunrise"]
-weather = ["sunny", "cloudy", "rainy", "snowy"]
+time = ["day[1.5]", "night[0.5]", "dawn", "dusk", "sunset", "sunrise"]
+weather = ["sun", "cloud", "rain[0.5]", "snow[0.3]"]
 
 [locations]
 list = ["indoors", "outdoors"]
 
 [locations.indoors]
 list = ["house", "public"]
-house = ["bedroom", "living room", "kitchen", "bathroom"]
+house = ["bedroom[1.5]", "living room[1.2]", "kitchen", "bathroom"]
 public = ["office", "library"]
 
 [locations.outdoors]
-tags = ["forest", "mountain", "beach"]
+tags = [
+    "forest",
+    "mountain",
+    "beach",
+    "garden",
+    "lake",
+    "river",
+    "park",
+    "city",
+]
 
 [effects]
 probability = 0.5
