@@ -9,8 +9,7 @@ class Composition(Node):
     @classmethod
     def INPUT_TYPES(cls):
         inputs = super().INPUT_TYPES()
-        seed = inputs["required"]["seed"]
-        data = cls(seed).data
+        data = cls().data
 
         prefix = data["prefix"]
         protagonists = cls().build_inputs_list(data["protagonists"])
