@@ -1,7 +1,11 @@
 # SFW
-[sfw]
-positions = ["standing", "sitting", "walking", "running", "lying"]
-gestures = ["waving", "adjusting hair", "holding hand", "drinking", "reading"]
+[sfw.positions]
+probability = 0.7
+tags = ["standing", "sitting", "lying", "walking[0.5]", "running[0.3]"]
+
+[sfw.gestures]
+probability = 0.7
+tags = ["adjusting hair", "waving[0.8]", "holding hand[0.6]", "drinking[0.3]", "reading[0.3]"]
 
 # NSFW
 [nsfw.settings]
