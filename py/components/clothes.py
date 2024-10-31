@@ -12,12 +12,12 @@ class Clothes(Node):
         super().build_prompt(seed)
         prompt = ""
 
-        self.state = self.select_tags(self.data["states"], selected=self.state)
-        self.type = self.select_tags(self.data["types"], selected=self.type)
+        state = self.select_tags(self.data["states"], selected=self.state)
+        type = self.select_tags(self.data["types"], selected=self.type)
 
-        match self.state:
+        match state:
             case "clothed":
-                prompt = self.build_clothes()
+                prompt = self.build_clothes(type)
             case "underwear":
                 prompt = self.build_underwear()
             case "nude":
@@ -25,13 +25,13 @@ class Clothes(Node):
 
         return (prompt,)
 
-    def build_clothes(self):
+    def build_clothes(self, type):
         prompt = ""
-        match self.type:
+        match type:
             case "casual":
-                vest = Piece(self.data, self.seed+1, "vest")
-                top = Piece(self.data, self.seed+2, "top")
-                bottom = Piece(self.data, self.seed+3, "bottom")
+                vest = Piece(self.data, "vest", self.rng)
+                top = Piece(self.data, "top", self.rng)
+                bottom = Piece(self.data, "bottom", self.rng)
                 prompt = f"{vest}, {top}, {bottom}"
 
             case "dress":
@@ -68,10 +68,9 @@ class Clothes(Node):
 class Piece(Node):
     """Return a colored piece of clothing"""
 
-    def __init__(self, data, seed, type):
-        super().__init__(seed)
+    def __init__(self, data, type, rng):
+        self.rng = rng
         self.data = data
-        self.seed = seed
         self.type = type
 
     def build_prompt(self):
