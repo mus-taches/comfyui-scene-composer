@@ -85,7 +85,7 @@ class Scene(Node):
                 default = default_components[component_name]
                 args = component_data.copy()
                 args.pop("default")
-                tags = default.build_prompt(**args)[0]
+                tags = default.build_prompt(seed, **args)[0]
 
             if component_name in kwargs.keys():
                 tags = kwargs[component_name] + ", "

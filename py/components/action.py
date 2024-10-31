@@ -45,8 +45,8 @@ class Action(Node):
 
         return inputs
 
-    def build_prompt(self, nsfw, position, gesture, act_type, act):
-
+    def build_prompt(self, seed, nsfw, position, gesture, act_type, act):
+        super().build_prompt(seed)
         prompt = ""
 
         if nsfw:

@@ -35,7 +35,8 @@ class Node:
     FUNCTION = "build_prompt"
     CATEGORY = "🎞️ Scene Composer"
 
-    def build_prompt(self):
+    def build_prompt(self, seed):
+        self.rng = np.random.default_rng(seed)
         pass
 
     def select_tags(self, tags, p=1, n=1, selected="random", recursive=True):

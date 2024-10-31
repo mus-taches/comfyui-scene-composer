@@ -7,7 +7,8 @@ from .eyes import Eyes
 
 class Character(Node):
 
-    def build_prompt(self):
+    def build_prompt(self, seed):
+        super().build_prompt(seed)
 
         components = {
             'body': Body(self.seed),
