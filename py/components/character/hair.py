@@ -3,8 +3,9 @@ from ...node import Node
 
 class Hair(Node):
 
-    def __init__(self, seed):
+    def __init__(self, seed, rng):
         super().__init__(seed, data_file="character.toml")
+        self.rng = rng
 
     def build_prompt(self):
         data = self.data["hair"]
