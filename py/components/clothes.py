@@ -3,7 +3,7 @@ from ..node import Node
 
 class Clothes(Node):
 
-    def __init__(self, seed=0, state="random", type="random"):
+    def __init__(self, seed=0, state="clothed", type="random"):
         super().__init__(seed, data_file="clothes.toml")
         self.state = state
         self.type = type
