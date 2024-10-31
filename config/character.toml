@@ -86,3 +86,11 @@ colors = [
   "white",
   "yellow",
 ]
+
+# ATTITUDE
+[attitudes]
+tags = ["happy", "smirk", "surprised", "bored", "upset", "crazy[0.5]"]
+
+[expressions]
+eyes = ["open", "half-closed", "closed", "wink"]
+mouth = ["open", "closed"]
