@@ -11,12 +11,19 @@ class Attitude(Node):
         prompt = ""
 
         eyes = self.select_tags(self.data["expressions"]["eyes"])
+
+        if eyes == "wink":
+            eyes = "one eye closed"
+        else:
+            eyes += " eyes"
+
         mouth = self.select_tags(self.data["expressions"]["mouth"])
+        tongue = self.select_tags(self.data["expressions"]["tongue"])
 
         attitude = self.enhance_attitude(
             self.select_tags(self.data["attitudes"]))
 
-        prompt += f"{eyes} eyes, {mouth} mouth, {attitude}"
+        prompt += f"{eyes}, {mouth} mouth, {tongue}, {attitude}"
 
         return (prompt,)
 

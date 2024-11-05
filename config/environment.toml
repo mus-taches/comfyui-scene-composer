@@ -7,7 +7,14 @@ list = ["indoors", "outdoors"]
 [locations.indoors]
 list = ["house", "public"]
 house = ["bedroom[1.5]", "living room[1.2]", "kitchen", "bathroom"]
-public = ["office", "library"]
+public = [
+    "office",
+    "library",
+    "changing room",
+    "storage room",
+    "classroom",
+    "infirmary",
+]
 
 [locations.outdoors]
 tags = [

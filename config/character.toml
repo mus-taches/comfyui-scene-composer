@@ -30,7 +30,7 @@ sizes = [
 
 [body.breasts.nipples]
 probability = 0.5
-repeat = [1, 2]
+repeat = [1, 3]
 tags = ["dark", "puffy"]
 
 [body.extras]
@@ -49,7 +49,7 @@ styles = ["ponytail", "bun", "braid", "pigtails"]
 appearances = ["curly", "straight", "wavy"]
 
 [hair.colors]
-list = ["standard_colors", "special_colors[0.5]"]
+list = ["standard_colors", "special_colors[0.7]", "gradient[0.4]"]
 standard_colors = ["black", "brown", "blonde", "ginger"]
 special_colors = [
   "red",
@@ -62,6 +62,7 @@ special_colors = [
   "pink",
   "purple",
 ]
+gradient = ["gradient"]
 
 # EYES & EYEWEAR
 [eyes.colors]
@@ -94,3 +95,7 @@ tags = ["happy", "smirk", "surprised", "bored", "upset", "crazy[0.5]"]
 [expressions]
 eyes = ["open", "half-closed", "closed", "wink"]
 mouth = ["open", "closed"]
+
+[expressions.tongue]
+probability = 0.2
+tags = ["tongue out"]
