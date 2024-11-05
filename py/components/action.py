@@ -89,7 +89,7 @@ class Action(Node):
         )
 
         settings = self.apply_settings(data["settings"])
-        prompt = self.enhance_prompt(data["acts"], act, settings)
+        prompt = self.enhance_nsfw_prompt(data["acts"], act, settings)
         return prompt
 
     def apply_settings(self, data):
@@ -101,7 +101,7 @@ class Action(Node):
 
         return settings
 
-    def enhance_prompt(self, data, act_type, settings):
+    def enhance_nsfw_prompt(self, data, act_type, settings):
         """Enhance the NSFW action.
         Add or remove tags depending on the action type"""
 
