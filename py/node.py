@@ -142,9 +142,12 @@ class Node:
 
     @staticmethod
     def stringify_tags(tags):
-        """Return a string from a list of tags"""
-        tags = ", ".join(map(str, tags))
-        tags = tags.replace(", ,", ",")
+        """Return a string from a list of tags
+        Remove extra commas and spaces"""
+        if isinstance(tags, np.ndarray):
+            tags = tags.tolist()
+        tags = ', '.join(
+            filter(None, map(str.strip, ','.join(tags).split(','))))
         return tags
 
     def __str__(self, **kwargs):
