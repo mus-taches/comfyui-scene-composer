@@ -70,6 +70,21 @@ list = ["standard_colors", "special_colors[0.8]"]
 standard_colors = ["black", "brown", "blue", "green"]
 special_colors = ["red", "yellow", "orange", "pink", "purple", "grey", "white"]
 
+[eyes.makeup]
+probability = 0.6
+tags = ["eyeliner", "eyeshadow"]
+colors = [
+  "black[1.1]",
+  "blue[1.1]",
+  "cyan[1.1]",
+  "red",
+  "green",
+  "pink",
+  "white[0.6]",
+  "yellow[0.6]",
+  "orange[0.6]",
+]
+
 [eyes.eyewears]
 probability = 0.4
 types = ["glasses", "sunglasses", "round glasses", "goggles[0.3]"]
@@ -87,6 +102,12 @@ colors = [
   "white",
   "yellow",
 ]
+
+# MOUTH
+[mouth.lipstick]
+probability = 0.6
+tags = ["lipstick"]
+colors = ["red[1.2]", "black", "blue[0.8]"]
 
 # ATTITUDE
 [attitudes]
