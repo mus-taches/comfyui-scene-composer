@@ -72,7 +72,7 @@ special_colors = ["red", "yellow", "orange", "pink", "purple", "grey", "white"]
 
 [eyes.eyewears]
 probability = 0.4
-types = ["glasses", "sunglasses", "round glasses", "googles"]
+types = ["glasses", "sunglasses", "round glasses", "goggles[0.3]"]
 colors = [
   "aqua",
   "black",

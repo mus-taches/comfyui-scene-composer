@@ -21,6 +21,11 @@ class Eyes(Node):
 
         suffix = "eyewear"
         type = self.select_tags(eyewear["types"], p)
+
+        if "goggles" in type:
+            position = self.select_tags(["on head", "around neck"])
+            type = f"{type}, {type} {position}"
+
         color = self.select_tags(eyewear["colors"], p)
         colored_element = self.select_tags(["framed", "tinted"])
 
