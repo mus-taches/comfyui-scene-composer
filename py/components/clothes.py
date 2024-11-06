@@ -17,11 +17,14 @@ class Clothes(Node):
 
         match state:
             case "clothed":
-                prompt = self.build_clothes(type)
+                cloth = self.build_clothes(type)
             case "underwear":
-                prompt = self.build_underwear()
+                cloth = self.build_underwear()
             case "nude":
-                prompt = "nude"
+                cloth = "nude"
+
+        accessories = self.build_accessory()
+        prompt = f"{cloth}, {accessories}"
 
         return (prompt,)
 
@@ -29,9 +32,13 @@ class Clothes(Node):
         prompt = ""
         match type:
             case "casual":
-                vest = Piece(self.data, "vest", self.rng)
-                top = Piece(self.data, "top", self.rng)
-                bottom = Piece(self.data, "bottom", self.rng)
+                colors = self.data["colors"]
+                items = self.data["casual"]
+
+                vest = self.build_piece(colors, items["vest"])
+                top = self.build_piece(colors, items["top"])
+                bottom = self.build_piece(colors, items["bottom"])
+
                 prompt = f"{vest}, {top}, {bottom}"
 
             case "dress":
@@ -64,25 +71,20 @@ class Clothes(Node):
         prompt = f"{color} bra, {color} panties"
         return prompt
 
+    def build_piece(self, colors, items):
 
-class Piece(Node):
-    """Return a colored piece of clothing"""
+        color = self.select_tags(colors)
+        item = self.select_tags(items)
+        piece = f"{color} {item}"
 
-    def __init__(self, data, type, rng):
-        self.rng = rng
-        self.data = data
-        self.type = type
-
-    def build_prompt(self):
-        color = self.select_tags(self.data["colors"])
-        type = self.select_tags(self.data["casual"][self.type])
-        piece = f"{color} {type}"
-
-        if type == "":
+        if item == "":
             piece = ""
 
-        prompt = f"{piece}"
-        return prompt
+        return piece
 
-    def __str__(self):
-        return self.build_prompt()
+    def build_accessory(self):
+
+        accessories = self.select_tags(self.data["accessories"])
+        colors = self.data["colors"]
+        accessory = self.build_piece(colors, accessories.split(","))
+        return accessory

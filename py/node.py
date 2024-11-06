@@ -66,7 +66,12 @@ class Node:
             # Handle "list" and "tags" special keys
             if "list" in tags:
                 selected_from_list = self.select_tags(tags["list"], p, n)
-                tags = tags[selected_from_list]
+                selected_from_list = selected_from_list.split(", ")
+                tag_list = []
+                for item in selected_from_list:
+                    tag_list.append(self.select_tags(tags[item]))
+
+                tags = tag_list
 
             elif "tags" in tags:
                 tags = tags.get("tags", [])

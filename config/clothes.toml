@@ -40,3 +40,29 @@ length = ["short", "long"]
 [dress.style]
 probability = 0.5
 tags = ["off-shoulder", "backless"]
+
+# Accessories
+[accessories]
+probability = 0.6
+repeat = [2, 3]
+list = ["head", "neck", "hand", "ears"]
+
+[accessories.head]
+list = ["hair", "hats"]
+hair = ["hairbow", "hair ribbon", "hair tie", "hairband"]
+hats = [
+  "cap",
+  "beanie",
+  "bucket hat",
+  "sun hat",
+  "straw hat[0.5]",
+  "rice hat[0.5]",
+  "witch hat[0.5]",
+  "crown[0.5]",
+]
+
+[accessories.neck]
+tags = ["chain necklace", "tooth necklace", "choker", "pendant"]
+
+[accessories.hand]
+tags = ["bracelet", "watch", "ring"]
