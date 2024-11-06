@@ -118,14 +118,15 @@ class Action(Node):
 
         settings = self.apply_settings(data["settings"])
 
-        cum_prompt = "cum, orgasm"
+        cum_prompt = ""
         if cum:
+            cum_prompt = "cum, orgasm"
             cum_location = self.select_tags(data["cum"]["location"])
             match cum_location:
                 case "inside":
                     cum_prompt += ", cum inside"
                 case "outside":
-                    cum_prompt = ", ejaculation, cum on body, facial, cum on face"
+                    cum_prompt = ", ejaculation, cum on body, facial"
 
         prompt = self.enhance_nsfw_prompt(data["acts"], act, settings)
         prompt = f"{prompt}, {cum_prompt}"
