@@ -4,7 +4,7 @@ protagonists = ["1girl", "1girl, 1boy"]
 
 [camera.framings]
 probability = 0.7
-tags = ["close-up", "portrait", "upper body", "full body[0.4"]
+tags = ["close-up", "portrait", "upper body", "full body[0.4]"]
 
 [camera.angles]
 probability = 0.7
