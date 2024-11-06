@@ -71,7 +71,8 @@ class Action(Node):
                 eyes = "one eye closed"
 
         looking = self.select_tags(self.data["expressions"]["looking"])
-        looking = f"looking {looking}"
+        if looking:
+            looking = f"looking {looking}"
 
         mouth = self.select_tags(self.data["expressions"]["mouth"])
 
