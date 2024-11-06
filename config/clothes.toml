@@ -45,7 +45,7 @@ tags = ["off-shoulder", "backless"]
 [accessories]
 probability = 0.6
 repeat = [2, 3]
-list = ["head", "neck", "hand", "ears"]
+list = ["head", "neck", "hand"]
 
 [accessories.head]
 list = ["hair", "hats"]
