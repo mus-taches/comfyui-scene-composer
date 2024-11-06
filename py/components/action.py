@@ -42,19 +42,20 @@ class Action(Node):
             # NSFW inputs
             "act_type": (act_types,),
             "act": (acts,),
+            "cum": ("BOOLEAN", {"default": False}),
             "seed": seed
         }
 
         return inputs
 
-    def build_prompt(self, seed, nsfw, position, gesture, act_type, act):
+    def build_prompt(self, seed, nsfw, position, gesture, act_type, act, cum):
         super().build_prompt(seed)
         action = ""
 
         expression = self.build_expression()
 
         if nsfw:
-            action = self.build_nsfw_action(act_type, act)
+            action = self.build_nsfw_action(act_type, act, cum)
         else:
             action = self.build_sfw_action(position, gesture)
 
@@ -101,7 +102,7 @@ class Action(Node):
         prompt = f"{position}, {gesture}"
         return prompt
 
-    def build_nsfw_action(self, act_type, act):
+    def build_nsfw_action(self, act_type, act, cum):
         data = self.data["nsfw"]
 
         act_type = self.select_tags(
@@ -116,7 +117,19 @@ class Action(Node):
         )
 
         settings = self.apply_settings(data["settings"])
+
+        cum_prompt = "cum, orgasm"
+        if cum:
+            cum_location = self.select_tags(data["cum"]["location"])
+            match cum_location:
+                case "inside":
+                    cum_prompt += ", cum inside"
+                case "outside":
+                    cum_prompt = ", ejaculation, cum on body, facial, cum on face"
+
         prompt = self.enhance_nsfw_prompt(data["acts"], act, settings)
+        prompt = f"{prompt}, {cum_prompt}"
+
         return prompt
 
     def apply_settings(self, data):

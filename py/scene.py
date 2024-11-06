@@ -25,7 +25,8 @@ class Scene(Node):
                 "position": "random",
                 "gesture": "random",
                 "act_type": "random",
-                "act": "random"
+                "act": "random",
+                "cum": False
             },
             "character": {
                 "default": None,

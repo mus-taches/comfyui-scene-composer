@@ -37,7 +37,6 @@ penis_sizes = ["small[0.5]", "", "large", "huge[0.5]"]
 testicles_sizes = ["small[0.5]", "", "large", "huge[0.5]"]
 
 sweat = 1.0
-cum = 1.0
 pussy_juice = 1.0
 
 # Actions
@@ -52,3 +51,6 @@ intercourses = [
   "suspended congress",
   "full nelson",
 ]
+
+[nsfw.cum]
+location = ["inside", "outside"]
