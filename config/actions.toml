@@ -3,6 +3,10 @@
 probability = 0.5
 tags = ["open", "half-closed", "wink", "closed[0.4]"]
 
+[expressions.looking]
+probability = 0.5
+tags = ["at viewer", "away", "up", "down", "back"]
+
 [expressions.mouth]
 probability = 0.5
 tags = ["open", "half-closed", "closed"]
