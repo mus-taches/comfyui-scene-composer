@@ -74,7 +74,7 @@ class Action(Node):
 
         if mouth:
             mouth += " mouth"
-            if "half-closed" in "mouth":
+            if "half-closed" in mouth:
                 mouth = "parted lips"
 
         tongue = self.select_tags(self.data["expressions"]["tongue"])
