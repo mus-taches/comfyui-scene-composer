@@ -86,6 +86,12 @@ class Node:
         if isinstance(tags, list):
             tag_names, weights = self.parse_tag_distribution(tags)
 
+            # If n is a list, choose a random number between the 2 first values
+            if isinstance(n, list):
+                min_n = n[0]
+                max_n = min(n[1], len(tags))
+                n = self.rng.integers(int(min_n), int(max_n))
+
             selected_tags = self.rng.choice(
                 tag_names,
                 size=n,
@@ -144,10 +150,16 @@ class Node:
     def stringify_tags(tags):
         """Return a string from a list of tags
         Remove extra commas and spaces"""
+
+        # Convert numpy array to list if necessary
         if isinstance(tags, np.ndarray):
             tags = tags.tolist()
-        tags = ', '.join(
-            filter(None, map(str.strip, ','.join(tags).split(','))))
+
+        # Convert all tags to strings and join them with commas
+        tags = ', '.join(map(str, tags))
+
+        # Remove extra commas and spaces
+        tags = ', '.join(filter(None, map(str.strip, tags.split(','))))
         return tags
 
     def __str__(self, **kwargs):

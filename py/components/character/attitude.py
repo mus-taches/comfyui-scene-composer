@@ -14,9 +14,11 @@ class Attitude(Node):
             case "happy":
                 prompt += ", smile"
             case "smirk":
-                prompt += ", smile, smirk, smug"
+                prompt += ", smile, smug"
             case "bored":
-                prompt += ", sleepy, tired, expressionless"
+                extra_tags = ["sleepy", "tired", "expressionless"]
+                tags = self.select_tags(extra_tags, n=[1, 3])
+                prompt += f", {tags}"
             case "upset":
                 prompt += ", sad, angry, frown"
             case "crazy":
