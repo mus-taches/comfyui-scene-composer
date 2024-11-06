@@ -91,11 +91,3 @@ colors = [
 # ATTITUDE
 [attitudes]
 tags = ["happy", "smirk", "surprised", "bored", "upset", "crazy[0.5]"]
-
-[expressions]
-eyes = ["open", "half-closed", "closed", "wink"]
-mouth = ["open", "closed"]
-
-[expressions.tongue]
-probability = 0.2
-tags = ["tongue out"]

@@ -1,3 +1,12 @@
+# Expression
+[expressions]
+eyes = ["open", "half-closed", "closed", "wink"]
+mouth = ["open", "closed"]
+
+[expressions.tongue]
+probability = 0.2
+tags = ["tongue out"]
+
 # SFW
 [sfw.positions]
 probability = 0.7
@@ -5,7 +14,7 @@ tags = ["standing", "sitting", "lying", "walking[0.5]", "running[0.3]"]
 
 [sfw.gestures]
 probability = 0.7
-tags = ["adjusting hair", "waving[0.8]", "holding hand[0.6]", "drinking[0.3]", "reading[0.3]"]
+tags = ["adjusting hair", "waving", "hand on hip", "crossed arms"]
 
 # NSFW
 [nsfw.settings]

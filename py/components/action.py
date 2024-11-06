@@ -36,8 +36,10 @@ class Action(Node):
         # Update the required inputs
         inputs["required"] = {
             "nsfw": ("BOOLEAN", {"default": False}),
+            # SFW inputs
             "position": (positions,),
             "gesture": (gestures,),
+            # NSFW inputs
             "act_type": (act_types,),
             "act": (acts,),
             "seed": seed
@@ -47,17 +49,33 @@ class Action(Node):
 
     def build_prompt(self, seed, nsfw, position, gesture, act_type, act):
         super().build_prompt(seed)
-        prompt = ""
+        action = ""
+
+        expression = self.build_expression()
 
         if nsfw:
-            prompt = self.build_nsfw_action(act_type, act)
+            action = self.build_nsfw_action(act_type, act)
         else:
-            prompt = self.build_sfw_action(position, gesture)
+            action = self.build_sfw_action(position, gesture)
+
+        prompt = f"{action}, {expression}"
 
         return (prompt,)
 
+    def build_expression(self):
+        eyes = self.select_tags(self.data["expressions"]["eyes"])
+
+        if eyes == "wink":
+            eyes = "one eye closed"
+        else:
+            eyes += " eyes"
+
+        mouth = self.select_tags(self.data["expressions"]["mouth"])
+        tongue = self.select_tags(self.data["expressions"]["tongue"])
+
+        return f"{eyes}, {mouth} mouth, {tongue}"
+
     def build_sfw_action(self, position, gesture):
-        """Build a safe-for-work action prompt"""
         data = self.data["sfw"]
 
         position = self.select_tags(
@@ -74,7 +92,6 @@ class Action(Node):
         return prompt
 
     def build_nsfw_action(self, act_type, act):
-        """Build a not-safe-for-work action prompt"""
         data = self.data["nsfw"]
 
         act_type = self.select_tags(
@@ -96,7 +113,7 @@ class Action(Node):
         """Apply NSFW settings"""
         settings = {}
 
-        for key, value in data.items():
+        for key in data.keys():
             settings[key] = self.select_tags(data[key])
 
         return settings
