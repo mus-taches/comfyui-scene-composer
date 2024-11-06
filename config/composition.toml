@@ -2,13 +2,17 @@ prefix = "score_9, score_8_up, score_7_up, source_anime"
 #negative = "score_6, score_5, score_4"
 protagonists = ["1girl", "1girl, 1boy"]
 
-[camera]
-framings = ["close-up", "portrait", "upper body", "full body"]
-angles = [
+[camera.framings]
+probability = 0.7
+tags = ["close-up", "portrait", "upper body", "full body[0.4"]
+
+[camera.angles]
+probability = 0.7
+tags = [
+    "straight on",
+    "pov",
     "from above",
     "from below",
     "from side",
-    "from behind",
-    "straight on",
-    "pov",
+    "from behind[0.4]",
 ]
