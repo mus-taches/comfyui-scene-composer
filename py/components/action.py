@@ -65,15 +65,21 @@ class Action(Node):
     def build_expression(self):
         eyes = self.select_tags(self.data["expressions"]["eyes"])
 
-        if eyes == "wink":
-            eyes = "one eye closed"
-        else:
+        if eyes:
             eyes += " eyes"
+            if "wink" in eyes:
+                eyes = "one eye closed"
 
         mouth = self.select_tags(self.data["expressions"]["mouth"])
+
+        if mouth:
+            mouth += " mouth"
+            if "half-closed" in "mouth":
+                mouth = "parted lips"
+
         tongue = self.select_tags(self.data["expressions"]["tongue"])
 
-        return f"{eyes}, {mouth} mouth, {tongue}"
+        return f"{eyes}, {mouth}, {tongue}"
 
     def build_sfw_action(self, position, gesture):
         data = self.data["sfw"]

@@ -1,13 +1,18 @@
-# Expression
-[expressions]
-eyes = ["open", "half-closed", "closed", "wink"]
-mouth = ["open", "closed"]
+### Expressions ###
+[expressions.eyes]
+probability = 0.5
+tags = ["open", "half-closed", "wink", "closed[0.4]"]
+
+[expressions.mouth]
+probability = 0.5
+tags = ["open", "half-closed", "closed"]
 
 [expressions.tongue]
 probability = 0.2
 tags = ["tongue out"]
 
-# SFW
+
+### SFW ###
 [sfw.positions]
 probability = 0.7
 tags = ["standing", "sitting", "lying", "walking[0.5]", "running[0.3]"]
@@ -16,21 +21,22 @@ tags = ["standing", "sitting", "lying", "walking[0.5]", "running[0.3]"]
 probability = 0.7
 tags = ["adjusting hair", "waving", "hand on hip", "crossed arms"]
 
-# NSFW
+
+### NSFW ###
+
+# Settings
 [nsfw.settings]
 insertions = ["vaginal", "anal"]
 
-# Male
 hide_male = false
 penis_sizes = ["small[0.5]", "", "large", "huge[0.5]"]
 testicles_sizes = ["small[0.5]", "", "large", "huge[0.5]"]
 
-# Intensity (float number)
 sweat = 1.0
 cum = 1.0
 pussy_juice = 1.0
 
-# NSFW Actions
+# Actions
 [nsfw.acts]
 teasing = ["flashing"]
 preliminaries = ["fingering", "handjob", "fellatio", "licking penis", "paizuri"]
