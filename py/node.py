@@ -144,6 +144,9 @@ class Node:
 
         inputs_list = ["random"]
 
+        if "tags" in data:
+            data = data["tags"]
+
         for tag in data:
             if '[' in tag and ']' in tag:
                 tag = tag.split('[')[0]
