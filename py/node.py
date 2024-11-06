@@ -1,7 +1,7 @@
 import numpy as np
 import toml
 
-from .utils import ROOT_DIR
+from .constants import ROOT_DIR
 
 
 class Node:
