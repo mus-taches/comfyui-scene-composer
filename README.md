@@ -1,4 +1,5 @@
 # ComfyUI Scene Composer
+
 A collection of [ComfyUI](https://github.com/comfyanonymous/ComfyUI) nodes to create scenes with random procedural generation.
 
 ![Scene Composer workflow](workflow.png)
@@ -34,18 +35,20 @@ You can directly pass it to a conditioning node and connect it to your sampler.
 
 The other nodes are scene components. You can use it as an optional input for the `🎞️ Scene` node, or directly as standalone.
 
-| Component nodes | Description                                                   |
-| --------------- | ------------------------------------------------------------- |
-| 📹 Composition  | The layout of the scene, cameras, number of protagonists, etc |
-| 🎬 Action       | Activities done by the character/protagonist(s)               |
-| 👤 Character    | Main character, focusing on body type and faces, etc          |
-| 👕 Clothes      | Include casual clothes, uniforms, swimsuits, underwear, etc   |
-| ⛅️ Environment | The setting, including background, weather, time of day, etc  |
+| Component nodes   | Description                                                   |
+| ----------------- | ------------------------------------------------------------- |
+| `📹 Composition`  | The layout of the scene, cameras, number of protagonists, etc |
+| `🎬 Action`       | Activities done by the character/protagonist(s)               |
+| `👤 Character`    | Main character, focusing on body type and faces, etc          |
+| `👕 Clothes`      | Include casual clothes, uniforms, swimsuits, underwear, etc   |
+| `⛅️ Environment` | The setting, including background, weather, time of day, etc  |
 
-### Config files
+## About
 
-You can customize the prompt generation for components by editing the corresponding TOML file in the `config` folder. Keep it mind that the config will be replace by the default when there's an update, so you might want to keep a backup.
+### Social
 
-## License
+You can find the Scene Composer [custom nodes](https://civitai.com/models/902456/scene-composer-custom-nodes) and a complete [workflow](https://civitai.com/models/579396/scene-composer-workflow) on my [CivitAI profile](https://civitai.com/user/taches). Don't hesitate to share your creations!
+
+### License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
