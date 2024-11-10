@@ -41,6 +41,7 @@ function toggleWidget(node, widget, show = false, suffix = "") {
 const nodeWidgetHandlers = {
   "Action": {
     nsfw: handleSceneNsfw,
+    act_type: handleActType,
   },
 };
 
@@ -56,13 +57,16 @@ function widgetLogic(node, widget) {
 // Show SFW/NSFW widgets according to the value of the "nsfw" widget
 function handleSceneNsfw(node, widget) {
   const isNsfw = widget.value;
+  const actTypeWidget = findWidgetByName(node, "act_type")
+  const actWidget = findWidgetByName(node, "act");
+
   const sfwWidgets = [
     findWidgetByName(node, `position`),
     findWidgetByName(node, `gesture`),
   ];
   const nsfwWidgets = [
-    findWidgetByName(node, `act_type`),
-    findWidgetByName(node, `act`),
+    actTypeWidget,
+    actWidget,
     findWidgetByName(node, `cum`),
   ];
   const allWidgets = [...sfwWidgets, ...nsfwWidgets];
@@ -77,6 +81,16 @@ function handleSceneNsfw(node, widget) {
   for (const w of widgetsToToggle) {
     toggleWidget(node, w, true);
   }
+
+  handleActType(node, actTypeWidget);
+}
+
+function handleActType(node, widget) {
+  const actType = widget.value;
+  const actWidget = findWidgetByName(node, "act");
+
+  // Hide the act widget if the act type is "random"
+  toggleWidget(node, actWidget, actType !== "random");
 }
 
 app.registerExtension({
