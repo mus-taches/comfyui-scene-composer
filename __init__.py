@@ -6,8 +6,7 @@ from .py.components.clothes import Clothes
 from .py.components.environment import Environment
 import os
 
-# Load CozySpoke
-# Will change widgets by using API calls
+# Dynamic widget lists with CozySpoke
 cozy_spoke_path = os.path.join(
     os.path.dirname(__file__), 'py', 'cozy_spoke.py')
 with open(cozy_spoke_path) as f:

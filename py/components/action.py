@@ -15,9 +15,6 @@ class Action(Node):
         positions = cls().build_inputs_list(data["sfw"]["positions"])
         gestures = cls().build_inputs_list(data["sfw"]["gestures"])
         act_types = cls().build_inputs_list(data["nsfw"]["acts"].keys())
-
-        # Add act_type as prefix to each act in the list
-        # (This will be filtered by the front-end, according to the act_type)
         acts = []
         for act_type in act_types:
             if act_type == "random":
