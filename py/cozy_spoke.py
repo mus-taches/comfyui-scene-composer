@@ -1,3 +1,4 @@
+# CozySpoke – Widget manipulation with API
 # https://github.com/cozy-comfyui/cozy_spoke
 
 import time
@@ -64,24 +65,33 @@ async def route_cozy_spoke_update(request) -> Any:
     to process outside of an execution run.
     Here we manipulate the values output based on the selection in ComboA
     """
+
+    data = {
+        "teasing": ["random", "flashing"],
+        "preliminaries": [
+            "random",
+            "fingering",
+            "handjob",
+            "fellatio",
+            "licking penis",
+            "paizuri"
+        ],
+        "intercourses": [
+            "random",
+            "doggystyle",
+            "cowgirl",
+            "reversed cowgirl",
+            "piledriver",
+            "suspended congress",
+            "full nelson",
+        ]
+    }
+
+    # Show/Hide widgets according to data dict
     json_data = await request.json()
     result = {}
-    if (data := json_data.get("data")) is not None:
-        match data.lower():
-            case 'teasing':
-                result = {'data': ["random", "flashing"]}
-            case 'preliminaries':
-                result = {'data': ["random", "fingering", "handjob",
-                                   "fellatio", "licking penis", "paizuri"]}
-            case 'intercourses':
-                result = {'data': [
-                    "random",
-                    "doggystyle",
-                    "cowgirl",
-                    "reversed cowgirl",
-                    "piledriver",
-                    "suspended congress",
-                    "full nelson",
-                ]}
+    if (response := json_data.get("data")) is not None:
+        result = {'data': data.get(response.lower(),
+                                   [])}
 
     return web.json_response(result)
