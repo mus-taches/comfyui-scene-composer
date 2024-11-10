@@ -6,7 +6,7 @@ class Environment(Node):
     def __init__(self, seed=0):
         super().__init__(seed, data_file="environment.toml")
 
-    def build_prompt(self, seed):
+    def build_prompt(self, seed, ident):
         super().build_prompt(seed)
 
         time = self.select_tags(self.data["time"])

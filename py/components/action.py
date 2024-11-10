@@ -30,7 +30,7 @@ class Action(Node):
                     recursive=False
                 )
             for act in data["nsfw"]["acts"][act_type]:
-                acts.extend([f"{act_type}_{act}"])
+                acts.extend([f"{act}"])
         acts = cls().build_inputs_list(acts)
 
         # Update the required inputs
@@ -48,8 +48,16 @@ class Action(Node):
 
         return inputs
 
-    def build_prompt(self, seed, nsfw, position, gesture, act_type, act, cum):
+    def build_prompt(self, seed, ident, nsfw, position, gesture,
+                     act_type, act, cum):
         super().build_prompt(seed)
+
+        self.comfy_message("cozy-event-combo-update", ident, {
+            "id": ident,
+            "a": act_type,
+            "b": act
+        })
+
         action = ""
 
         expression = self.build_expression()

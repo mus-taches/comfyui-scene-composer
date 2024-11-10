@@ -3,7 +3,7 @@ from ...node import Node
 
 class Attitude(Node):
 
-    def __init__(self, seed, rng):
+    def __init__(self, seed, ident, rng):
         super().__init__(seed, data_file="character.toml")
         self.rng = rng
 

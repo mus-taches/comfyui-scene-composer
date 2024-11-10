@@ -1,5 +1,6 @@
 import numpy as np
 import toml
+from server import PromptServer
 
 from .constants import ROOT_DIR
 
@@ -17,17 +18,16 @@ class Node:
     @classmethod
     def INPUT_TYPES(cls):
         """ComfyUI node's inputs"""
-        required = {
-            "seed": ("INT", {
-                "default": 0,
-                "min": 0,
-                "max": 0xffffffffffffffff
-            })
-        }
-        optional = {}
         inputs = {
-            "required": required,
-            "optional": optional
+            "required": {
+                "seed": ("INT", {
+                    "default": 0,
+                    "min": 0,
+                    "max": 0xffffffffffffffff
+                })
+            },
+            "optional": {},
+            "hidden": {"ident": "UNIQUE_ID"}
         }
         return inputs
 
@@ -172,3 +172,9 @@ class Node:
 
     def __str__(self, **kwargs):
         return self.build_prompt(**kwargs)[0]
+
+    # Generic function to send messages to Javascript
+    @staticmethod
+    def comfy_message(route: str, ident: str, data: dict) -> None:
+        data['id'] = ident
+        PromptServer.instance.send_sync(route, data)

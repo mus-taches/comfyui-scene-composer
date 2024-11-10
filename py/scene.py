@@ -17,7 +17,7 @@ class Scene(Node):
                 "prefix": '',
                 "protagonists": '1girl, solo',
                 "camera_framing": 'random',
-                "camera_angle": 'random'
+                "camera_angle": 'random',
             },
             "action": {
                 "default": None,
@@ -46,9 +46,7 @@ class Scene(Node):
 
         components = cls().components
 
-        inputs["required"] = {
-            "seed": seed
-        }
+        inputs["required"] = {"seed": seed}
 
         # Add the components as optional inputs
         optional_components = {
@@ -58,11 +56,14 @@ class Scene(Node):
             })
             for key in components.keys()
         }
+
         inputs["optional"] = optional_components
+
+        inputs["hidden"] = {"ident": "UNIQUE_ID"}
 
         return inputs
 
-    def build_prompt(self, seed, **kwargs):
+    def build_prompt(self, seed, ident, **kwargs):
 
         prompt = []
         components = self.components
@@ -86,7 +87,7 @@ class Scene(Node):
                 default = default_components[component_name]
                 args = component_data.copy()
                 args.pop("default")
-                tags = default.build_prompt(seed, **args)[0]
+                tags = default.build_prompt(seed, ident, **args)[0]
 
             if component_name in kwargs.keys():
                 tags = kwargs[component_name] + ", "

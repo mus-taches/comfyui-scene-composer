@@ -8,7 +8,7 @@ class Clothes(Node):
         self.state = state
         self.type = type
 
-    def build_prompt(self, seed):
+    def build_prompt(self, seed, ident):
         super().build_prompt(seed)
         prompt = ""
 

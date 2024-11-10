@@ -23,9 +23,10 @@ class Composition(Node):
             "camera_angle": (camera_angles,),
             "seed": inputs["required"]["seed"]
         }
+
         return inputs
 
-    def build_prompt(self, seed, prefix, protagonists,
+    def build_prompt(self, seed, ident, prefix, protagonists,
                      camera_framing, camera_angle):
 
         super().build_prompt(seed)
