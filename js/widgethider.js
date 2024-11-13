@@ -65,8 +65,7 @@ function handleSceneNsfw(node, widget) {
     findWidgetByName(node, `gesture`),
   ];
   const nsfwWidgets = [
-    actTypeWidget,
-    actWidget,
+    actTypeWidget, actWidget,
     findWidgetByName(node, `cum`),
   ];
   const allWidgets = [...sfwWidgets, ...nsfwWidgets];
@@ -81,8 +80,6 @@ function handleSceneNsfw(node, widget) {
   for (const w of widgetsToToggle) {
     toggleWidget(node, w, true);
   }
-
-  handleActType(node, actTypeWidget);
 }
 
 function handleActType(node, widget) {
