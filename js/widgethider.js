@@ -80,6 +80,11 @@ function handleSceneNsfw(node, widget) {
   for (const w of widgetsToToggle) {
     toggleWidget(node, w, true);
   }
+
+  // Hide the act widget if the act type is "random"
+  if (isNsfw) {
+    toggleWidget(node, actWidget, actTypeWidget.value !== "random");
+  }
 }
 
 function handleActType(node, widget) {
