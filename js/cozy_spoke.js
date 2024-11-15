@@ -7,6 +7,13 @@ const _id = "Action"
 const _root = "cozy_spoke"
 const EVENT_COZY_UPDATE = "cozy-event-combo-update";
 
+const nodeWidgetHandlers = [
+    {
+        "parent_widget": "act_type",
+        "child_widget": "act",
+    }
+]
+
 async function apiRoute(route, data = null, id = null) {
     const full_route = `/${_root}/${route}`;
     var blob = {
@@ -46,27 +53,31 @@ app.registerExtension({
         const onNodeCreated = nodeType.prototype.onNodeCreated;
         nodeType.prototype.onNodeCreated = async function () {
             const me = onNodeCreated?.apply(this);
-            const widget_dropdownA = this.widgets.find(w => w.name == 'act_type');
-            const widget_dropdownB = this.widgets.find(w => w.name == 'act');
 
-            widget_dropdownA.callback = async () => {
-                try {
-                    // Ask Python for the values we need to update widget_dropdownB
-                    const response = await apiRoute("node", widget_dropdownA.value);
-                    const responseData = await response.json();
-                    widget_dropdownB.options.values = responseData.data;
-                    widget_dropdownB.value = responseData.data[0];
-                    this.setDirtyCanvas(true, true);
-                } catch (error) {
-                    console.error('Error in Dropdown A callback:', error);
+            // Update all children widgets according to the parent widgets value.
+            // in respect of what's defined in the config files
+            nodeWidgetHandlers.forEach((handler) => {
+                const parentWidget = this.widgets.find(w => w.name == handler.parent_widget);
+                const childWidget = this.widgets.find(w => w.name == handler.child_widget);
+
+                parentWidget.callback = async () => {
+                    try {
+                        const response = await apiRoute("node", parentWidget.value);
+                        const responseData = await response.json();
+                        childWidget.options.values = responseData.data;
+                        childWidget.value = responseData.data[0] || "random";
+                        this.setDirtyCanvas(true, true);
+                    } catch (error) {
+                        console.error('Error in parent widget callback:', error);
+                    }
                 }
-            }
+            });
 
             // process the message sent from python.
             // this could be during node execution or outside of it.
             async function python_update(data) {
                 // Assuming you will do something with the data from Python here
-                console.info('Received update from Python for Dropdown B:', data);
+                console.info('Received update from Python for child widget:', data);
             }
 
             // catch the event(s) from python.
