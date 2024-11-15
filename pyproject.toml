@@ -1,9 +1,22 @@
 [project]
 name = "comfyui-scene-composer"
 description = "A collection of nodes to facilitate the creation of scenes in ComfyUI."
-version = "0.1.1"
+version = "0.1.2"
 license = { file = "LICENSE" }
-dependencies = ["numpy==2.1.2", "PyYAML==6.0.2", "toml==0.10.2"]
+dependencies = [
+    "aiohappyeyeballs==2.4.3",
+    "aiohttp==3.10.10",
+    "aiosignal==1.3.1",
+    "attrs==24.2.0",
+    "frozenlist==1.5.0",
+    "idna==3.10",
+    "multidict==6.1.0",
+    "numpy==2.1.2",
+    "propcache==0.2.0",
+    "PyYAML==6.0.2",
+    "toml==0.10.2",
+    "yarl==1.17.1",
+]
 
 [project.urls]
 Repository = "https://github.com/taches-ai/comfyui-scene-composer"

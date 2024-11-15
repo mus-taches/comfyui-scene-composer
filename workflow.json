@@ -1,156 +1,154 @@
 {
-  "last_node_id": 21,
-  "last_link_id": 17,
+  "last_node_id": 27,
+  "last_link_id": 24,
   "nodes": [
     {
-      "id": 12,
-      "type": "📹 Composition",
+      "id": 20,
+      "type": "Note",
       "pos": {
-        "0": 26,
-        "1": 66
+        "0": 16,
+        "1": 53
       },
       "size": {
-        "0": 263,
-        "1": 196
+        "0": 366,
+        "1": 205
       },
-      "flags": {},
+      "flags": {
+        "collapsed": true
+      },
       "order": 0,
       "mode": 0,
       "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            10
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "📹 Composition"
-      },
+      "outputs": [],
+      "title": "📖 README",
+      "properties": {},
       "widgets_values": [
-        "score_9, score_8_up, score_7_up, source_anime",
-        "1girl",
-        "random",
-        "random",
-        0,
-        "fixed"
-      ]
+        "Here's a simple workflow to test the Scene Composer custom nodes.\n\nJust queue a prompt: the 🎞️ Scene will be able to randomly generate an image for you!\n\nHere, optional components are connected to the 🎞️ Scene. That let you have more control over the generation of the scene.\n\nFor example, just change the seed of the 👤 Character. The whole scene stay the same, but the character has changed."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     },
     {
-      "id": 19,
-      "type": "🎬 Action",
+      "id": 21,
+      "type": "Note",
       "pos": {
-        "0": 30,
-        "1": 314
+        "0": 167,
+        "1": 54
       },
       "size": {
-        "0": 261,
-        "1": 154
+        "0": 458,
+        "1": 208
       },
-      "flags": {},
+      "flags": {
+        "collapsed": true
+      },
       "order": 1,
       "mode": 0,
       "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            17
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "🎬 Action"
-      },
+      "outputs": [],
+      "title": "🔗 Links",
+      "properties": {},
       "widgets_values": [
-        false,
-        "random",
-        "random",
-        "intercourses",
-        "random",
-        0,
-        "fixed"
-      ]
+        "For more info, check out these links:\n\nSource code: https://github.com/mus-taches/comfyui-scene-composer\nWiki:        https://github.com/mus-taches/comfyui-scene-composer/wiki\nRoadmap:     https://github.com/users/mousse-taches/projects/2/"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
     },
     {
-      "id": 13,
-      "type": "👕 Clothes",
+      "id": 5,
+      "type": "EmptyLatentImage",
       "pos": {
-        "0": 30,
-        "1": 650
+        "0": 738,
+        "1": 527
       },
       "size": {
-        "0": 263,
-        "1": 82
+        "0": 210,
+        "1": 106
       },
-      "flags": {},
+      "flags": {
+        "collapsed": false
+      },
       "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
         {
-          "name": "STRING",
-          "type": "STRING",
+          "name": "LATENT",
+          "type": "LATENT",
           "links": [
-            13
+            2
           ],
-          "slot_index": 0,
-          "shape": 3
+          "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "👕 Clothes"
+        "Node name for S&R": "EmptyLatentImage"
       },
       "widgets_values": [
-        0,
-        "fixed"
-      ]
+        1024,
+        1024,
+        1
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
     },
     {
-      "id": 10,
-      "type": "⛅️ Environment",
+      "id": 6,
+      "type": "CLIPTextEncode",
       "pos": {
-        "0": 30,
-        "1": 780
+        "0": 750,
+        "1": 304
       },
       "size": {
-        "0": 261,
-        "1": 82
+        "0": 210,
+        "1": 54
       },
-      "flags": {},
-      "order": 3,
+      "flags": {
+        "collapsed": true
+      },
+      "order": 11,
       "mode": 0,
-      "inputs": [],
-      "outputs": [
+      "inputs": [
         {
-          "name": "STRING",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        },
+        {
+          "name": "text",
           "type": "STRING",
-          "links": [
-            14
-          ],
-          "slot_index": 0,
-          "shape": 3
+          "link": 19,
+          "widget": {
+            "name": "text"
+          }
         }
       ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            4
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Positive",
       "properties": {
-        "Node name for S&R": "⛅️ Environment"
+        "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        0,
-        "fixed"
-      ]
+        "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
     },
     {
       "id": 3,
       "type": "KSampler",
       "pos": {
-        "0": 931,
-        "1": 418
+        "0": 985,
+        "1": 273
       },
       "size": {
         "0": 267,
@@ -207,11 +205,40 @@
       "bgcolor": "#335"
     },
     {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": {
+        "0": 1280,
+        "1": 240
+      },
+      "size": {
+        "0": 327,
+        "1": 302.48333740234375
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
       "id": 8,
       "type": "VAEDecode",
       "pos": {
-        "0": 1211,
-        "1": 360
+        "0": 1271,
+        "1": 175
       },
       "size": {
         "0": 210,
@@ -247,198 +274,23 @@
       "properties": {
         "Node name for S&R": "VAEDecode"
       },
+      "widgets_values": [],
       "color": "#233",
       "bgcolor": "#355"
-    },
-    {
-      "id": 20,
-      "type": "Note",
-      "pos": {
-        "0": 366,
-        "1": 62
-      },
-      "size": [
-        366,
-        205
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "📖 README",
-      "properties": {},
-      "widgets_values": [
-        "Here's a simple workflow to test the Scene Composer custom nodes.\n\nJust queue a prompt: the 🎞️ Scene will be able to randomly generate an image for you!\n\nHere, optional components are connected to the 🎞️ Scene. That let you have more control over the generation of the scene.\n\nFor example, just change the seed of the 👤 Character. The whole scene stay the same, but the character has changed."
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 21,
-      "type": "Note",
-      "pos": {
-        "0": 763,
-        "1": 61
-      },
-      "size": [
-        458,
-        208
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "🔗 Links",
-      "properties": {},
-      "widgets_values": [
-        "For more info, check out these links:\n\nSource code: https://github.com/mus-taches/comfyui-scene-composer\nWiki:        https://github.com/mus-taches/comfyui-scene-composer/wiki\nRoadmap:     https://github.com/users/mousse-taches/projects/2/"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
-      "id": 5,
-      "type": "EmptyLatentImage",
-      "pos": {
-        "0": 681,
-        "1": 699
-      },
-      "size": {
-        "0": 210,
-        "1": 106
-      },
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            2
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        1024,
-        1024,
-        1
-      ],
-      "color": "#323",
-      "bgcolor": "#535"
-    },
-    {
-      "id": 7,
-      "type": "CLIPTextEncode",
-      "pos": {
-        "0": 685,
-        "1": 533
-      },
-      "size": {
-        "0": 210,
-        "1": 117
-      },
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 5
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            6
-          ],
-          "slot_index": 0
-        }
-      ],
-      "title": "Negative",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "score_6, score_5, score_4"
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
-    },
-    {
-      "id": 6,
-      "type": "CLIPTextEncode",
-      "pos": {
-        "0": 791,
-        "1": 490
-      },
-      "size": {
-        "0": 210,
-        "1": 54
-      },
-      "flags": {
-        "collapsed": true
-      },
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 3
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 15,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            4
-          ],
-          "slot_index": 0
-        }
-      ],
-      "title": "Positive",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
     },
     {
       "id": 4,
       "type": "CheckpointLoaderSimple",
       "pos": {
-        "0": 365,
-        "1": 313
+        "0": 386,
+        "1": 108
       },
-      "size": [
-        312,
-        98
-      ],
+      "size": {
+        "0": 312,
+        "1": 98
+      },
       "flags": {},
-      "order": 7,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -478,16 +330,16 @@
       "bgcolor": "#593930"
     },
     {
-      "id": 11,
-      "type": "🎞️ Scene",
+      "id": 22,
+      "type": "Scene",
       "pos": {
-        "0": 363,
-        "1": 462
+        "0": 383,
+        "1": 434
       },
-      "size": [
-        274,
-        162
-      ],
+      "size": {
+        "0": 315,
+        "1": 202
+      },
       "flags": {},
       "order": 10,
       "mode": 0,
@@ -495,42 +347,47 @@
         {
           "name": "composition",
           "type": "STRING",
-          "link": 10,
+          "link": 20,
           "widget": {
             "name": "composition"
-          }
+          },
+          "shape": 7
         },
         {
           "name": "action",
           "type": "STRING",
-          "link": 17,
+          "link": 21,
           "widget": {
             "name": "action"
-          }
+          },
+          "shape": 7
         },
         {
           "name": "character",
           "type": "STRING",
-          "link": 12,
+          "link": 22,
           "widget": {
             "name": "character"
-          }
+          },
+          "shape": 7
         },
         {
           "name": "clothes",
           "type": "STRING",
-          "link": 13,
+          "link": 23,
           "widget": {
             "name": "clothes"
-          }
+          },
+          "shape": 7
         },
         {
           "name": "environment",
           "type": "STRING",
-          "link": 14,
+          "link": 24,
           "widget": {
             "name": "environment"
-          }
+          },
+          "shape": 7
         }
       ],
       "outputs": [
@@ -538,17 +395,16 @@
           "name": "STRING",
           "type": "STRING",
           "links": [
-            15
+            19
           ],
-          "slot_index": 0,
-          "shape": 3
+          "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "🎞️ Scene"
+        "Node name for S&R": "Scene"
       },
       "widgets_values": [
-        1,
+        310131604611505,
         "fixed",
         "",
         "",
@@ -558,43 +414,199 @@
       ]
     },
     {
-      "id": 9,
-      "type": "SaveImage",
+      "id": 23,
+      "type": "Composition",
       "pos": {
-        "0": 1231,
-        "1": 408
+        "0": 15,
+        "1": 111
       },
       "size": {
-        "0": 428.97259521484375,
-        "1": 496.5888366699219
+        "0": 326.8691101074219,
+        "1": 196.00003051757812
       },
       "flags": {},
-      "order": 14,
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            20
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Composition"
+      },
+      "widgets_values": [
+        "score_9, score_8_up, score_7_up, source_anime",
+        "1girl",
+        "random",
+        "random",
+        676629682859978,
+        "fixed"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "Action",
+      "pos": {
+        "0": 22,
+        "1": 367
+      },
+      "size": {
+        "0": 315,
+        "1": 154
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            21
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Action"
+      },
+      "widgets_values": [
+        false,
+        "random",
+        "random",
+        "random",
+        "random",
+        false,
+        357446330605007,
+        "fixed"
+      ]
+    },
+    {
+      "id": 27,
+      "type": "Environment",
+      "pos": {
+        "0": 20,
+        "1": 844
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            24
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Environment"
+      },
+      "widgets_values": [
+        19523959859772,
+        "fixed"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 738,
+        "1": 352
+      },
+      "size": {
+        "0": 210,
+        "1": 119.52225494384766
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 9
+          "name": "clip",
+          "type": "CLIP",
+          "link": 5
         }
       ],
-      "outputs": [],
-      "properties": {},
-      "widgets_values": [
-        "ComfyUI"
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        }
       ],
-      "color": "#233",
-      "bgcolor": "#355"
+      "title": "Negative",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "score_6, score_5, score_4\nchild"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
     },
     {
-      "id": 15,
-      "type": "👤 Character",
+      "id": 25,
+      "type": "Character",
       "pos": {
-        "0": 30,
-        "1": 520
+        "0": 25,
+        "1": 574
       },
       "size": {
-        "0": 262,
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            22
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Character"
+      },
+      "widgets_values": [
+        615775202884440,
+        "fixed"
+      ]
+    },
+    {
+      "id": 26,
+      "type": "Clothes",
+      "pos": {
+        "0": 21,
+        "1": 709
+      },
+      "size": {
+        "0": 315,
         "1": 82
       },
       "flags": {},
@@ -606,17 +618,16 @@
           "name": "STRING",
           "type": "STRING",
           "links": [
-            12
+            23
           ],
-          "slot_index": 0,
-          "shape": 3
+          "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "👤 Character"
+        "Node name for S&R": "Clothes"
       },
       "widgets_values": [
-        0,
+        1032014846174790,
         "fixed"
       ]
     }
@@ -695,51 +706,51 @@
       "IMAGE"
     ],
     [
-      10,
-      12,
-      0,
-      11,
-      0,
-      "STRING"
-    ],
-    [
-      12,
-      15,
-      0,
-      11,
-      2,
-      "STRING"
-    ],
-    [
-      13,
-      13,
-      0,
-      11,
-      3,
-      "STRING"
-    ],
-    [
-      14,
-      10,
-      0,
-      11,
-      4,
-      "STRING"
-    ],
-    [
-      15,
-      11,
+      19,
+      22,
       0,
       6,
       1,
       "STRING"
     ],
     [
-      17,
-      19,
+      20,
+      23,
       0,
-      11,
+      22,
+      0,
+      "STRING"
+    ],
+    [
+      21,
+      24,
+      0,
+      22,
       1,
+      "STRING"
+    ],
+    [
+      22,
+      25,
+      0,
+      22,
+      2,
+      "STRING"
+    ],
+    [
+      23,
+      26,
+      0,
+      22,
+      3,
+      "STRING"
+    ],
+    [
+      24,
+      27,
+      0,
+      22,
+      4,
       "STRING"
     ]
   ],
@@ -747,10 +758,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1,
+      "scale": 0.6830134553650705,
       "offset": [
-        0,
-        1
+        337.62860000000046,
+        42.49950000000007
       ]
     }
   },
