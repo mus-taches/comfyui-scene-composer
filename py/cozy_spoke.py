@@ -2,11 +2,13 @@
 # https://github.com/cozy-comfyui/cozy_spoke
 
 import time
-import toml
-from pathlib import Path
+# import toml
+# from pathlib import Path
 from typing import Any
-from aiohttp import web
+from aiohttp import web  # , ClientSession
 from server import PromptServer
+
+from .node import Node
 
 EVENT_COZY_UPDATE = "cozy-event-combo-update"
 
@@ -40,17 +42,7 @@ class ComfyAPIMessage:
 
 def initialize_cozy_spoke():
 
-    # Load action config data
-    path = Path(__file__).parent.parent / "config/actions.toml"
-
-    try:
-        with open(path) as file:
-            data = toml.load(file)
-    except Exception:
-        print(f"Error loading {path}")
-        data = {}
-
-    # Define routes
+    data = Node.load_data("actions.toml")
 
     @PromptServer.instance.routes.get("/cozy_spoke")
     async def route_cozy_spoke(request) -> Any:
@@ -85,7 +77,8 @@ def initialize_cozy_spoke():
         result = {}
         if (response := json_data.get("data")) is not None:
             acts = data["nsfw"]["acts"]
-            result = {'data': acts.get(response.lower(),
-                                       [])}
+            selected_acts = acts.get(response.lower(), [])
+            inputs = Node.build_inputs_list(selected_acts)
+            result = {'data': inputs}
 
         return web.json_response(result)
