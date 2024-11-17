@@ -15,7 +15,14 @@ class Eyes(Node):
         makeup = self.build_makeup_prompt(data["makeup"])
         eyewear = self.build_eyewear_prompt(data["eyewears"])
 
-        prompt = f"{color} {suffix}, {makeup}, {eyewear}"
+        color = f"{color} {suffix}"
+
+        self.components = {
+            "color": color,
+            "makeup": makeup,
+            "eyewear": eyewear
+        }
+        prompt = self.stringify_tags(self.components.values())
         return (prompt,)
 
     def build_makeup_prompt(self, data):

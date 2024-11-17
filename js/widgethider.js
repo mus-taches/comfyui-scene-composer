@@ -66,7 +66,7 @@ function handleSceneNsfw(node, widget) {
   ];
   const nsfwWidgets = [
     actTypeWidget, actWidget,
-    findWidgetByName(node, `cum`),
+    findWidgetByName(node, `stage`),
   ];
   const allWidgets = [...sfwWidgets, ...nsfwWidgets];
 

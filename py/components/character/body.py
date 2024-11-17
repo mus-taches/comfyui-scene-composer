@@ -26,12 +26,20 @@ class Body(Node):
         extras = self.select_tags(data["extras"])
         extras = self.enhance_extras(extras)
 
-        components = [type, color, breasts_prompt, lipstick, extras]
-        prompt = self.stringify_tags(components)
+        self.components = {
+            "type": type,
+            "color": color,
+            "breasts_prompt": breasts_prompt,
+            "lipstick": lipstick,
+            "extras": extras
+        }
+        prompt = self.stringify_tags(self.components.values())
         return (prompt,)
 
     def enhance_extras(self, extras):
         prompt = ""
+        location = ""
+
         match extras:
             case "mole":
                 location = ["under eye", "under mouth", "on neck"]

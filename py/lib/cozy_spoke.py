@@ -8,7 +8,7 @@ from typing import Any
 from aiohttp import web  # , ClientSession
 from server import PromptServer
 
-from .node import Node
+from ..node import Node
 
 EVENT_COZY_UPDATE = "cozy-event-combo-update"
 

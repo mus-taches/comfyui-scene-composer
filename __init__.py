@@ -1,10 +1,10 @@
 from .py.scene import Scene
 from .py.components.composition import Composition
-from .py.components.action import Action
+from .py.components.action.action import Action
 from .py.components.character.character import Character
 from .py.components.clothes import Clothes
 from .py.components.environment import Environment
-from .py.cozy_spoke import initialize_cozy_spoke
+from .py.lib.cozy_spoke import initialize_cozy_spoke
 
 initialize_cozy_spoke()
 

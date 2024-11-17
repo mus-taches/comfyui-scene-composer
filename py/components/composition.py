@@ -31,7 +31,7 @@ class Composition(Node):
 
         super().build_prompt(seed)
 
-        components = {
+        self.components = {
             "prefix": {
                 "tags": self.data["prefix"],
                 "selected": prefix
@@ -53,7 +53,7 @@ class Composition(Node):
         prompts = {}
 
         # Select tags for each component
-        for name, params in components.items():
+        for name, params in self.components.items():
             prompt = self.select_tags(
                 tags=params["tags"],
                 selected=params["selected"]
@@ -68,5 +68,5 @@ class Composition(Node):
                 prompts["protagonists"] = "1girl, 1boy, solo focus"
 
         # Build the prompt
-        prompt = ", ".join(prompts.values())
+        prompt = self.stringify_tags(prompts.values())
         return (prompt,)

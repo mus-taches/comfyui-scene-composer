@@ -1,8 +1,7 @@
 import numpy as np
 import toml
 from server import PromptServer
-
-from .constants import ROOT_DIR
+from pathlib import Path
 
 
 class Node:
@@ -14,6 +13,7 @@ class Node:
         self.seed = seed
         self.rng = np.random.default_rng(seed)
         self.data = self.load_data(data_file)
+        self.components = {}
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -130,7 +130,8 @@ class Node:
     @staticmethod
     def load_data(filename):
         """Load data from a TOML file"""
-        path = f"{ROOT_DIR}/config/{filename}"
+        root = Path(__file__).parent.parent
+        path = f"{root}/config/{filename}"
         try:
             with open(path) as file:
                 data = toml.load(file)

@@ -10,14 +10,28 @@ class Hair(Node):
     def build_prompt(self):
         data = self.data["hair"]
         suffix = "hair"
+
+        # Hair color
         color = self.select_tags(data["colors"])
         if color == "gradient":
             color = self.enhance_gradient()
+        color = f"{color} {suffix}"
 
+        # Hair length
         length = self.select_tags(data["lengths"])
-        style = self.select_tags(data["styles"])
+        length = f"{length} {suffix}"
 
-        prompt = f"{color} {suffix}, {length} {suffix}, {style}"
+        # Hair style
+        style = self.select_tags(data["styles"])
+        style = f"{style} {suffix}"
+
+        # Components
+        self.components = {
+            "color": color,
+            "length": length,
+            "style": style
+        }
+        prompt = self.stringify_tags(self.components.values())
         return (prompt,)
 
     def enhance_gradient(self):

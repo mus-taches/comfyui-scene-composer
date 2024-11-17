@@ -9,18 +9,22 @@ class Attitude(Node):
 
     def build_prompt(self):
         attitude = self.select_tags(self.data["attitudes"])
-        prompt = attitude
         match attitude:
             case "happy":
-                prompt += ", smile"
+                attitude += ", smile"
             case "smirk":
-                prompt += ", smile, smug"
+                attitude += ", smile, smug"
             case "bored":
                 extra_tags = ["sleepy", "tired", "expressionless"]
                 tags = self.select_tags(extra_tags, n=[1, 3])
-                prompt += f", {tags}"
+                attitude += f", {tags}"
             case "upset":
-                prompt += ", sad, angry, frown"
+                attitude += ", sad, angry, frown"
             case "crazy":
-                prompt += ", crazy eyes, crazy smile, constricted pupils"
+                attitude += ", crazy eyes, crazy smile, constricted pupils"
+
+        self.components = {
+            "attitude": attitude
+        }
+        prompt = self.stringify_tags(self.components.values())
         return (prompt,)

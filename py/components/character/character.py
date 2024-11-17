@@ -11,13 +11,12 @@ class Character(Node):
     def build_prompt(self, seed, ident):
         super().build_prompt(seed)
 
-        components = {
+        self.components = {
             'body': Body(self.seed, ident, self.rng),
             'hair': Hair(self.seed, ident, self.rng),
             'eyes': Eyes(self.seed, ident, self.rng),
             'attitude': Attitude(self.seed, ident, self.rng)
         }
 
-        prompt = ", ".join(str(component) for component in components.values())
-        prompt = str(prompt)
+        prompt = self.stringify_tags(self.components.values())
         return (prompt,)

@@ -1,6 +1,6 @@
 from .node import Node
 from .components.composition import Composition
-from .components.action import Action
+from .components.action.action import Action
 from .components.character.character import Character
 from .components.clothes import Clothes
 from .components.environment import Environment
@@ -26,7 +26,7 @@ class Scene(Node):
                 "gesture": "random",
                 "act_type": "random",
                 "act": "random",
-                "cum": False
+                "stage": "random"
             },
             "character": {
                 "default": None,

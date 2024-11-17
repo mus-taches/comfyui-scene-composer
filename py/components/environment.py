@@ -15,12 +15,18 @@ class Environment(Node):
         effects = self.select_tags(self.data["effects"])
         weather = self.build_weather(time, location)
 
-        components = [time, effects, weather, location_type, location]
+        self.components = {
+            "time": time,
+            "effects": effects,
+            "weather": weather,
+            "location_type": location_type,
+            "location": location
+        }
 
         if location_type == "indoors":
-            components.remove(weather)
+            self.components.pop("weather")
 
-        prompt = ", ".join(components)
+        prompt = self.stringify_tags(self.components.values())
         return (prompt,)
 
     def build_weather(self, time, location):

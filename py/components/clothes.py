@@ -10,7 +10,6 @@ class Clothes(Node):
 
     def build_prompt(self, seed, ident):
         super().build_prompt(seed)
-        prompt = ""
 
         state = self.select_tags(self.data["states"], selected=self.state)
         type = self.select_tags(self.data["types"], selected=self.type)
@@ -24,8 +23,10 @@ class Clothes(Node):
                 cloth = "nude"
 
         accessories = self.build_accessory()
-        prompt = f"{cloth}, {accessories}"
 
+        self.components = [cloth, accessories]
+
+        prompt = self.stringify_tags(self.components)
         return (prompt,)
 
     def build_clothes(self, type):
