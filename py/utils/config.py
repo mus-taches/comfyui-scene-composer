@@ -1,6 +1,7 @@
 import os
 import json
 from glob import glob
+import toml
 
 ROOT_PATH = os.path.abspath(os.path.join(
     os.path.dirname(__file__), '..', '..'))
@@ -20,6 +21,20 @@ RESERVED_KEYS = [
     "group_labels",
     "fixed"
 ]
+
+
+def get_project_name():
+    """Get the project name from the pyproject.toml file"""
+    pyproject_path = os.path.join(ROOT_PATH, "pyproject.toml")
+
+    if not os.path.exists(pyproject_path):
+        return "⚙️ Prompt Factory"
+
+    with open(pyproject_path, 'r') as pyproject_file:
+        pyproject_data = toml.load(pyproject_file)
+        project_name = pyproject_data.get("tool", {}).get(
+            "comfy", {}).get("DisplayName", "Project")
+    return project_name
 
 
 def load_config(config_path="nodes", with_filename=True):

@@ -1,7 +1,7 @@
 import numpy as np
 import json
 
-from ...utils.config import load_config
+from ...utils.config import load_config, get_project_name
 from ._inputs import build_inputs, apply_input_values
 from ._variables import apply_variables
 from ._tags import select_tags, stringify_tags
@@ -29,7 +29,8 @@ class NodeFactory:
     RETURN_TYPES = ("STRING", "STRING",)
     RETURN_NAMES = ("prompt", "variables",)
     FUNCTION = "build_prompt"
-    CATEGORY = "⚙️ Prompt Factory/⭐️ My Nodes"
+    PROJECT_NAME = get_project_name()
+    CATEGORY = f"{PROJECT_NAME}/⭐️ My Nodes"
 
     def build_prompt(self, **args):
         """

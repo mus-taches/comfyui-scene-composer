@@ -1,5 +1,7 @@
 import numpy as np
 import fnmatch
+
+from py.utils.config import get_project_name
 from .node_factory._tags import stringify_tags
 
 
@@ -13,7 +15,8 @@ class CleanupPrompt:
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("string",)
     FUNCTION = "cleanup_prompt"
-    CATEGORY = "⚙️ Prompt Factory/🛠️ Utils"
+    PROJECT_NAME = get_project_name()
+    CATEGORY = f"{PROJECT_NAME}/🛠️ Utils"
 
     @classmethod
     def INPUT_TYPES(s):

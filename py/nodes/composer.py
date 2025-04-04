@@ -1,5 +1,5 @@
 import numpy as np
-from ..utils.config import load_config
+from ..utils.config import get_project_name, load_config
 from .node_factory._variables import apply_variables
 
 
@@ -29,7 +29,8 @@ class Composer:
     RETURN_TYPES = ("STRING", "STRING", )
     RETURN_NAMES = ("prompt", "variables", )
     FUNCTION = "build_prompt"
-    CATEGORY = "⚙️ Prompt Factory/🛠️ Utils"
+    PROJECT_NAME = get_project_name()
+    CATEGORY = f"{PROJECT_NAME}/🛠️ Utils"
 
     def build_prompt(self, **args):
         """

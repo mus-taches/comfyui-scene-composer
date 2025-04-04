@@ -2,7 +2,7 @@ import fnmatch
 import dpath
 import numpy as np
 
-from ..utils.config import load_config
+from ..utils.config import get_project_name, load_config
 from .node_factory._tags import select_tags, stringify_tags
 
 
@@ -15,7 +15,8 @@ class ApplyRules:
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("string",)
     FUNCTION = "apply_rules"
-    CATEGORY = "⚙️ Prompt Factory/🛠️ Utils"
+    PROJECT_NAME = get_project_name()
+    CATEGORY = f"{PROJECT_NAME}/🛠️ Utils"
 
     def __init__(self):
         self.config = load_config()

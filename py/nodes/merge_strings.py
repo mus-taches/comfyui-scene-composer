@@ -1,3 +1,6 @@
+from py.utils.config import get_project_name
+
+
 class MergeStrings:
     """
     A ComfyUI node to merge string.
@@ -8,7 +11,9 @@ class MergeStrings:
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("string",)
     FUNCTION = "merge_strings"
-    CATEGORY = "⚙️ Prompt Factory/🛠️ Utils"
+
+    PROJECT_NAME = get_project_name()
+    CATEGORY = f"{PROJECT_NAME}/🛠️ Utils"
 
     @classmethod
     def INPUT_TYPES(s):
