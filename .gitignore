@@ -1,3 +1,7 @@
+# Project specific
+config
+pull-upstream.sh
+
 # Created by https://www.toptal.com/developers/gitignore/api/osx,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=osx,python
 
@@ -153,7 +157,6 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-config
 .env
 .venv
 env/
