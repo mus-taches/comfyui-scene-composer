@@ -1,0 +1,19 @@
+{
+    "name": "⛅️ Environment",
+    "tags": {
+      "location": {
+        "group_labels": true,
+        "tags": {
+          "indoors": ["living room", "office", "library"],
+          "outdoors": {
+            "number": 2,
+            "tags": {
+              "location": ["park", "beach", "forest"],
+              "weather": ["sunny", "cloudy", "rainy", "snowy"]
+            }
+          }
+        }
+      }
+    }
+  }
+  

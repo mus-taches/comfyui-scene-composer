@@ -1,8 +1,8 @@
 {
   "name": "👕 Clothes",
   "variables": {
-    "color_clothes_1": "{color}",
-    "color_clothes_2": "{color}"
+    "color_clothes_1": { "hide": true, "tags": "{color}" },
+    "color_clothes_2": { "hide": true, "tags": "{color}" }
   },
   "tags": {
     "type": {
