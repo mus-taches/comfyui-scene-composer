@@ -58,7 +58,7 @@ class CleanupPrompt:
             tags = sorted(tags, key=lambda x:
                           custom_order_dict.get(x, len(custom_order_dict)))
 
-        prompt = stringify_tags(tags.values(), ", ")
+        prompt = stringify_tags(tags, ", ")
         return (prompt,)
 
     def remove_duplicates(self, tags):
