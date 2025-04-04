@@ -32,6 +32,10 @@ def apply_variables(rng, tags, variables):
 
     def replace_variables(text, variables):
         for var_key, var_value in variables.items():
+
+            if isinstance(text, dict):
+                text = select_tags(rng, text)
+
             count = text.count("{" + var_key + "}")
             for _ in range(count):
                 var_value = select_tags(rng, variables[var_key])

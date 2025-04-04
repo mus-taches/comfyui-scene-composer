@@ -46,7 +46,6 @@ class ApplyRules:
         according to others tags in the same prompt
         """
         rng = np.random.default_rng(seed)
-        prompt = prompt[0]
         tags = [tag.strip() for tag in prompt.replace(
             "\n", ", ").split(", ") if tag.strip()]
         rules = {key: value.copy() for key, value in self.rules.items()}

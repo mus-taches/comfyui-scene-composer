@@ -37,8 +37,7 @@ def load_config(config_path="nodes", with_filename=True):
                 node_id = os.path.splitext(os.path.basename(path))[0]
                 config[node_id] = config_data
             else:
-                config = config_data
-
+                config.update(config_data)
     return config
 
 

@@ -52,6 +52,10 @@ class NodeFactory:
 
         # Replace tags with corresponding variables
         global_variables = load_config("variables", with_filename=False)
+
+        local_variables = apply_variables(
+            rng, local_variables, global_variables)
+
         optional_variables = args.get("variables", {})
 
         if isinstance(optional_variables, str):

@@ -21,7 +21,7 @@ class CleanupPrompt:
             "required": {
                 "prompt": ("STRING", {"default": "", "multiline": True}),
                 "cleanup": ("BOOLEAN", {"default": True}),
-                "sort": (["none", "asc", "desc", "random"]),
+                "sort": (["none", "asc", "desc", "random"],),
                 "custom_sort": ("STRING", {"default": "", "multiline": True}),
                 "seed": ("INT", {
                     "default": 0,
@@ -61,7 +61,7 @@ class CleanupPrompt:
         prompt = stringify_tags(tags.values(), ", ")
         return (prompt,)
 
-    def remove_duplicates(tags):
+    def remove_duplicates(self, tags):
         seen = set()
         unique_tags = []
         for tag in tags:
