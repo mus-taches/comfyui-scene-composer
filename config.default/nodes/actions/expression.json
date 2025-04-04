@@ -1,0 +1,37 @@
+{
+  "name": "🗯️ Expression",
+  "tags": {
+    "eyes": {
+      "probability": 0.3,
+      "distribution": [0.3, 0.3, 0.3, 0.1],
+      "tags": [
+        "half-closed eyes",
+        "half-closed eye",
+        "one eye closed",
+        "closed eyes"
+      ]
+    },
+    "gaze": {
+      "probability": 0.3,
+      "prefix": "looking ",
+      "tags": ["at viewer", "up", "down", "to the side", "back"]
+    },
+    "facing": {
+      "probability": 0.3,
+      "prefix": "facing ",
+      "tags": ["viewer", "up", "down", "to the side"]
+    },
+    "eyebrow": {
+      "probability": 0.3,
+      "tags": ["raised eyebrow", "raised eyebrows", "frown", "v eyebrows"]
+    },
+    "mouth": {
+      "probability": 0.3,
+      "tags": ["closed mouth", "parted lips", "open mouth"]
+    },
+    "symbols": {
+      "probability": 0.3,
+      "tags": ["^^^", "notice lines", "shout lines", "puff of air"]
+    }
+  }
+}

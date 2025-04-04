@@ -1,0 +1,41 @@
+{
+  "name": "👁️ Eyes",
+  "variables": {
+    "makeup-color": ["black", "blue", "cyan", "red", "green", "purple"]
+  },
+  "tags": {
+    "eye-color": {
+      "distribution": [0.2, 0.2, 0.2, 0.1, 0.1, 0.1],
+      "tags": [
+        "black",
+        "blue",
+        "brown",
+        "cyan",
+        "gray",
+        "green",
+        "pink",
+        "purple",
+        "red",
+        "white",
+        "yellow"
+      ],
+      "suffix": " eyes"
+    },
+    "makeup": {
+      "probability": 0.2,
+      "tags": {
+        "eyeliner": "{makeup-color} eyeliner",
+        "eyeshadow": "{makeup-color} eyeshadow"
+      }
+    },
+    "eyewear": {
+      "probability": 0.2,
+      "number": [1, 2],
+      "suffix": ", {color} eyewear",
+      "tags": {
+        "eyewear-style": ["glasses", "sunglasses", "tinted glasses"],
+        "eyewear-shape": ["rectangular eyewear", "round eyewear"]
+      }
+    }
+  }
+}

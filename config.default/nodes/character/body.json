@@ -1,0 +1,23 @@
+{
+  "name": "🧍 Body",
+  "tags": {
+    "body_type": {
+      "probability": 0.7,
+      "tags": ["petite", "slim", "fit", "muscular", "plump", "chubby"]
+    },
+    "skin": {
+      "probability": 0.2,
+      "tags": ["dark skin", "tan"]
+    },
+    "breasts": {
+      "distribution": [0.2, 0.25, 0.25, 0.25, 0.05],
+      "tags": [
+        "flat chest",
+        "small breasts",
+        "medium breasts",
+        "large breasts",
+        "huge breasts"
+      ]
+    }
+  }
+}

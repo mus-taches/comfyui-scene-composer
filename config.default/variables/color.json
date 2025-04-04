@@ -1,0 +1,18 @@
+{
+  "color": {
+    "fixed": false,
+    "tags": [
+      "black",
+      "blue",
+      "brown",
+      "cyan",
+      "gray",
+      "green",
+      "pink",
+      "purple",
+      "red",
+      "white",
+      "yellow"
+    ]
+  }
+}

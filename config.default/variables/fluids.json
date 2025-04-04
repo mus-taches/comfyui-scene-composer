@@ -1,0 +1,33 @@
+{
+  "pussy_juice": {
+    "tags": {
+      "pussy_juice_amount": {
+        "distribution": [0.7, 0.3],
+        "tags": ["pussy juice", "excessive pussy juice"]
+      },
+      "pussy_juice_extra": {
+        "probability": 0.5,
+        "number": [1, 2],
+        "tags": ["pussy juice trail", "pussy juice puddle"]
+      }
+    }
+  },
+  "saliva": {
+    "tags": {
+      "saliva_amount": {
+        "distribution": [0.7, 0.3],
+        "tags": ["saliva", "excessive saliva"]
+      },
+      "saliva_extra": {
+        "probability": 0.5,
+        "number": [0, 2],
+        "tags": ["saliva trail", "drooling", "saliva drip"]
+      }
+    }
+  },
+  "precum": {
+    "prefix": "precum, ",
+    "number": [0, 2],
+    "tags": ["precum trail", "precum drip", "precum bubble"]
+  }
+}

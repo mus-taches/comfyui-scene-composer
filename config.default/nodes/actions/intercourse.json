@@ -1,0 +1,50 @@
+{
+  "name": "🌶️ Intercourse",
+  "variables": {
+    "cum_amount": ["cum", "excessive cum"],
+    "penetration_type": {
+      "hide": false,
+      "distribution": [0.75, 0.25],
+      "tags": ["vaginal", "anal"]
+    }
+  },
+  "tags": {
+    "position": [
+      "doggystyle",
+      "top-down bottom-up",
+      "cowgirl",
+      "reverse cowgirl",
+      "full nelson",
+      "mating press"
+    ],
+    "penetration": {
+      "group_labels": true,
+      "tags": {
+        "imminent": "imminent {penetration_type}",
+        "deep": "deep penetration, {penetration_type} penetration",
+        "climax": {
+          "tags": {
+            "penetration": "deep penetration, {penetration_type} penetration, orgasm, climax",
+            "cum": {
+              "prefix": "{cum_amount}, internal cumshot, ",
+              "number": [0, 1],
+              "tags": ["x-ray", "x-ray vision"]
+            }
+          }
+        },
+        "after": {
+          "prefix": "after {penetration_type}",
+          "number": [1, 6],
+          "tags": [
+            "projectile cum",
+            "facial",
+            "cum on body",
+            "cum on breasts",
+            "cum on hair",
+            "cum on ass"
+          ]
+        }
+      }
+    }
+  }
+}

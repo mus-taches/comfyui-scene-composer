@@ -1,0 +1,40 @@
+{
+  "name": "🎨 Style",
+  "tags": {
+    "prefix": "score_9, score_8_up, score_7_up, source_anime",
+    "art_style": {
+      "group_labels": true,
+      "tags": {
+        "drawing": {
+          "number": [1, 3],
+          "tags": ["drawing", "lineart", "sketch"]
+        },
+        "realistic": {
+          "number": [1, 3],
+          "tags": ["realistic", "photorealistic", "3D"]
+        }
+      }
+    },
+    "colors": ["monochrome", "partially colored", "pastel colors"],
+    "light": {
+      "probability": 0.7,
+      "tags": [
+        "dim light",
+        "sidelighting",
+        "backlighting",
+        "underlighting",
+        "overexposure"
+      ]
+    },
+    "light_effect": {
+      "number": [1, 3],
+      "probability": 0.4,
+      "tags": ["light particles", "lens flare", "blur", "drop shadow"]
+    },
+    "depth": {
+      "probability": 0.4,
+      "number": [1, 3],
+      "tags": ["depth of field", "bokeh", "blurry"]
+    }
+  }
+}
