@@ -1,33 +1,37 @@
-from .py.scene import Scene
-from .py.components.composition import Composition
-from .py.components.action.action import Action
-from .py.components.character.character import Character
-from .py.components.clothes import Clothes
-from .py.components.environment import Environment
-from .py.lib.cozy_spoke import initialize_cozy_spoke
+from .py.utils.config import load_config
+from .py.nodes.node_factory import NodeFactory
+from .py.nodes.merge_strings import MergeStrings
+from .py.nodes.composer import Composer
+from .py.nodes.cleanup_prompt import CleanupPrompt
+from .py.nodes.apply_rules import ApplyRules
 
-initialize_cozy_spoke()
+NODE_CLASS_MAPPINGS = {}
+NODE_DISPLAY_NAME_MAPPINGS = {}
+WEB_DIRECTORY = "./web"
 
-# Mappings
-NODE_CLASS_MAPPINGS = {
-    "Scene": Scene,
-    "Composition": Composition,
-    "Action": Action,
-    "Character": Character,
-    "Clothes": Clothes,
-    "Environment": Environment,
-}
 
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "Scene": "🎞️ Scene",
-    "Composition": "📹 Composition",
-    "Action": "🎬 Action",
-    "Character": "👤 Character",
-    "Clothes": "👕 Clothes",
-    "Environment": "⛅️ Environment",
-}
+def register_node(node_id, node_name, node_class):
+    NODE_CLASS_MAPPINGS[node_id] = node_class
+    NODE_DISPLAY_NAME_MAPPINGS[node_id] = node_name
 
-WEB_DIRECTORY = "js"
 
-__all__ = ['NODE_CLASS_MAPPINGS',
-           "NODE_DISPLAY_NAME_MAPPINGS", "WEB_DIRECTORY"]
+# Create each node according to the config folder
+config = load_config()
+
+for key, value in config.items():
+    node_id = key
+    node_name = value.get("name", key)
+    ClassNode = NodeFactory.create_node(node_id, node_name)
+    register_node(node_id, node_name, ClassNode)
+
+# Add additional nodes
+register_node("MergeStrings", "🪡 Merge Strings", MergeStrings)
+register_node("Composer", "🖋️ Composer", Composer)
+register_node("CleanupPrompt", "🧹 CleanUp Prompt", CleanupPrompt)
+register_node("ApplyRules", "📋 Apply Rules", ApplyRules)
+
+__all__ = [
+    "NODE_CLASS_MAPPINGS",
+    "NODE_DISPLAY_NAME_MAPPINGS",
+    "WEB_DIRECTORY"
+]
