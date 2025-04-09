@@ -1,18 +1,22 @@
 import numpy as np
-import json
 
-from ...utils.config import load_config, get_project_name
+from ...components.blackboard import Blackboard
+
+from ...utils.config import get_project_name
 from ._inputs import build_inputs, apply_input_values
 from ._variables import apply_variables
-from ._tags import select_tags, stringify_tags
+from ._tags import choose_random_tags, stringify_tags
 
 
 class NodeFactory:
+    """
+    Create nodes dynamically according to config files.
+    """
 
     def __init__(self):
-        config = load_config()
         self.name = self.__class__.__name__.lower()
-        self.data = config[self.name]
+        self.data = Blackboard().config[self.name]
+        self.variables = Blackboard().variables
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -23,59 +27,43 @@ class NodeFactory:
             "min": 0,
             "max": 0xffffffffffffffff
         })
-        inputs["optional"]["variables"] = ("STRING", {"defaultInput": True})
         return inputs
 
-    RETURN_TYPES = ("STRING", "STRING",)
-    RETURN_NAMES = ("prompt", "variables",)
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("prompt",)
     FUNCTION = "build_prompt"
     PROJECT_NAME = get_project_name()
     CATEGORY = f"{PROJECT_NAME}/⭐️ My Nodes"
 
     def build_prompt(self, **args):
         """
-        Build the prompt according to the node inputs
-        Concatenate the tags and return the prompt
+        Build the prompt according to the node inputs the user selected.
+        Concatenate the tags and return the prompt.
         """
         rng = np.random.default_rng(args["seed"])
 
-        # Build inputs
-        tags = self.data.get("tags", {})
-        inputs_tags = apply_input_values(tags, args)
+        # Apply node's input values
+        tags_from_data = self.data.get("tags", {})
+        tags_from_inputs = apply_input_values(data=tags_from_data, inputs=args)
 
+        # Add variables to the blackboard
         variables = self.data.get("variables", {})
-        local_variables = apply_input_values(variables, args)
+        for key, value in variables.items():
+            self.variables.update({key: value})
 
-        # Select tags
+        # Select tags randomly and update the variables
         tags = {}
-        for key, value in inputs_tags.items():
-            tags[key] = select_tags(rng, value)
+        for key, value in tags_from_inputs.items():
+            tags[key] = choose_random_tags(rng, value)
+            apply_variables(rng, tags[key], self.variables)
+            self.variables.update({key: tags[key]})
 
-        # Replace tags with corresponding variables
-        global_variables = load_config("variables", with_filename=False)
-
-        local_variables = apply_variables(
-            rng, local_variables, global_variables)
-
-        optional_variables = args.get("variables", {})
-
-        if isinstance(optional_variables, str):
-            optional_variables = json.loads(optional_variables)
-
-        variables = {
-            **global_variables,
-            **local_variables,
-            **optional_variables
-        }
-
-        tags = apply_variables(rng, tags, variables)
-        variables = {**variables, **tags}
-
-        # Build and clean-up final prompt
+        # Apply variables to the tags
+        tags = apply_variables(rng, tags, self.variables)
         prompt = stringify_tags(tags.values(), ", ")
-        variables = {**variables, self.__class__.__name__.lower(): prompt}
+        self.variables.update({self.name: prompt})
 
-        return (prompt, variables,)
+        return (prompt,)
 
     @classmethod
     def create_node(cls, node_id, node_name=None):

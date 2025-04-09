@@ -1,6 +1,7 @@
 import numpy as np
 from ..utils.config import get_project_name, load_config
 from .node_factory._variables import apply_variables
+from ..components.blackboard import Blackboard
 
 
 class Composer:
@@ -20,9 +21,6 @@ class Composer:
                     "min": 0,
                     "max": 0xffffffffffffffff
                 }),
-            },
-            "optional": {
-                "variables": ("STRING", {"defaultInput": True})
             },
         }
 
@@ -45,7 +43,9 @@ class Composer:
         if not variables:
             variables = load_config("variables", with_filename=False)
 
+        Blackboard().variables = variables
+
         prompt = args["prompt"]
         prompt = apply_variables(rng, prompt, variables)
 
-        return (prompt[0], variables, )
+        return (prompt[0],)

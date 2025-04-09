@@ -2,16 +2,17 @@ import dpath.util as dpath
 
 
 def build_inputs(self):
-    "Build node's inputs according to the data"
+    """
+    Build node's inputs according to the data
+    """
     inputs = {"required": {}, "optional": {}}
 
     if self.data.get("hide", False):
         return inputs
 
-    variables_inputs = process_inputs(self.data.get("variables", {}))
     tags_inputs = process_inputs(self.data.get("tags", {}))
 
-    inputs["required"] = {**variables_inputs, **tags_inputs}
+    inputs["required"] = tags_inputs
     return inputs
 
 
@@ -113,8 +114,7 @@ def format_subtags(key, value):
 
 def apply_input_values(data, inputs):
     """
-    Apply what has been selected in the node inputs
-    Can be "random", "none", or a selected value
+    Apply what has been selected in the node inputs, which can be "random", "none", or a selected value
     """
     applied_values = {}
 

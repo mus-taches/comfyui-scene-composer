@@ -1,52 +1,33 @@
-from ...utils.config import load_config
-from ._tags import select_tags
-
-
-def load_variables(rng, data):
-    "Load global and local variables from config files"
-
-    global_variables = load_config("variables", with_filename=False)
-
-    # Replace local variables with value from global variables
-    local_variables = process_variables(rng, data)
-    local_variables = apply_variables(rng, local_variables, global_variables)
-
-    # Merge global and local variables
-    variables = {**global_variables, **local_variables}
-    variables = process_variables(rng, variables)
-    return variables
-
-
-def process_variables(rng, variables):
-    "Process variable with list and dict"
-    for key, value in variables.items():
-        if isinstance(value, dict) and not value.get("fixed", True):
-            variables[key] = value.get("tags", [])
-            continue
-        variables[key] = select_tags(rng, value)
-    return variables
+from ._tags import choose_random_tags
 
 
 def apply_variables(rng, tags, variables):
-    "Replace tags with {variables} with corresponding variable"
+    """
+    Each time a {variable} placeholder is found in `tags`, it will be replaced with a value in `variables` which has the same key.
+    """
 
-    def replace_variables(text, variables):
-        for var_key, var_value in variables.items():
+    def replace_placeholders(text, variables):
 
-            if isinstance(text, dict):
-                text = select_tags(rng, text)
+        if isinstance(text, dict):
+            text = choose_random_tags(rng, text)
 
-            count = text.count("{" + var_key + "}")
-            for _ in range(count):
-                var_value = select_tags(rng, variables[var_key])
-                text = text.replace("{" + var_key + "}", f"{var_value}", 1)
+        for key, value in variables.items():
+            placeholder = f"{{{key}}}"
+            while placeholder in text:
+                replacement = choose_random_tags(rng, value)
+                text = text.replace(placeholder, str(replacement), 1)
+
         return text
 
     if isinstance(tags, str):
-        return [replace_variables(tags, variables)]
+        return [replace_placeholders(tags, variables)]
 
     replaced_tags = {}
     for key, value in tags.items():
-        replaced_tags[key] = replace_variables(value, variables)
+
+        # Loop until all placeholder are replaced
+        while any("{" + placeholder + "}" in value for placeholder in variables.keys()):
+            value = replace_placeholders(value, variables)
+        replaced_tags[key] = value
 
     return replaced_tags

@@ -2,7 +2,7 @@ import numpy as np
 from ...utils.config import RESERVED_KEYS
 
 
-def select_tags(rng, data, p=None):
+def choose_random_tags(rng, data, p=None):
     """
     Select tags randomly
     String: simply return the tags
@@ -32,11 +32,11 @@ def select_tags(rng, data, p=None):
 
     if isinstance(tags, dict):
         if tags.get("tags"):
-            tags = select_tags(rng, tags)
+            tags = choose_random_tags(rng, tags)
         else:
             subtags = []
             for subtag in tags.values():
-                subtags.append(select_tags(rng, subtag))
+                subtags.append(choose_random_tags(rng, subtag))
             tags = subtags
 
     # Number of tags to select
@@ -83,7 +83,7 @@ def select_tags(rng, data, p=None):
     else:
         for key, value in data.items():
             if key not in RESERVED_KEYS:
-                selected_tags.append(select_tags(rng, value))
+                selected_tags.append(choose_random_tags(rng, value))
 
     # Add prefix and suffix
     selected_tags = [

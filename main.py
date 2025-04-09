@@ -1,4 +1,5 @@
 import argparse
+
 from py.nodes.node_factory import NodeFactory
 from py.utils.config import load_config
 
@@ -85,5 +86,10 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
-    main(seed=args.seed, verbose=args.verbose,
-         with_inputs=args.inputs, with_rules=args.rules)
+
+    main(
+        seed=args.seed,
+        verbose=args.verbose,
+        with_inputs=args.inputs,
+        with_rules=args.rules
+    )

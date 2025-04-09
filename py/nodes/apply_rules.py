@@ -3,7 +3,7 @@ import dpath
 import numpy as np
 
 from ..utils.config import get_project_name, load_config
-from .node_factory._tags import select_tags, stringify_tags
+from .node_factory._tags import choose_random_tags, stringify_tags
 
 
 class ApplyRules:
@@ -107,7 +107,7 @@ def run_actions(rng, actions, tags, config):
         match type:
 
             case "add":
-                value = select_tags(rng, filtering_tags)
+                value = choose_random_tags(rng, filtering_tags)
                 process_tags.append(value)
 
             case "remove":
