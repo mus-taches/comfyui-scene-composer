@@ -1,4 +1,5 @@
 from ._tags import choose_random_tags
+from ...components.blackboard import Blackboard
 
 
 def apply_variables(rng, tags, variables):
@@ -19,15 +20,30 @@ def apply_variables(rng, tags, variables):
 
         return text
 
-    if isinstance(tags, str):
-        return [replace_placeholders(tags, variables)]
+    def process_placeholders(item):
+        while any("{" + placeholder + "}" in item for placeholder in variables.keys()):
+            item = replace_placeholders(item, variables)
+        return item
 
     replaced_tags = {}
-    for key, value in tags.items():
 
-        # Loop until all placeholder are replaced
-        while any("{" + placeholder + "}" in value for placeholder in variables.keys()):
-            value = replace_placeholders(value, variables)
-        replaced_tags[key] = value
+    if isinstance(tags, str):
+        return [process_placeholders(tags)]
+
+    for key, value in tags.items():
+        replaced_tags[key] = process_placeholders(value)
 
     return replaced_tags
+
+
+def spread_variables(text):
+    variables = Blackboard().variables
+    text_has_changed = False
+
+    if text.startswith("{") and text.endswith("}"):
+        placeholder = text[1:-1]
+        if placeholder in variables:
+            text_has_changed = True
+            text = variables[placeholder]
+
+    return text_has_changed, text

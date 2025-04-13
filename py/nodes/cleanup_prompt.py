@@ -1,7 +1,7 @@
 import numpy as np
 import fnmatch
 
-from py.utils.config import get_project_name
+from ..utils.config import get_project_name
 from .node_factory._tags import stringify_tags
 
 

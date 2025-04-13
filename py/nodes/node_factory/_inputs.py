@@ -1,4 +1,5 @@
 import dpath.util as dpath
+from ._variables import spread_variables
 
 
 def build_inputs(self):
@@ -6,21 +7,43 @@ def build_inputs(self):
     Build node's inputs according to the data
     """
     inputs = {"required": {}, "optional": {}}
+    show_variables = self.data.get("settings", {}).get("show_variables", False)
 
-    if self.data.get("hide", False):
-        return inputs
+    variables = self.data.get("variables", {})
+    variables_inputs = process_inputs(variables.items(), show_variables)
 
-    tags_inputs = process_inputs(self.data.get("tags", {}))
+    tags = dpath.search(self.data.get("tags", {}), '*', yielded=True)
+    tags_inputs = process_inputs(tags)
 
-    inputs["required"] = tags_inputs
+    inputs["required"] = {**variables_inputs, **dict(tags_inputs)}
+
+    output = self.data.get("output", True)
+    if isinstance(output, str):
+        output = {"output": format_value("output", output)}
+        inputs["required"].update(output)
+
     return inputs
 
 
-def process_inputs(data):
+def process_inputs(data, show_inputs=True):
+    """
+    Process the inputs to display or hide them in the node.
+    Add a "?" to the key to indicate that the input is a boolean.
+    """
+
     inputs = {}
-    for key, value in dpath.search(data, '*', yielded=True):
+
+    for key, value in data:
+        show_input = show_inputs
+
+        if isinstance(value, dict):
+            show_input = value.get("show", show_input)
+
+        if show_input is False:
+            continue
 
         inputs[key] = format_value(key, value)
+
         if inputs[key] is None:
             inputs.pop(key)
             continue
@@ -58,6 +81,10 @@ def format_value(key, value):
                 "multiline": True
             })
 
+            text_has_changed, value = spread_variables(value)
+            if text_has_changed:
+                input = format_value(key, value)
+
         case list():
             items_are_strings = all(isinstance(item, str) for item in value)
             if items_are_strings:
@@ -70,7 +97,7 @@ def format_value(key, value):
         case dict():
 
             conditions = [
-                value.get("hide", False),
+                value.get("show", True) is False,
                 "tags" not in value
             ]
 

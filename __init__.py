@@ -1,7 +1,6 @@
 from .py.utils.config import load_config
 from .py.nodes.node_factory import NodeFactory
 from .py.nodes.merge_strings import MergeStrings
-from .py.nodes.composer import Composer
 from .py.nodes.cleanup_prompt import CleanupPrompt
 from .py.nodes.apply_rules import ApplyRules
 
@@ -26,7 +25,6 @@ for key, value in config.items():
 
 # Add additional nodes
 register_node("MergeStrings", "🪡 Merge Strings", MergeStrings)
-register_node("Composer", "🖋️ Composer", Composer)
 register_node("CleanupPrompt", "🧹 CleanUp Prompt", CleanupPrompt)
 register_node("ApplyRules", "📋 Apply Rules", ApplyRules)
 

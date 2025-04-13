@@ -41,18 +41,35 @@ class NodeFactory:
         Concatenate the tags and return the prompt.
         """
         rng = np.random.default_rng(args["seed"])
+        settings = self.data.get("settings", {})
 
         # Apply node's input values
         tags_from_data = self.data.get("tags", {})
         tags_from_inputs = apply_input_values(data=tags_from_data, inputs=args)
 
-        # Add variables to the blackboard
+        # Process variables
         variables = self.data.get("variables", {})
+        share_variables = settings.get("share_variables", True)
+        output_variables = settings.get("output_variables", False)
+        tags = {}
+
         for key, value in variables.items():
-            self.variables.update({key: value})
+
+            # Add variable to the blackboard
+            share_variable = share_variables
+            if isinstance(value, dict):
+                share_variable = value.get("share", share_variables)
+            if share_variable:
+                self.variables.update({key: value})
+
+            # Add variable to the prompt
+            output_variable = output_variables
+            if isinstance(value, dict):
+                output_variable = value.get("output", output_variables)
+            if output_variable:
+                tags[key] = choose_random_tags(rng, value)
 
         # Select tags randomly and update the variables
-        tags = {}
         for key, value in tags_from_inputs.items():
             tags[key] = choose_random_tags(rng, value)
             apply_variables(rng, tags[key], self.variables)
@@ -61,9 +78,21 @@ class NodeFactory:
         # Apply variables to the tags
         tags = apply_variables(rng, tags, self.variables)
         prompt = stringify_tags(tags.values(), ", ")
-        self.variables.update({self.name: prompt})
 
-        return (prompt,)
+        # Handle output
+        output = self.data.get("output", True)
+
+        match output:
+            case True:
+                output = prompt
+            case False:
+                output = ""
+            case str():
+                output = apply_variables(rng, output, self.variables)
+                output = stringify_tags(output, ", ")
+
+        self.variables.update({self.name: output})
+        return (output,)
 
     @classmethod
     def create_node(cls, node_id, node_name=None):

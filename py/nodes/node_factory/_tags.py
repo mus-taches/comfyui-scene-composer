@@ -104,6 +104,8 @@ def stringify_tags(tags, separator=""):
     """
     if isinstance(tags, np.ndarray):
         tags = tags.tolist()
+    if isinstance(tags, str):
+        tags = [tags]
     tags = separator.join(map(str, tags))
 
     # Remove extra comma and spaces

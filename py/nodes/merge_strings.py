@@ -1,4 +1,4 @@
-from py.utils.config import get_project_name
+from ..utils.config import get_project_name
 
 
 class MergeStrings:
