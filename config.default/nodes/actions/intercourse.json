@@ -1,14 +1,10 @@
 {
   "name": "🌶️ Intercourse",
-  "variables": {
-    "cum_amount": ["cum", "excessive cum"],
+  "tags": {
     "penetration_type": {
-      "hide": false,
       "distribution": [0.75, 0.25],
       "tags": ["vaginal", "anal"]
-    }
-  },
-  "tags": {
+    },
     "position": [
       "doggystyle",
       "top-down bottom-up",

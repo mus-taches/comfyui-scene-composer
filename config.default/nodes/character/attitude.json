@@ -1,0 +1,46 @@
+{
+  "name": "💭 Attitude",
+  "tags": {
+    "attitude": {
+      "distribution": [0.3, 0.3, 0.2],
+      "group_labels": true,
+      "tags": {
+        "happy": {
+          "number": [1, 2],
+          "tags": ["happy", "smiling", "determined"]
+        },
+        "smirk": {
+          "number": [1, 4],
+          "tags": [
+            "smirk",
+            "smiling",
+            "evil eyes",
+            "evil smile",
+            "seductive smile",
+            "naughty face",
+            "determined"
+          ]
+        },
+        "emotionless": {
+          "number": [1, 3],
+          "tags": ["emotionless", "bored", "tired", "neutral", "serious"]
+        },
+        "upset": {
+          "number": [1, 2],
+          "tags": [
+            "upset",
+            "annoyed",
+            "frustrated",
+            "angry",
+            "disgusted",
+            "serious"
+          ]
+        },
+        "confused": {
+          "number": [1, 2],
+          "tags": ["confused", "pensive", "thinking", "wince", "surprised"]
+        }
+      }
+    }
+  }
+}
