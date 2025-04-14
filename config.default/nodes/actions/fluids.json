@@ -1,6 +1,40 @@
 {
   "name": "💦 Fluids",
   "tags": {
-    "cum_amount": ["cum", "excessive cum"]
+    "cum": ["cum", "excessive cum"],
+    "after_cum": {
+      "show": false,
+      "tags": ["cum bubble", "cum string"]
+    },
+    "sweat": {
+      "number": [1, 3],
+      "tags": ["sweat", "sweating profusely", "sweatdrop"]
+    },
+    "pussy_juice": {
+      "number": [1, 3],
+      "distribution": [0.7, 0.3],
+      "tags": [
+        "pussy juice",
+        "excessive pussy juice",
+        "pussy juice trail",
+        "pussy juice puddle"
+      ]
+    },
+    "saliva": {
+      "number": [1, 3],
+      "distribution": [0.7, 0.3],
+      "tags": [
+        "saliva",
+        "excessive saliva",
+        "saliva trail",
+        "drooling",
+        "saliva drip"
+      ]
+    },
+    "precum": {
+      "prefix": "precum, ",
+      "number": [1, 2],
+      "tags": ["precum trail", "precum drip", "precum bubble"]
+    }
   }
 }

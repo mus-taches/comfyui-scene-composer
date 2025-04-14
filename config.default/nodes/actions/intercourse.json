@@ -16,29 +16,21 @@
     "penetration": {
       "group_labels": true,
       "tags": {
-        "imminent": "imminent {penetration_type}",
-        "deep": "deep penetration, {penetration_type} penetration",
+        "imminent": "imminent {penetration_type}, {penis}, penis head",
+        "deep": "deep penetration, {penetration_type} penetration, {penis}",
         "climax": {
           "tags": {
-            "penetration": "deep penetration, {penetration_type} penetration, orgasm, climax",
+            "penetration": "deep penetration, {penetration_type} penetration, {penis}, {pussy}, {pussy juice}, orgasm, climax",
             "cum": {
-              "prefix": "{cum_amount}, internal cumshot, ",
-              "number": [0, 1],
-              "tags": ["x-ray", "x-ray vision"]
+              "prefix": "{cum},",
+              "number": [0, 2],
+              "tags": ["internal cumshot", "x-ray", "x-ray vision"]
             }
           }
         },
         "after": {
-          "prefix": "after {penetration_type}",
-          "number": [1, 6],
-          "tags": [
-            "projectile cum",
-            "facial",
-            "cum on body",
-            "cum on breasts",
-            "cum on hair",
-            "cum on ass"
-          ]
+          "prefix": "after {penetration_type},{penis},penis head,{cum},{after_cum},",
+          "tags": ["cum on leg"]
         }
       }
     }

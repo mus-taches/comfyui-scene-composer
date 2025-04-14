@@ -1,6 +1,14 @@
 {
   "name": "🍑 Sexual Attributes",
   "tags": {
+    "male_type": {
+      "group_labels": true,
+      "tags": {
+        "standard": "",
+        "giant": "giant male, thick arms",
+        "fat": "fat male"
+      }
+    },
     "penis_size": {
       "probability": 0.4,
       "distribution": [0.1, 0.6, 0.2, 0.1],
@@ -8,9 +16,9 @@
     },
     "disembodied": {
       "probability": 0.2,
-      "tags": { "disembodied": "disembodied penis" }
+      "tags": { "disembodied penis": "disembodied penis" }
     },
-    "pubic hair": {
+    "pussy_hair": {
       "probability": 0.2,
       "tags": [
         "pubic hair",
@@ -19,6 +27,14 @@
         "excessive pubic hair",
         "heart-shaped pubic hair"
       ]
+    },
+    "penis": {
+      "show": false,
+      "tags": "{penis_size} penis"
+    },
+    "pussy": {
+      "show": false,
+      "tags": "pussy, {pussy_hair}"
     }
   }
 }

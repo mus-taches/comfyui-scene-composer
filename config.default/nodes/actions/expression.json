@@ -8,7 +8,8 @@
         "half-closed eyes",
         "one eye half-closed",
         "one eye closed",
-        "closed eyes"
+        "closed eyes",
+        "wide open eyes"
       ]
     },
     "gaze": {
@@ -31,7 +32,14 @@
     },
     "symbols": {
       "probability": 0.3,
-      "tags": ["^^^", "notice lines", "shout lines", "puff of air"]
+      "tags": [
+        "^^^",
+        "notice lines",
+        "shout lines",
+        "puff of air",
+        "spoken_musical_note",
+        "spoken heart"
+      ]
     }
   }
 }

@@ -51,25 +51,21 @@ class NodeFactory:
 
         # Process variables
         global_variables = Blackboard().variables.copy()
-
         received_variables = args.get("variables", {})
 
         if isinstance(received_variables, str):
             if received_variables == "":
                 received_variables = {}
             else:
-                print("RECEIVED JSON:", received_variables)
                 received_variables = json.loads(received_variables)
 
         local_variables = self.data.get("variables", {})
 
-        print(f"Global variables: {global_variables}")
-        print(
-            f"Received variables: {received_variables}, type: {type(received_variables)}")
-        print(f"Local variables: {local_variables}")
-
-        self.variables = {**global_variables, **
-                          received_variables, **local_variables}
+        self.variables = {
+            **global_variables,
+            **received_variables,
+            **local_variables
+        }
 
         share_variables = settings.get("share_variables", True)
         output_variables = settings.get("output_variables", False)
@@ -77,14 +73,14 @@ class NodeFactory:
 
         for key, value in self.variables.items():
 
-            # Add variable to the blackboard
+            # Share this variable with next nodes
             share_variable = share_variables
             if isinstance(value, dict):
                 share_variable = value.get("share", share_variables)
             if share_variable:
                 self.variables.update({key: value})
 
-            # Add variable to the prompt
+            # Add this variable to the prompt
             output_variable = output_variables
             if isinstance(value, dict):
                 output_variable = value.get("output", output_variables)

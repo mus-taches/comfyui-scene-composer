@@ -1,23 +1,5 @@
 {
   "name": "👥 Protagonists",
-  "variables": {
-    "male_type": {
-      "group_labels": true,
-      "tags": {
-        "standard": "",
-        "giant": "giant male, thick arms",
-        "fat": "fat male"
-      }
-    },
-    "penis": {
-      "group_labels": true,
-      "tags": {
-        "normal": "penis",
-        "large": "large penis",
-        "huge": "huge penis"
-      }
-    }
-  },
   "tags": {
     "partner": {
       "group_labels": true,
