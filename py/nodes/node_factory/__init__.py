@@ -1,4 +1,5 @@
 import numpy as np
+import json
 
 from ...components.blackboard import Blackboard
 
@@ -16,7 +17,7 @@ class NodeFactory:
     def __init__(self):
         self.name = self.__class__.__name__.lower()
         self.data = Blackboard().config[self.name]
-        self.variables = Blackboard().variables
+        self.variables = {}
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -27,10 +28,11 @@ class NodeFactory:
             "min": 0,
             "max": 0xffffffffffffffff
         })
+        inputs["optional"]["variables"] = ("STRING", {"defaultInput": True})
         return inputs
 
-    RETURN_TYPES = ("STRING",)
-    RETURN_NAMES = ("prompt",)
+    RETURN_TYPES = ("STRING", "STRING",)
+    RETURN_NAMES = ("prompt", "variables",)
     FUNCTION = "build_prompt"
     PROJECT_NAME = get_project_name()
     CATEGORY = f"{PROJECT_NAME}/⭐️ My Nodes"
@@ -48,12 +50,32 @@ class NodeFactory:
         tags_from_inputs = apply_input_values(data=tags_from_data, inputs=args)
 
         # Process variables
-        variables = self.data.get("variables", {})
+        global_variables = Blackboard().variables.copy()
+
+        received_variables = args.get("variables", {})
+
+        if isinstance(received_variables, str):
+            if received_variables == "":
+                received_variables = {}
+            else:
+                print("RECEIVED JSON:", received_variables)
+                received_variables = json.loads(received_variables)
+
+        local_variables = self.data.get("variables", {})
+
+        print(f"Global variables: {global_variables}")
+        print(
+            f"Received variables: {received_variables}, type: {type(received_variables)}")
+        print(f"Local variables: {local_variables}")
+
+        self.variables = {**global_variables, **
+                          received_variables, **local_variables}
+
         share_variables = settings.get("share_variables", True)
         output_variables = settings.get("output_variables", False)
         tags = {}
 
-        for key, value in variables.items():
+        for key, value in self.variables.items():
 
             # Add variable to the blackboard
             share_variable = share_variables
@@ -92,7 +114,7 @@ class NodeFactory:
                 output = stringify_tags(output, ", ")
 
         self.variables.update({self.name: output})
-        return (output,)
+        return (output, self.variables,)
 
     @classmethod
     def create_node(cls, node_id, node_name=None):
