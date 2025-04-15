@@ -11,7 +11,7 @@
     "skin_color": {
       "probability": 0.2,
       "distribution": [0.8, 0.2],
-      "tags": ["{standard_skin}", "{special_skin}"]
+      "tags": ["{standard_skin_color}", "{special_skin_color}"]
     },
     "body_type": {
       "probability": 0.7,
