@@ -29,6 +29,7 @@
           }
         },
         "after": {
+          "number": 5,
           "tags": {
             "after_action": "after {penetration_type},",
             "after_penis": "{penis},penis head,",
