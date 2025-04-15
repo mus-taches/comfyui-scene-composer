@@ -1,17 +1,22 @@
 {
   "name": "🧍‍♀️ Body",
-  "tags": {
-    "body_type": {
-      "probability": 0.7,
-      "distribution": [0.2, 0.2, 0.1, 0.1, 0.1],
-      "tags": ["petite", "slim", "fit", "skinny", "muscular", "plump", "chubby"]
-    },
+  "settings": {
+    "show_variables": true
+  },
+  "variables": {
     "standard_skin_color": ["dark skin", "tan skin, tanlines"],
-    "special_skin_color": "{color}",
+    "special_skin_color": "{color}"
+  },
+  "tags": {
     "skin_color": {
       "probability": 0.2,
       "distribution": [0.8, 0.2],
       "tags": ["{standard_skin}", "{special_skin}"]
+    },
+    "body_type": {
+      "probability": 0.7,
+      "distribution": [0.2, 0.2, 0.1, 0.1, 0.1],
+      "tags": ["petite", "slim", "fit", "skinny", "muscular", "plump", "chubby"]
     },
     "breasts": {
       "distribution": [0.2, 0.25, 0.25, 0.25, 0.05],
