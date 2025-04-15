@@ -2,20 +2,7 @@
   "name": "👁️ Eyes",
   "tags": {
     "eye-color": {
-      "distribution": [0.2, 0.2, 0.2, 0.1, 0.1, 0.1],
-      "tags": [
-        "black",
-        "blue",
-        "brown",
-        "aqua",
-        "gray",
-        "green",
-        "pink",
-        "purple",
-        "red",
-        "white",
-        "yellow"
-      ],
+      "tags": "{color}",
       "suffix": " eyes"
     },
     "eyewear": {

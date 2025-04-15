@@ -10,7 +10,15 @@
     "action": {
       "group_labels": true,
       "tags": {
-        "fingering": "fingering, pussy, {pussy_juice}",
+        "fingering": {
+          "tags": {
+            "fingering_action": {
+              "number": [0, 3],
+              "tags": ["fingering", "anal fingering", "fingering from behind"]
+            },
+            "fingering_extra": "{pussy}, {pussy_juice}"
+          }
+        },
         "fellatio": "fellatio, {penis_saliva}",
         "deepthroat": "deepthroat, {penis_saliva}",
         "licking penis": "licking penis, tongue out, {penis_saliva}",

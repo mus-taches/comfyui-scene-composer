@@ -6,12 +6,12 @@
       "group_labels": true,
       "tags": {
         "drawing": {
-          "number": [1, 3],
-          "tags": ["drawing", "lineart", "sketch"]
+          "number": [1, 4],
+          "tags": ["drawing", "lineart", "thick outlines", "sketch"]
         },
         "realistic": {
-          "number": [1, 3],
-          "tags": ["realistic", "photorealistic", "3D"]
+          "number": [1, 2],
+          "tags": ["realistic", "photorealistic"]
         }
       }
     },

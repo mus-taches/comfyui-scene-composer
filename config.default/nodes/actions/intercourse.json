@@ -29,8 +29,23 @@
           }
         },
         "after": {
-          "prefix": "after {penetration_type},{penis},penis head,{cum},{after_cum},",
-          "tags": ["cum on leg"]
+          "tags": {
+            "after_action": "after {penetration_type},",
+            "after_penis": "{penis},penis head,",
+            "after_penis_state": ["flaccid", "erection", "twitching penis"],
+            "after_cum": {
+              "prefix": "{cum},{after_cum}",
+              "number": [0, 3],
+              "tags": [
+                "cum on leg",
+                "cum on body",
+                "cum on breast",
+                "cum on penis",
+                "cum on stomach"
+              ]
+            },
+            "after_body_state": ["twitching", "shaking"]
+          }
         }
       }
     }

@@ -34,10 +34,6 @@
             "drink": "drinking",
             "hold": ["beer mug", "sake bottle", "coffee mug", "soda can"]
           }
-        },
-        "eating": {
-          "number": [1, 2],
-          "tags": ["eating", "holding food", "food in mouth", "food on face"]
         }
       }
     }

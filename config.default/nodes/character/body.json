@@ -3,11 +3,15 @@
   "tags": {
     "body_type": {
       "probability": 0.7,
-      "tags": ["petite", "slim", "fit", "muscular", "plump", "chubby"]
+      "distribution": [0.2, 0.2, 0.1, 0.1, 0.1],
+      "tags": ["petite", "slim", "fit", "skinny", "muscular", "plump", "chubby"]
     },
-    "skin": {
+    "standard_skin_color": ["dark skin", "tan skin, tanlines"],
+    "special_skin_color": "{color}",
+    "skin_color": {
       "probability": 0.2,
-      "tags": ["dark skin", "tan"]
+      "distribution": [0.8, 0.2],
+      "tags": ["{standard_skin}", "{special_skin}"]
     },
     "breasts": {
       "distribution": [0.2, 0.25, 0.25, 0.25, 0.05],
