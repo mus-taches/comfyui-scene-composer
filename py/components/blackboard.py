@@ -22,3 +22,4 @@ class Blackboard(metaclass=Singleton):
     def __init__(self):
         self.variables = load_config("variables", with_filename=False)
         self.config = load_config("nodes")
+        self.rules = load_config("rules")

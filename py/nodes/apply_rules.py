@@ -2,8 +2,9 @@ import fnmatch
 import dpath
 import numpy as np
 
-from ..utils.config import get_project_name, load_config
+from ..utils.config import get_project_name
 from .node_factory._tags import choose_random_tags, stringify_tags
+from ..components.blackboard import Blackboard
 
 
 class ApplyRules:
@@ -19,8 +20,8 @@ class ApplyRules:
     CATEGORY = f"{PROJECT_NAME}/🛠️ Utils"
 
     def __init__(self):
-        self.config = load_config()
-        self.rules = load_config("rules")
+        self.config = Blackboard().config.copy()
+        self.rules = Blackboard().rules.copy()
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -47,26 +48,20 @@ class ApplyRules:
         according to others tags in the same prompt
         """
         rng = np.random.default_rng(seed)
+
+        # Put prompt in a tag list
         tags = [tag.strip() for tag in prompt.replace(
             "\n", ", ").split(", ") if tag.strip()]
-        rules = {key: value.copy() for key, value in self.rules.items()}
 
-        # Merge all the rule together
+        # Merge rule config files
         if ruleset == "all":
-            merged_rules = {}
-            for r_name, r_list in rules.items():
-                for rule in r_list:
-                    for key, value in rule.items():
-                        if key not in merged_rules:
-                            merged_rules[key] = []
-                        if isinstance(value, list):
-                            merged_rules[key].extend(value)
-                        else:
-                            merged_rules[key].append(value)
-            rules["all"] = [merged_rules]
+            rules = [rule for rule_set in self.rules.values()
+                     for rule in rule_set]
+        else:
+            rules = self.rules.get(ruleset, [])
 
         # Apply the rules
-        for rule in rules[ruleset]:
+        for rule in rules:
             triggers = rule["triggers"]
             actions = rule["actions"]
             p = rule.get("probability", 1)
@@ -111,13 +106,24 @@ def run_actions(rng, actions, tags, config):
                 process_tags.append(value)
 
             case "remove":
-
                 # filter: remove tags that match any "remove" value
-                process_tags = [tag for tag in process_tags
-                                if not any(
-                                    fnmatch.fnmatch(tag, f"*{v}*")
-                                    for v in filtering_tags
-                                )]
+                process_tags = [
+                    tag for tag in process_tags
+                    if not any(fnmatch.fnmatch(tag, v)
+                               for v in filtering_tags)]
+
+            # WIP
+            case "replace":
+                filter = process_action_value(
+                    action.get("filter", []), config)
+                value_in = action.get("value_in", "")
+                value_out = action.get("value_out", "")
+
+                process_tags = [
+                    tag.replace(value_in, value_out) if any(
+                        fnmatch.fnmatch(tag, v) for v in filter) else tag
+                    for tag in process_tags
+                ]
 
     return process_tags
 
@@ -149,5 +155,5 @@ def process_action_value(value, config):
 
 def is_path(string):
     "Check if the value is a glob path"
-    is_path = isinstance(string, str) and ("/" in string or "*" in string)
+    is_path = isinstance(string, str) and ("/" in string)
     return is_path
