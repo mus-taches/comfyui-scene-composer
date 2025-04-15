@@ -1,10 +1,15 @@
 {
   "name": "👕 Clothes",
-  "tags": {
+  "settings": {
+    "show_variables": true
+  },
+  "variables": {
     "color_clothes_1": "{color}",
     "color_clothes_2": "{color}",
     "top_casual_clothes": ["t-shirt", "shirt", "jacket", "hoodie", "sweater"],
-    "bottom_casual_clothes": ["jeans", "shorts", "skirt", "leggings"],
+    "bottom_casual_clothes": ["jeans", "shorts", "skirt", "leggings"]
+  },
+  "tags": {
     "type": {
       "group_labels": true,
       "tags": {
