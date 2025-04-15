@@ -6,14 +6,38 @@
   "variables": {
     "color_clothes_1": "{color}",
     "color_clothes_2": "{color}",
-    "top_casual_clothes": ["t-shirt", "shirt", "jacket", "hoodie", "sweater"],
-    "bottom_casual_clothes": ["jeans", "shorts", "skirt", "leggings"]
+    "length_clothes": ["short", "medium", "long"],
+    "top_casual_clothes": [
+      "t-shirt",
+      "shirt",
+      "dress shirt",
+      "blouse",
+      "tank top",
+      "jacket",
+      "hoodie",
+      "sweater"
+    ],
+    "bottom_casual_clothes": [
+      "jeans",
+      "shorts",
+      "{length_clothes} skirt",
+      "leggings"
+    ]
   },
   "tags": {
     "type": {
       "group_labels": true,
       "tags": {
-        "casual": "{top},{bottom}",
+        "casual": "{top_casual_clothes},{bottom_casual_clothes}",
+        "dress": {
+          "prefix": "{color_clothes_1} dress, {length_clothes} dress",
+          "tags": [
+            "dress",
+            "sleeveless dress",
+            "off-shoulder dress",
+            "pleated dress"
+          ]
+        },
         "swimwear": {
           "tags": ["bikini", "one-piece swimsuit"],
           "suffix": ",{color_clothes_1} swimsuit"
