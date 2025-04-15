@@ -27,6 +27,12 @@
         "large breasts",
         "huge breasts"
       ]
+    },
+    "freckles": {
+      "probability": 0.2,
+      "tags": {
+        "freckles": { "tags": ["freckles", "body freckles"] }
+      }
     }
   }
 }
