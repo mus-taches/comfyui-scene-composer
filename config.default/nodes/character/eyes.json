@@ -8,7 +8,7 @@
     "eyewear": {
       "probability": 0.2,
       "number": [1, 2],
-      "suffix": ", {color} eyewear",
+      "prefix": ", {color} eyewear",
       "tags": {
         "eyewear-style": ["glasses", "sunglasses", "tinted glasses"],
         "eyewear-shape": ["rectangular eyewear", "round eyewear"]
@@ -24,7 +24,7 @@
     },
     "eye_effect": {
       "probability": 0.2,
-      "tags": { "tags": ["glowing eyes", "no pupils"] }
+      "tags": ["glowing eyes", "no pupils"]
     }
   }
 }

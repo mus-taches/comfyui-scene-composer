@@ -9,9 +9,10 @@
   },
   "tags": {
     "skin_color": {
-      "probability": 0.2,
-      "distribution": [0.8, 0.2],
-      "tags": ["{standard_skin_color}", "{special_skin_color}"]
+      "probability": 0.3,
+      "distribution": [0.95, 0.05],
+      "tags": ["{standard_skin_color}", "{special_skin_color}"],
+      "suffix": " skin"
     },
     "body_type": {
       "probability": 0.7,
