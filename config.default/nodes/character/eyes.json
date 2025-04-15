@@ -1,7 +1,7 @@
 {
   "name": "👁️ Eyes",
   "tags": {
-    "eye-color": {
+    "eye_color": {
       "tags": "{color}",
       "suffix": " eyes"
     },
@@ -21,6 +21,10 @@
         "eyeshadow": "{makeup-color} eyeshadow",
         "mascara": "{makeup-color} mascara"
       }
+    },
+    "eye_effect": {
+      "probability": 0.2,
+      "tags": { "tags": ["glowing eyes", "no pupils"] }
     }
   }
 }
