@@ -29,7 +29,7 @@ def get_project_name():
     if not os.path.exists(pyproject_path):
         return "⚙️ Prompt Factory"
 
-    with open(pyproject_path, 'r') as pyproject_file:
+    with open(pyproject_path, 'r', encoding='utf-8') as pyproject_file:
         pyproject_data = toml.load(pyproject_file)
         project_name = pyproject_data.get("tool", {}).get(
             "comfy", {}).get("DisplayName", "Project")
@@ -44,7 +44,7 @@ def load_config(config_path="nodes", with_filename=True):
 
     config = {}
     for path in config_files:
-        with open(path, 'r') as config_file:
+        with open(path, 'r', encoding='utf-8') as config_file:
             config_data = json.load(config_file)
 
             if with_filename:
