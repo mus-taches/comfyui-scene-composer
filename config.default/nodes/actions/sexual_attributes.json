@@ -18,8 +18,8 @@
       "probability": 0.2,
       "tags": { "disembodied penis": "disembodied penis" }
     },
-    "nipples_color": ["nipples", "dark nipples"],
-    "nipples_style": {
+    "nipple_color": ["nipples", "dark nipples"],
+    "nipple_style": {
       "probability": 0.4,
       "tags": [
         "puffy nipples",
@@ -29,12 +29,12 @@
         "small nipples"
       ]
     },
-    "nipples_piercing": {
+    "nipple_piercing": {
       "probability": 0.2,
       "prefix": "nipple piercing,",
       "tags": ["nipple bar", "nipple chain", "nipple rings"]
     },
-    "nipples_covered": ["bandaids on nipples"],
+    "nipple_covered": ["bandaids on nipples"],
     "pussy_hair": {
       "probability": 0.2,
       "tags": [
@@ -56,8 +56,8 @@
     "nipples": {
       "show": false,
       "tags": [
-        "{nipples_color},{nipples_style},{nipples_piercing}",
-        "{nipples_covered}"
+        "{nipple_color},{nipple_style},{nipple_piercing}",
+        "{nipple_covered}"
       ]
     }
   }
