@@ -30,11 +30,10 @@
       ]
     },
     "nipple_piercing": {
-      "probability": 0.2,
+      "probability": 0.1,
       "prefix": "nipple piercing,",
       "tags": ["nipple bar", "nipple chain", "nipple rings"]
     },
-    "nipple_covered": ["bandaids on nipples"],
     "pussy_hair": {
       "probability": 0.2,
       "tags": [
@@ -56,8 +55,7 @@
     "nipples": {
       "show": false,
       "tags": [
-        "{nipple_color},{nipple_style},{nipple_piercing}",
-        "{nipple_covered}"
+        "{nipple_color},{nipple_style},{nipple_piercing}"
       ]
     }
   }
