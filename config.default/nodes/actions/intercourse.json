@@ -1,10 +1,13 @@
 {
   "name": "🔥 Intercourse",
-  "tags": {
+  "variables": {
     "penetration_type": {
       "distribution": [0.75, 0.25],
-      "tags": ["vaginal", "anal"]
-    },
+      "tags": ["vaginal", "anal"],
+      "show": true
+    }
+  },
+  "tags": {
     "position": [
       "doggystyle",
       "top-down bottom-up",
@@ -20,7 +23,7 @@
         "deep": "deep penetration, {penetration_type} penetration, {penis}",
         "climax": {
           "tags": {
-            "penetration": "deep penetration, {penetration_type} penetration, {penis}, {pussy}, {pussy juice}, orgasm, climax",
+            "penetration": "deep penetration, {penetration_type} penetration, {penis}, {pussy}, {pussy_juice}, orgasm, climax",
             "cum": {
               "prefix": "{cum},",
               "number": [0, 2],

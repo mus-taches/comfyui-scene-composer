@@ -1,5 +1,11 @@
 {
   "name": "👁️ Eyes",
+  "variables": {
+    "makeup-color": {
+      "hide": true,
+      "tags": ["black", "blue", "aqua", "red", "green", "purple"]
+    }
+  },
   "tags": {
     "eye_color": {
       "tags": "{color}",
@@ -8,7 +14,7 @@
     "eyewear": {
       "probability": 0.2,
       "number": [1, 2],
-      "prefix": ", {color} eyewear",
+      "prefix": ", {color} eyewear, ",
       "tags": {
         "eyewear-style": ["glasses", "sunglasses", "tinted glasses"],
         "eyewear-shape": ["rectangular eyewear", "round eyewear"]

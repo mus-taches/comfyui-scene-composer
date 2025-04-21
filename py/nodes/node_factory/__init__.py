@@ -99,15 +99,16 @@ class NodeFactory:
 
         # Handle output
         output = self.data.get("output", True)
+        output = args.get("output", output)
 
         match output:
+            case str():
+                output = apply_variables(rng, output, self.variables)
+                output = stringify_tags(output, ", ")
             case True:
                 output = prompt
             case False:
                 output = ""
-            case str():
-                output = apply_variables(rng, output, self.variables)
-                output = stringify_tags(output, ", ")
 
         self.variables.update({self.name: output})
         return (output, self.variables,)

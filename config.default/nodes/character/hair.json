@@ -25,7 +25,7 @@
     },
     "hair-length": {
       "distribution": [0.3, 0.3, 0.3, 0.1],
-      "tags": ["short", "medium", "long", "very long hair", "big hair"],
+      "tags": ["short", "medium", "long", "very long", "big"],
       "suffix": " hair"
     },
     "hair-style": {
@@ -48,7 +48,7 @@
         "sidelocks",
         "spiked hair",
         "twintails",
-        "wavy"
+        "wavy hair"
       ]
     }
   }

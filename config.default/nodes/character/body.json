@@ -4,7 +4,7 @@
     "show_variables": true
   },
   "variables": {
-    "standard_skin_color": ["dark skin", "tan skin, tanlines"],
+    "standard_skin_color": ["tan skin, tanlines", "dark skin", "very dark skin", "pale skin"],
     "special_skin_color": "{color}"
   },
   "tags": {
@@ -17,7 +17,17 @@
     "body_type": {
       "probability": 0.7,
       "distribution": [0.2, 0.2, 0.1, 0.1, 0.1],
-      "tags": ["petite", "slim", "fit", "skinny", "muscular", "plump", "chubby"]
+      "tags": [
+        "petite",
+        "slim",
+        "fit",
+        "skinny",
+        "curvy",
+        "muscular",
+        "plump",
+        "chubby",
+        "fat"
+      ]
     },
     "breasts": {
       "distribution": [0.2, 0.25, 0.25, 0.25, 0.05],
@@ -28,6 +38,11 @@
         "large breasts",
         "huge breasts"
       ]
+    },
+    "bottom": {
+      "probability": 0.1,
+      "number": [1, 2],
+      "tags": ["thick thighs", "wide hips", "narrow waist"]
     },
     "freckles": {
       "probability": 0.2,

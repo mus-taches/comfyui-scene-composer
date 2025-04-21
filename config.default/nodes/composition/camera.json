@@ -2,7 +2,7 @@
   "name": "📷 Camera",
   "tags": {
     "multiple_views": {
-      "probability": 0.2,
+      "probability": 0.05,
       "tags": { "multiple_views": "multiple views, comic" }
     },
     "framings": {

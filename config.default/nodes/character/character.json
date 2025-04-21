@@ -1,10 +1,4 @@
 {
   "name": "👤 Character",
-  "variables": {
-    "makeup-color": {
-      "hide": true,
-      "tags": ["black", "blue", "aqua", "red", "green", "purple"]
-    }
-  },
   "output": "{body},{hair},{eyes},{attitude}"
 }

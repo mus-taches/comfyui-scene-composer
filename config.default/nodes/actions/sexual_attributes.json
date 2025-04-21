@@ -1,14 +1,6 @@
 {
   "name": "🍑 Sexual Attributes",
   "tags": {
-    "male_type": {
-      "group_labels": true,
-      "tags": {
-        "standard": "",
-        "giant": "giant male, thick arms",
-        "fat": "fat male"
-      }
-    },
     "penis_size": {
       "probability": 0.7,
       "distribution": [0.1, 0.6, 0.2, 0.1],
