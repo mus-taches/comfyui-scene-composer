@@ -15,26 +15,48 @@
         }
       }
     },
-    "colors": ["monochrome", "partially colored", "pastel colors"],
+    "color_palette": {
+      "probability": 0.2,
+      "tags": [
+        "monochrome",
+        "partially colored",
+        "pastel colors",
+        "dark colors",
+        "muted colors",
+        "pale colors",
+        "sepia",
+        "saturated colors"
+      ]
+    },
+    "color_theme": {
+      "probability": 0.2,
+      "tags": "{color}",
+      "suffix": " theme"
+    },
     "light": {
       "probability": 0.7,
       "tags": [
-        "dim light",
+        "dim lighting",
         "sidelighting",
         "backlighting",
         "underlighting",
-        "overexposure"
+        "overexposure",
+        "high contrast"
       ]
     },
     "light_effect": {
       "number": [1, 3],
       "probability": 0.4,
-      "tags": ["light particles", "lens flare", "blur", "drop shadow"]
+      "tags": ["light particles", "lens flare", "bloom", "drop shadow"]
     },
-    "depth": {
+    "depth of field": {
       "probability": 0.4,
-      "number": [1, 3],
-      "tags": ["depth of field", "bokeh", "blurry"]
+      "tags": {
+        "depth of field": {
+          "number": [1, 2],
+          "tags": ["depth of field", "bokeh", "blurry background", "bloom"]
+        }
+      }
     }
   }
 }

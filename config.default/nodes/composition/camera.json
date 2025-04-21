@@ -12,13 +12,13 @@
     },
     "angles": {
       "probability": 0.3,
-      "distribution": [0.4, 0.1, 0.1, 0.1, 0.1],
+      "distribution": [0.4, 0.3],
       "tags": [
         "straight on",
+        "three quarter view",
         "from above",
         "from below",
         "from side",
-        "three quarter view",
         "from behind",
         "upside-down"
       ]
