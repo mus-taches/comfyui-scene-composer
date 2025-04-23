@@ -38,7 +38,7 @@
             "after_penis": "{penis},penis head,",
             "after_penis_state": ["flaccid", "erection", "twitching penis"],
             "after_cum": {
-              "prefix": "{cum},{after_cum}",
+              "prefix": "{cum},{after_cum},",
               "number": [0, 3],
               "tags": [
                 "cum on leg",

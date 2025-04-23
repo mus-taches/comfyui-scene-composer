@@ -28,9 +28,9 @@
     "type": {
       "group_labels": true,
       "tags": {
-        "casual": "{top_casual_clothes},{bottom_casual_clothes}",
+        "casual": "{color_clothes_1} {top_casual_clothes}, {color_clothes_2} {bottom_casual_clothes}",
         "dress": {
-          "prefix": "{color_clothes_1} dress, {length_clothes} dress",
+          "prefix": "{color_clothes_1} dress, {length_clothes} dress,",
           "tags": [
             "dress",
             "sleeveless dress",
