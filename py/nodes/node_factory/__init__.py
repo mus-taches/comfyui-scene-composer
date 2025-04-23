@@ -89,10 +89,12 @@ class NodeFactory:
                 tags[key] = choose_random_tags(rng, value)
 
         # Select tags randomly and update the variables
+        rng_state = rng.bit_generator.state
         for key, value in tags_from_inputs.items():
             tags[key] = choose_random_tags(rng, value)
             apply_variables(rng, tags[key], self.variables)
             self.variables.update({key: tags[key]})
+        rng.bit_generator.state = rng_state
 
         # Apply variables to the tags
         tags = apply_variables(rng, tags, self.variables)

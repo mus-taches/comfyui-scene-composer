@@ -27,7 +27,7 @@ def main(seed, verbose, with_inputs, with_rules):
         inputs = node.INPUT_TYPES()["required"]
         if "seed" in inputs:
             del inputs["seed"]
-        prompt = node.build_prompt(seed=seed, color_clothes_1="red")
+        prompt = node.build_prompt(seed=seed)
 
         if verbose:
             print(f"{node_name:<20} {prompt[0]}")
