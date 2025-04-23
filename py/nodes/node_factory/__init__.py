@@ -60,6 +60,7 @@ class NodeFactory:
                 received_variables = json.loads(received_variables)
 
         local_variables = self.data.get("variables", {})
+        local_variables = apply_input_values(data=local_variables, inputs=args)
 
         self.variables = {
             **global_variables,
