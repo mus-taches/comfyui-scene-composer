@@ -1,18 +1,15 @@
 {
-  "color": {
-    "fixed": false,
-    "tags": [
-      "black",
-      "blue",
-      "brown",
-      "aqua",
-      "gray",
-      "green",
-      "pink",
-      "purple",
-      "red",
-      "white",
-      "yellow"
-    ]
-  }
+  "color": [
+    "black",
+    "blue",
+    "brown",
+    "aqua",
+    "gray",
+    "green",
+    "pink",
+    "purple",
+    "red",
+    "white",
+    "yellow"
+  ]
 }
