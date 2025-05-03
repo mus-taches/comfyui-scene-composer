@@ -86,9 +86,18 @@ def format_value(key, value):
                 input = format_value(key, value)
 
         case list():
-            items_are_strings = all(isinstance(item, str) for item in value)
-            if items_are_strings:
-                value = ["random", *value, "none"]
+
+            # If a {variable} is found in the list,
+            # spread its value inside it
+            updated_value = []
+            for item in value:
+                text_has_changed, processed_item = spread_variables(item)
+                if isinstance(processed_item, list):
+                    updated_value.extend(processed_item)
+                else:
+                    updated_value.append(processed_item)
+
+            value = ["random", *updated_value, "none"]
 
             input = (value, {
                 "default": value[0] if value else ""
