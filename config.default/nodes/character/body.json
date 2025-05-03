@@ -4,7 +4,7 @@
     "show_variables": true
   },
   "variables": {
-    "standard_skin_color": ["tan skin, tanlines", "dark skin", "very dark skin", "pale skin"],
+    "standard_skin_color": ["tan skin, tanlines", "dark", "very dark", "pale"],
     "special_skin_color": "{color}"
   },
   "tags": {
@@ -30,7 +30,7 @@
       ]
     },
     "breasts": {
-      "distribution": [0.2, 0.25, 0.25, 0.25, 0.05],
+      "distribution": [0.05, 0.3, 0.3, 0.3, 0.05],
       "tags": [
         "flat chest",
         "small breasts",

@@ -10,7 +10,11 @@
       "probability": 0.2,
       "tags": { "disembodied penis": "disembodied penis" }
     },
-    "nipple_color": ["nipples", "dark nipples"],
+    "nipple_color": {
+      "probability": 0.2,
+      "distribution": [0.7, 0.3],
+      "tags": ["dark", "{color}"]
+    },
     "nipple_style": {
       "probability": 0.4,
       "tags": [
@@ -18,7 +22,8 @@
         "huge nipples",
         "inverted nipples",
         "long nipples",
-        "small nipples"
+        "small nipples",
+        "large areolae"
       ]
     },
     "nipple_piercing": {
@@ -38,7 +43,7 @@
     },
     "penis": {
       "show": false,
-      "tags": "{penis_size} penis"
+      "tags": "{disembodied}, {penis_size} penis"
     },
     "pussy": {
       "show": false,
@@ -46,9 +51,7 @@
     },
     "nipples": {
       "show": false,
-      "tags": [
-        "{nipple_color},{nipple_style},{nipple_piercing}"
-      ]
+      "tags": ["{nipple_color},{nipple_style},{nipple_piercing}"]
     }
   }
 }
