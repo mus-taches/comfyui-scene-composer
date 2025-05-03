@@ -27,12 +27,12 @@
       ]
     },
     "color_theme": {
-      "probability": 0.2,
+      "probability": 0.05,
       "tags": "{color}",
       "suffix": " theme"
     },
     "light": {
-      "probability": 0.7,
+      "probability": 0.5,
       "distribution": [0.2, 0.2, 0.2, 0.2],
       "tags": [
         "dim lighting",

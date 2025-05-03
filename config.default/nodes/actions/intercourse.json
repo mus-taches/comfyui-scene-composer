@@ -22,6 +22,7 @@
         "imminent": "imminent {penetration_type}, {penis}, penis head",
         "deep": "deep penetration, {penetration_type} penetration, {penis}",
         "climax": {
+          "number": 2,
           "tags": {
             "penetration": "deep penetration, {penetration_type} penetration, {penis}, {pussy}, {pussy_juice}, orgasm, climax",
             "cum": {
