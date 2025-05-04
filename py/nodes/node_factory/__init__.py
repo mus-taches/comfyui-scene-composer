@@ -62,6 +62,11 @@ class NodeFactory:
         local_variables = self.data.get("variables", {})
         local_variables = apply_input_values(data=local_variables, inputs=args)
 
+        # Replace local {variables} with global variables
+        for key, value in local_variables.items():
+            local_variables[key] = apply_variables(
+                rng, value, global_variables)
+
         self.variables = {
             **global_variables,
             **received_variables,
