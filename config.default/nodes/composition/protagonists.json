@@ -1,9 +1,17 @@
 {
   "name": "👥 Protagonists",
+  "variables": {
+    "solo_focus": {
+      "show": true,
+      "probability": 0.8,
+      "tags": { "solo_focus": "solo focus" }
+    }
+  },
   "tags": {
     "male_type": {
       "group_labels": true,
       "distribution": [0.5, 0.4],
+      "prefix": "1boy,{solo_focus},",
       "tags": {
         "standard": "",
         "giant": {
