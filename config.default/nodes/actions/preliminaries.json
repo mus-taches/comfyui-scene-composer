@@ -1,10 +1,7 @@
 {
   "name": "🌶️ Preliminaries",
   "variables": {
-    "penis_saliva": {
-      "hide": true,
-      "tags": "{penis}, saliva on penis, {saliva}"
-    }
+    "penis_saliva": "{penis}, saliva on penis, {saliva}"
   },
   "tags": {
     "action": {

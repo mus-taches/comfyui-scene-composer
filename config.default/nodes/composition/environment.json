@@ -1,5 +1,8 @@
 {
   "name": "⛅️ Environment",
+  "variables": {
+    "furniture": ["desk", "table"]
+  },
   "tags": {
     "indoors_location": {
       "tags": {
@@ -9,9 +12,9 @@
           "tags": ["coffee table", "couch"]
         },
         "kitchen": "kitchen, table",
-        "office": "office, desk",
-        "library": "room, library, desk",
-        "classroom": "classroom, desk"
+        "office": "office, {furniture}",
+        "library": "room, library, {furniture}",
+        "classroom": "classroom, {furniture}"
       }
     },
     "outdoors_location": {

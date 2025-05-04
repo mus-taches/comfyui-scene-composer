@@ -1,24 +1,17 @@
 {
   "name": "👥 Protagonists",
-  "variables": {
+  "tags": {
     "male_type": {
       "group_labels": true,
-      "show": true,
       "distribution": [0.5, 0.4],
       "tags": {
         "standard": "",
-        "giant": "giant male, thick arms",
+        "giant": {
+          "prefix": "giant male,",
+          "number": [0, 2],
+          "tags": ["thick arms", "large hands", "muscular male"]
+        },
         "fat": "fat male"
-      }
-    }
-  },
-  "tags": {
-    "partner": {
-      "group_labels": true,
-      "prefix": "1girl, ",
-      "tags": {
-        "no_partner": "solo",
-        "with_male": "1boy, solo focus, {male_type}"
       }
     }
   }

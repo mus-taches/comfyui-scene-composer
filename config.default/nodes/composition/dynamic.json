@@ -2,22 +2,22 @@
   "name": "💥 Dynamic",
   "tags": {
     "motion": {
-      "probability": 0.5,
+      "probability": 0.9,
       "number": [1, 3],
       "tags": ["dynamic lines", "motion lines", "speed lines"]
     },
     "emphasis": {
-      "probability": 0.5,
+      "probability": 0.9,
       "number": [1, 2],
       "tags": ["emphasis lines", "^^^"]
     },
     "afterimage": {
-      "probability": 0.5,
+      "probability": 0.9,
       "number": [1, 2],
       "tags": ["afterimage", "motion blur"]
     },
     "sound": {
-      "probability": 0.5,
+      "probability": 0.9,
       "number": [1, 3],
       "tags": ["sound effects", "speech bubble", "spoken heart"]
     }

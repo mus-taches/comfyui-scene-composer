@@ -2,9 +2,9 @@
   "name": "🔥 Intercourse",
   "variables": {
     "penetration_type": {
+      "show": true,
       "distribution": [0.75, 0.25],
-      "tags": ["vaginal", "anal"],
-      "show": true
+      "tags": ["vaginal", "anal"]
     }
   },
   "tags": {
@@ -19,15 +19,15 @@
     "penetration": {
       "group_labels": true,
       "tags": {
-        "imminent": "imminent {penetration_type}, {penis}, penis head",
-        "deep": "deep penetration, {penetration_type} penetration, {penis}",
+        "imminent": "imminent {penetration_type}, {pussy}, {penis}, penis head",
+        "deep": "deep penetration, {penetration_type} penetration, {pussy}, {penis}",
         "climax": {
           "number": 2,
           "tags": {
-            "penetration": "deep penetration, {penetration_type} penetration, {penis}, {pussy}, {pussy_juice}, orgasm, climax",
+            "penetration": "deep penetration, {penetration_type} penetration, {pussy}, {pussy_juice}, {penis}, orgasm, climax",
             "cum": {
               "prefix": "{cum},",
-              "number": [0, 2],
+              "number": [0, 1],
               "tags": ["internal cumshot", "x-ray", "x-ray vision"]
             }
           }

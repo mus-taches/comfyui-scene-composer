@@ -29,7 +29,7 @@
       }
     },
     "eye_effect": {
-      "probability": 0.2,
+      "probability": 0.05,
       "tags": ["glowing eyes", "no pupils"]
     }
   }
