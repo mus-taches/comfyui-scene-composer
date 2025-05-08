@@ -8,10 +8,9 @@ from py.nodes.apply_rules import ApplyRules
 config = load_config()
 
 
-def main(seed, verbose, with_inputs, with_rules):
+def main(seed, verbose, with_inputs, with_rules, node_output):
 
     rules = ApplyRules()
-    merged_prompt = []
 
     # Dislpay seed
     if 0 != seed:
@@ -19,6 +18,8 @@ def main(seed, verbose, with_inputs, with_rules):
         print("---")
 
     # Create prompt for each node
+    prompts = []
+    nodes_variables = {}
     for key, value in config.items():
         ClassNode = NodeFactory.create_node(key)
         node = ClassNode()
@@ -43,15 +44,23 @@ def main(seed, verbose, with_inputs, with_rules):
                         sub_value = "Boolean"
                 print(f"> {sub_key:<20} {sub_value}")
             print("---")
-        merged_prompt.append(prompt[0])
+        nodes_variables.update(prompt[1])
+        nodes_variables.update({node.__class__.__name__: prompt[0]})
+        prompts.append(prompt[0])
 
     # Final prompt output
-    merged_prompt = ", ".join(merged_prompt)
+    if node_output is not False:
+        OutputNode = NodeFactory.create_node("output")
+        output_node = OutputNode()
+        prompt = output_node.build_prompt(
+            seed=seed, variables=nodes_variables)[0]
+    else:
+        prompt = " ".join(prompts)
 
     if with_rules:
-        merged_prompt = rules.apply_rules(merged_prompt, "all", seed)
+        prompt = rules.apply_rules(prompt, "all", seed)
 
-    print(f"{merged_prompt}")
+    print(prompt)
 
 
 if __name__ == "__main__":
@@ -85,11 +94,19 @@ if __name__ == "__main__":
         help="Apply rules"
     )
 
+    parser.add_argument(
+        "-n", "--node",
+        type=str,
+        default=False,
+        help="Name of the node to output"
+    )
+
     args = parser.parse_args()
 
     main(
         seed=args.seed,
         verbose=args.verbose,
         with_inputs=args.inputs,
-        with_rules=args.rules
+        with_rules=args.rules,
+        node_output=args.node
     )
