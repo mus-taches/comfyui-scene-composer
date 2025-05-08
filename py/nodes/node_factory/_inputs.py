@@ -31,8 +31,9 @@ def build_inputs(self):
 
     inputs["required"].update({"output": output})
 
-    custom_output = format_value("custom_output", "")
-    inputs["required"].update({"custom_output": custom_output})
+    if isinstance(output[0], list):
+        custom_output = format_value("custom_output", "")
+        inputs["required"].update({"custom_output": custom_output})
 
     return inputs
 

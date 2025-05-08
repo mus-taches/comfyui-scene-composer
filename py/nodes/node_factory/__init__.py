@@ -111,21 +111,28 @@ class NodeFactory:
         prompt = stringify_tags(tags.values(), ", ")
 
         # Handle output
-        output = self.data.get("output", True)
-        output = args.get("output", output)
+        output_from_data = self.data.get("output", True)
 
-        match output:
-            case list() | dict():
-                output = choose_random_tags(rng, output)
-                output = apply_variables(rng, output, self.variables)
-                output = stringify_tags(output, ", ")
-            case str():
-                output = apply_variables(rng, output, self.variables)
-                output = stringify_tags(output, ", ")
+        match output_from_data:
             case True:
                 output = prompt
             case False:
                 output = ""
+            case _:
+                output_arg = args.get("output", "random")
+
+                if output_arg == "custom":
+                    output = args.get("custom_output", "")
+                elif output_arg == "random":
+                    output = choose_random_tags(rng, output_from_data)
+                else:
+                    output = output_arg
+                    if isinstance(output_from_data, dict):
+                        output = output_from_data["tags"].get(
+                            output_arg, "")
+
+                output = apply_variables(rng, output, self.variables)
+                output = stringify_tags(output, ", ")
 
         self.variables.update({self.name: output})
         return (output, self.variables,)
