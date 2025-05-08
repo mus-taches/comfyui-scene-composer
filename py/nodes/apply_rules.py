@@ -72,7 +72,7 @@ class ApplyRules:
             # If any triggering tag occurs in the prompt,
             # run all the defined actions
             for trigger in triggers:
-                if fnmatch.fnmatch(prompt, trigger):
+                if any(fnmatch.fnmatch(tag, trigger) for tag in tags):
                     tags = run_actions(rng, actions, tags, self.config)
                     break
 
@@ -89,7 +89,7 @@ def run_actions(rng, actions, tags, config):
     process_tags = tags.copy()
 
     for action in actions:
-
+        
         type = action.get("type", "add")
         value = action.get("value", [])
         p = action.get("probability", 1)
@@ -115,12 +115,13 @@ def run_actions(rng, actions, tags, config):
             # WIP
             case "replace":
                 filter = process_action_value(
-                    action.get("filter", []), config)
-                value_in = action.get("value_in", "")
-                value_out = action.get("value_out", "")
+                    action.get("filter", ["*"]), config)
+                value_to_change = action.get("with", "")
+
+                value_out = choose_random_tags(rng, value_to_change)
 
                 process_tags = [
-                    tag.replace(value_in, value_out) if any(
+                    tag.replace(value, value_out) if any(
                         fnmatch.fnmatch(tag, v) for v in filter) else tag
                     for tag in process_tags
                 ]
