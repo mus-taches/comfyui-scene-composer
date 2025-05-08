@@ -17,9 +17,12 @@ def build_inputs(self):
 
     inputs["required"] = {**variables_inputs, **dict(tags_inputs)}
 
-    concatenated_keys = ", ".join(f"{{{key}}}" for key in tags_inputs.keys())
-    output = self.data.get("output", concatenated_keys)
+    concatenated_keys = ", ".join(
+        f"{{{key.rstrip('?')}}}" for key in tags_inputs.keys())
 
+    output = self.data.get("output", True)
+    if output is True:
+        output = concatenated_keys
     output = format_value("output", output)
 
     if isinstance(output[0], list):
@@ -27,6 +30,9 @@ def build_inputs(self):
             output[0][-1] = "custom"
 
     inputs["required"].update({"output": output})
+
+    custom_output = format_value("custom_output", "")
+    inputs["required"].update({"custom_output": custom_output})
 
     return inputs
 

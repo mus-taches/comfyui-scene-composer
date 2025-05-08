@@ -19,6 +19,7 @@ RESERVED_KEYS = [
     "number",
     "show",
     "group_labels",
+    "fixed"
 ]
 
 

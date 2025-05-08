@@ -81,8 +81,13 @@ class NodeFactory:
 
             # Share this variable with next nodes
             share_variable = share_variables
+            fixed_variable = True
             if isinstance(value, dict):
                 share_variable = value.get("share", share_variables)
+                fixed_variable = value.get("fixed", fixed_variable)
+
+            if fixed_variable:
+                value = choose_random_tags(rng, value)
             if share_variable:
                 self.variables.update({key: value})
 
@@ -110,6 +115,10 @@ class NodeFactory:
         output = args.get("output", output)
 
         match output:
+            case list() | dict():
+                output = choose_random_tags(rng, output)
+                output = apply_variables(rng, output, self.variables)
+                output = stringify_tags(output, ", ")
             case str():
                 output = apply_variables(rng, output, self.variables)
                 output = stringify_tags(output, ", ")
