@@ -1,6 +1,13 @@
 {
   "name": "🎨 Style",
   "tags": {
+    "quality": {
+      "group_labels": true,
+      "tags": {
+        "masterpiece": "masterpiece, best quality, absurdres",
+        "score_up": "score_9, score_8_up, score_7_up"
+      }
+    },
     "lineart": {
       "probability": 0.5,
       "number": [1, 2],
@@ -58,5 +65,12 @@
       }
     }
   },
-  "output": "{lineart},{color_palette},{color_theme},{light},{light_effect}"
+  "output": {
+    "group_labels": true,
+    "tags": {
+      "lineart": "lineart,continuous line",
+      "doujinshi": "{lineart},monochrome,grayscale,splash page"
+    }
+  },
+  "custom_output": "{quality},{lineart},{color_palette},{color_theme},{light},{light_effect}"
 }

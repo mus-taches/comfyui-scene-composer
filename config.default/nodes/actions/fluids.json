@@ -1,6 +1,9 @@
 {
   "name": "💦 Fluids",
-  "tags": {
+  "settings": {
+    "show_variables": true
+  },
+  "variables": {
     "cum": ["cum", "excessive cum"],
     "after_cum": {
       "show": false,
@@ -36,5 +39,6 @@
       "number": [1, 2],
       "tags": ["precum trail", "precum drip", "precum bubble"]
     }
-  }
+  },
+  "output": false
 }

@@ -1,6 +1,4 @@
 {
-  "name": "📤 Output",
-  "tags": {
-    "output": ""
-  }
+  "name": "✅ Positive prompt",
+  "output": "{preliminaries}"
 }

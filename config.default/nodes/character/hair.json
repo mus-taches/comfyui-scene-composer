@@ -2,19 +2,10 @@
   "name": "🪮 Hair",
   "tags": {
     "hair-color": {
-      "distribution": [0.2, 0.2, 0.2, 0.2],
       "tags": [
-        "black",
-        "brown",
         "blonde",
         "ginger",
-        "red",
-        "white",
-        "gray",
-        "blue",
-        "purple",
-        "pink",
-        "aqua"
+        "{color}"
       ],
       "suffix": " hair"
     },
@@ -48,7 +39,9 @@
         "sidelocks",
         "spiked hair",
         "twintails",
-        "wavy hair"
+        "wavy hair",
+        "hair slicked back",
+        "hair pulled back"
       ]
     }
   }

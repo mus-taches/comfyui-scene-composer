@@ -12,8 +12,9 @@
     },
     "nipple_color": {
       "probability": 0.2,
-      "distribution": [0.7, 0.3],
-      "tags": ["dark", "{color}"]
+      "distribution": [0.95, 0.05],
+      "tags": ["dark", "{color}"],
+      "suffix": " nipples"
     },
     "nipple_style": {
       "probability": 0.4,

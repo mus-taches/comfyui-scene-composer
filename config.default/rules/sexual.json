@@ -1,0 +1,51 @@
+[
+  {
+    "triggers": ["*anal*"],
+    "actions": [
+      {
+        "type": "add",
+        "value": "anus"
+      }
+    ]
+  },
+  {
+    "triggers": ["*fellatio*"],
+    "actions": [
+      {
+        "type": "remove",
+        "value": ["*mouth*", "*smile*"]
+      }
+    ]
+  },
+  {
+    "triggers": ["imminent fellatio"],
+    "actions": [
+      {
+        "type": "add",
+        "value": {
+          "distribution": [0.7, 0.3],
+          "number": [1, 2],
+          "tags": ["licking penis", "tongue out"]
+        }
+      }
+    ]
+  },
+  {
+    "triggers": ["*fellatio*", "climax"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "fellatio",
+        "new_value": ["irrumatio,{prelim_head_grab}"]
+      },
+      {
+        "type": "add",
+        "value": {
+          "number": [1, 2],
+          "tags": ["cum in throat", "x-ray"]
+        }
+      }
+    ]
+  }
+]

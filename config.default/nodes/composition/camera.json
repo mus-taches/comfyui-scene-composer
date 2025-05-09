@@ -3,7 +3,8 @@
   "tags": {
     "multiple_views": {
       "probability": 0.05,
-      "tags": { "multiple_views": "multiple views, comic" }
+      "number": [1, 2],
+      "tags": ["multiple views", "comic", "borderless panels"]
     },
     "framings": {
       "probability": 0.3,

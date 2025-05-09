@@ -1,4 +1,12 @@
 {
   "name": "👤 Character",
-  "output": "{body},{hair},{eyes},{attitude}"
+  "output": {
+    "group_labels": true,
+    "tags": {
+      "generic": "{body},{hair},{eyes}",
+      "princess_peach": "princess peach, {body}, blonde hair, blue eyes"
+    },
+    "suffix": ",{attitude}"
+  },
+  "custom_output": "{body},{hair},{eyes},{attitude}"
 }

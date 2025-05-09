@@ -20,7 +20,7 @@
       "group_labels": true,
       "tags": {
         "imminent": "imminent {penetration_type}, {pussy}, {penis}, penis head",
-        "deep": "deep penetration, {penetration_type} penetration, {pussy}, {penis}",
+        "ongoing": "deep penetration, {penetration_type} penetration, {pussy}, {penis}",
         "climax": {
           "number": 2,
           "tags": {
@@ -37,10 +37,13 @@
           "tags": {
             "after_action": "after {penetration_type},",
             "after_penis": "{penis},penis head,",
-            "after_penis_state": ["flaccid", "erection", "twitching penis"],
+            "after_penis_state": {
+              "number": [0, 2],
+              "tags": ["flaccid", "twitching penis", "after ejaculation"]
+            },
             "after_cum": {
               "prefix": "{cum},{after_cum},",
-              "number": [0, 3],
+              "number": [1, 3],
               "tags": [
                 "cum on leg",
                 "cum on body",

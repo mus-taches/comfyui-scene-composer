@@ -1,31 +1,47 @@
 {
   "name": "🌶️ Preliminaries",
   "variables": {
-    "penis_saliva": "{penis}, saliva on penis, {saliva}"
+    "penis_grab": {
+      "probability": 0.5,
+      "tags": "penis grab"
+    },
+    "prelim_head_grab": {
+      "probability": 0.2,
+      "tags": "{head_grab}"
+    },
+    "breasts_out": {
+      "probability": 0.6,
+      "tags": "breasts out,{nipples}"
+    },
+    "prelim_climax": {
+      "tags": "orgasm, climax, {cum},"
+    }
   },
   "tags": {
     "action": {
       "group_labels": true,
       "tags": {
-        "fingering": {
-          "tags": {
-            "fingering_action": {
-              "number": [0, 3],
-              "tags": ["fingering", "anal fingering", "fingering from behind"]
-            },
-            "fingering_extra": "{pussy}, {pussy_juice}"
-          }
-        },
-        "fellatio": "fellatio, {penis_saliva}",
-        "deepthroat": "deepthroat, {penis_saliva}",
-        "licking penis": "licking penis, tongue out, {penis_saliva}",
-        "handjob": "handjob, {penis}, {precum}",
+        "fellatio": "fellatio, saliva on penis, {saliva}, {prelim_head_grab}",
+        "handjob": "handjob, {precum}",
         "paizuri": {
-          "number": [1, 2],
-          "tags": ["straddling ", "handsfree "],
-          "suffix": "paizuri, {nipples}, {penis}, {precum}"
+          "tags": [
+            "paizuri",
+            "straddling paizuri",
+            "paizuri on lap",
+            "reverse paizuri"
+          ]
         }
       }
+    },
+    "state": {
+      "group_labels": true,
+      "tags": {
+        "imminent": "imminent {action}, penis head, {precum}",
+        "ongoing": "{action},{precum}",
+        "climax": "{action},{prelim_climax}",
+        "after": "after {action}, penis head, flaccid, {cum}"
+      }
     }
-  }
+  },
+  "output": "{state},{penis},{penis_grab},{breasts_out}"
 }

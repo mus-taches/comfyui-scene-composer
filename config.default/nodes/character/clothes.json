@@ -48,6 +48,19 @@
         },
         "underwear": "{color_clothes_1} bra, {color_clothes_1} panties"
       }
+    },
+    "headwear": {
+      "probability": 0.1,
+      "prefix": "{color_clothes_2} hat,",
+      "tags": [
+        "baseball cap",
+        "bucket hat",
+        "fedora",
+        "witch hat",
+        "beanie",
+        "cabbie cap",
+        "newsboy cap"
+      ]
     }
   }
 }
