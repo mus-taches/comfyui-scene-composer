@@ -89,7 +89,7 @@ def run_actions(rng, actions, tags, config):
     process_tags = tags.copy()
 
     for action in actions:
-        
+
         type = action.get("type", "add")
         value = action.get("value", [])
         p = action.get("probability", 1)
@@ -101,30 +101,44 @@ def run_actions(rng, actions, tags, config):
 
         match type:
 
+            # Add tags at the end of the prompt
             case "add":
                 value = choose_random_tags(rng, filtering_tags)
                 process_tags.append(value)
 
+            # Remove any tag that matches the value
             case "remove":
-                # filter: remove tags that match any "remove" value
                 process_tags = [
                     tag for tag in process_tags
                     if not any(fnmatch.fnmatch(tag, v)
                                for v in filtering_tags)]
 
-            # WIP
+            # In any tag that matches the filter, replace the value with the new one
             case "replace":
                 filter = process_action_value(
                     action.get("filter", ["*"]), config)
-                value_to_change = action.get("with", "")
 
-                value_out = choose_random_tags(rng, value_to_change)
+                new_value = action.get("new_value", [])
+                new_value = choose_random_tags(rng, new_value)
 
-                process_tags = [
-                    tag.replace(value, value_out) if any(
-                        fnmatch.fnmatch(tag, v) for v in filter) else tag
-                    for tag in process_tags
-                ]
+                # Handle string value
+                if isinstance(value, str) and value != "*":
+                    value = [value]
+
+                # Handle list value
+                if isinstance(value, list) and len(value) > 0:
+                    for v in value:
+                        process_tags = [
+                            tag.replace(v, new_value)
+                            if any(fnmatch.fnmatch(tag, pattern) for pattern in filter)
+                            else tag
+                            for tag in process_tags
+                        ]
+
+                # For any other case, replace the whole tag
+                else:
+                    process_tags = [new_value if any(fnmatch.fnmatch(
+                        tag, pattern) for pattern in filter) else tag for tag in process_tags]
 
     return process_tags
 
