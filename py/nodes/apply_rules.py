@@ -103,6 +103,7 @@ def run_actions(rng, actions, tags, config):
 
             # Add tags at the end of the prompt
             case "add":
+                print(filtering_tags)
                 value = choose_random_tags(rng, filtering_tags)
                 process_tags.append(value)
 
@@ -150,6 +151,9 @@ def process_action_value(value, config):
     """
 
     tags = []
+
+    if isinstance(value, dict):
+        return value
 
     if isinstance(value, str):
         value = [value]
