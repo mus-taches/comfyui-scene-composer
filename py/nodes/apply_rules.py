@@ -63,6 +63,7 @@ class ApplyRules:
         # Apply the rules
         for rule in rules:
             triggers = rule["triggers"]
+            logic = rule.get("logic", "OR")
             actions = rule["actions"]
             p = rule.get("probability", 1)
 
@@ -71,10 +72,15 @@ class ApplyRules:
 
             # If any triggering tag occurs in the prompt,
             # run all the defined actions
-            for trigger in triggers:
-                if any(fnmatch.fnmatch(tag, trigger) for tag in tags):
+            if logic == "OR":
+                for trigger in triggers:
+                    if any(fnmatch.fnmatch(tag, trigger) for tag in tags):
+                        tags = run_actions(rng, actions, tags, self.config)
+                        break
+
+            elif logic == "AND":
+                if all(any(fnmatch.fnmatch(tag, trigger) for tag in tags) for trigger in triggers):
                     tags = run_actions(rng, actions, tags, self.config)
-                    break
 
         tags = stringify_tags(tags, separator=", ")
         return (tags,)
