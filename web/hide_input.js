@@ -49,9 +49,11 @@ const nodeWidgetHandlers = {
 // In the main function where widgetLogic is called
 function widgetLogic(node, widget) {
     // Retrieve the handler function for the current node title and widget name
-    const handler = nodeWidgetHandlers[node.comfyClass]?.[widget.name];
-    if (handler) {
-        handler(node, widget);
+    // const handler = nodeWidgetHandlers[node.title]?.[widget.name];
+    
+    // Trigger toggleCustomOutput for each "output" widget
+    if (widget.name === "output") {
+        toggleCustomOutput(node, widget);
     }
 }
 
