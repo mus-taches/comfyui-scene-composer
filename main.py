@@ -50,7 +50,7 @@ def main(seed, verbose, with_inputs, with_rules, node_output):
 
     # Final prompt output
     if node_output is not False:
-        OutputNode = NodeFactory.create_node("output")
+        OutputNode = NodeFactory.create_node(node_output)
         output_node = OutputNode()
         prompt = output_node.build_prompt(
             seed=seed, variables=nodes_variables)[0]
