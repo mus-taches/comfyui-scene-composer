@@ -4,6 +4,7 @@ import numpy as np
 
 from ..utils.config import get_project_name
 from .node_factory._tags import choose_random_tags, stringify_tags
+from .node_factory._variables import apply_variables
 from ..components.blackboard import Blackboard
 
 
@@ -38,10 +39,12 @@ class ApplyRules:
                     "max": 0xffffffffffffffff
                 }),
             },
-            "optional": {}
+            "optional": {
+                "variables": ("STRING", {"defaultInput": True})
+            }
         }
 
-    def apply_rules(self, prompt, ruleset, seed):
+    def apply_rules(self, prompt, ruleset, seed, variables=None):
         """
         Apply the rules defined in config file.
         Add and remove tags in the prompt
@@ -76,12 +79,15 @@ class ApplyRules:
                 for trigger in triggers:
                     if any(fnmatch.fnmatch(tag, trigger) for tag in tags):
                         tags = run_actions(rng, actions, tags, self.config)
-                        break
+                        continue
 
             elif logic == "AND":
                 if all(any(fnmatch.fnmatch(tag, trigger) for tag in tags) for trigger in triggers):
                     tags = run_actions(rng, actions, tags, self.config)
 
+        if variables:
+            tags = apply_variables(rng, tags, variables)
+            
         tags = stringify_tags(tags, separator=", ")
         return (tags,)
 
@@ -109,7 +115,6 @@ def run_actions(rng, actions, tags, config):
 
             # Add tags at the end of the prompt
             case "add":
-                print(filtering_tags)
                 value = choose_random_tags(rng, filtering_tags)
                 process_tags.append(value)
 

@@ -130,6 +130,7 @@ class NodeFactory:
                     if isinstance(output_from_data, dict):
                         output = output_from_data["tags"].get(
                             output_arg, "")
+                        output = choose_random_tags(rng, output)
 
                 output = apply_variables(rng, output, self.variables)
                 output = stringify_tags(output, ", ")

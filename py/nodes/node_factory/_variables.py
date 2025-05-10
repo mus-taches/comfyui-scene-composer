@@ -31,7 +31,9 @@ def apply_variables(rng, tags, variables):
         return [process_placeholders(tags)]
 
     if isinstance(tags, list):
-        return tags
+        for tag in tags:
+            replaced_tags[tag] = process_placeholders(tag)
+        return list(replaced_tags.values())
 
     for key, value in tags.items():
         if isinstance(value, str):
