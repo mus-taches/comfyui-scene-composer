@@ -72,7 +72,7 @@
     "tags": {
       "lineart": "lineart,continuous line",
       "doujinshi": "{lineart},monochrome,grayscale,splash page",
-      "unicolor": "monochrome,{color_palette}"
+      "unicolor": "monochrome,{color_theme}"
     }
   },
   "custom_output": "{quality},{lineart},{color_palette},{color_theme},{light},{light_effect}"
