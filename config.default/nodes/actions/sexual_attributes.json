@@ -39,7 +39,7 @@
     },
     "nipples": {
       "show": false,
-      "tags": ["{nipple_color},{nipple_style},{nipple_piercing}"]
+      "tags": "{nipple_color},{nipple_style},{nipple_piercing}"
     }
   },
   "output": false
