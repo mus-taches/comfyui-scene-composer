@@ -50,13 +50,22 @@
     "weather": {
       "distribution": [0.65, 0.2, 0.1, 0.05],
       "tags": ["sunny", "rainy", "cloudy", "snowy"]
+    },
+    "background_pattern": {
+      "tags": ["simple", "halftone"],
+      "suffix": " background"
+    },
+    "background_color": {
+      "tags": "{color}",
+      "suffix": " background"
     }
   },
   "output": {
     "group_labels": true,
     "tags": {
       "indoors": "indoors,{indoors_location}",
-      "outdoors": "outdoors,{outdoors_location},{weather}"
+      "outdoors": "outdoors,{outdoors_location},{weather}",
+      "solid_background": "{background_pattern},{background_color}"
     }
   },
   "custom_output": "{outdoors_location},{weather}"

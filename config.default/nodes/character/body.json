@@ -4,15 +4,19 @@
     "show_variables": true
   },
   "variables": {
-    "standard_skin_color": ["tan skin, tanlines", "dark", "very dark", "pale"],
+    "standard_skin_color": [
+      "tan skin, tanlines",
+      "dark skin",
+      "very dark skin",
+      "pale skin"
+    ],
     "special_skin_color": "{color}"
   },
   "tags": {
     "skin_color": {
       "probability": 0.3,
       "distribution": [0.95, 0.05],
-      "tags": ["{standard_skin_color}", "{special_skin_color}"],
-      "suffix": " skin"
+      "tags": ["{standard_skin_color}", "{special_skin_color} skin"]
     },
     "body_type": {
       "probability": 0.7,

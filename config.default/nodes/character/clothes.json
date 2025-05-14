@@ -22,7 +22,18 @@
       "shorts",
       "{length_clothes} skirt",
       "leggings"
-    ]
+    ],
+    "clevage": {
+      "probability": 0.5,
+      "distribution": [0.5],
+      "tags": [
+        "cleavage",
+        "see-through cleavage",
+        "cleavage cutout",
+        "underboob",
+        "sideboob"
+      ]
+    }
   },
   "tags": {
     "type": {

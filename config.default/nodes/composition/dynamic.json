@@ -1,10 +1,13 @@
 {
   "name": "💥 Dynamic",
-  "tags": {
+  "settings": {
+    "show_variables": true
+  },
+  "variables": {
     "motion": {
       "probability": 0.9,
-      "number": [1, 3],
-      "tags": ["dynamic lines", "motion lines", "speed lines"]
+      "number": [1, 2],
+      "tags": ["motion lines", "speed lines"]
     },
     "emphasis": {
       "probability": 0.7,
@@ -17,9 +20,18 @@
       "tags": ["afterimage", "motion blur"]
     },
     "sound": {
+      "group_labels": true,
       "probability": 0.5,
-      "number": [1, 3],
-      "tags": ["sound effects", "speech bubble", "spoken heart"]
+      "number": 2,
+      "tags": {
+        "sound_effects": ["sound effects", "speech bubble", "spoken heart"],
+        "language": {
+          "probability": 0.5,
+          "tags": ["japanese", "english"],
+          "suffix": " text"
+        }
+      }
     }
-  }
+  },
+  "output": "{motion}, {emphasis}, {afterimage}, {sound}"
 }

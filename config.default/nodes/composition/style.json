@@ -5,6 +5,7 @@
       "group_labels": true,
       "tags": {
         "masterpiece": "masterpiece, best quality, absurdres",
+        "masterpiece+": "masterpiece, best quality, absurdres, amazing quality, very aesthetic, newest, volumetric lighting,",
         "score_up": "score_9, score_8_up, score_7_up"
       }
     },
@@ -67,9 +68,11 @@
   },
   "output": {
     "group_labels": true,
+    "prefix": "{quality},",
     "tags": {
       "lineart": "lineart,continuous line",
-      "doujinshi": "{lineart},monochrome,grayscale,splash page"
+      "doujinshi": "{lineart},monochrome,grayscale,splash page",
+      "unicolor": "monochrome,{color_palette}"
     }
   },
   "custom_output": "{quality},{lineart},{color_palette},{color_theme},{light},{light_effect}"

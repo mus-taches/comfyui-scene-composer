@@ -6,10 +6,23 @@
       "number": [1, 2],
       "tags": ["multiple views", "comic", "borderless panels"]
     },
+    "perspective": {
+      "probability": 0.5,
+      "number": [1, 2],
+      "tags": ["perspective", "vanishing point", "foreshortening"]
+    },
     "framings": {
       "probability": 0.3,
       "distribution": [0.3, 0.2, 0.2, 0.2, 0.1],
-      "tags": ["pov", "portrait", "upper body", "close-up", "full body"]
+      "tags": [
+        "pov",
+        "portrait",
+        "upper body",
+        "close-up",
+        "full body",
+        "wide shot",
+        "very wide shot"
+      ]
     },
     "angles": {
       "probability": 0.3,

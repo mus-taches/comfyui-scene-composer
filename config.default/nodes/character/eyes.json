@@ -16,7 +16,10 @@
       "number": [1, 2],
       "prefix": ", {color} eyewear, ",
       "tags": {
-        "eyewear-style": ["glasses", "sunglasses", "tinted glasses"],
+        "eyewear-style": {
+          "distribution": [0.8],
+          "tags": ["glasses", "sunglasses", "tinted glasses"]
+        },
         "eyewear-shape": ["rectangular eyewear", "round eyewear"]
       }
     },
