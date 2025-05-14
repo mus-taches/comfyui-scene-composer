@@ -1,6 +1,9 @@
 {
   "name": "🍑 Sexual Attributes",
-  "tags": {
+  "settings": {
+    "show_variables": true
+  },
+  "variables": {
     "nipple_color": {
       "probability": 0.2,
       "distribution": [0.95, 0.05],
