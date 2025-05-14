@@ -28,7 +28,7 @@ class NodeFactory:
             "min": 0,
             "max": 0xffffffffffffffff
         })
-        inputs["optional"]["variables"] = ("STRING", {"defaultInput": True})
+        inputs["optional"]["variables"] = ("STRING", {"forceInput": True})
         return inputs
 
     RETURN_TYPES = ("STRING", "STRING",)

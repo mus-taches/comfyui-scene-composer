@@ -40,7 +40,7 @@ class ApplyRules:
                 }),
             },
             "optional": {
-                "variables": ("STRING", {"defaultInput": True})
+                "variables": ("STRING", {"forceInput": True})
             }
         }
 
