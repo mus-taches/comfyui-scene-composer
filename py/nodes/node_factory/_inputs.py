@@ -23,20 +23,22 @@ def build_inputs(self):
 
     output = self.data.get("output", True)
 
-    if output is not False:
-        output = format_value("output", output)
+    if output is False:
+        return inputs
 
-        if output is True:
-            output = concatenated_keys
+    output = format_value("output", output)
 
-        if isinstance(output[0], list):
-            if output[0][-1] == "none":
-                output[0][-1] = "custom"
+    if output is True:
+        output = concatenated_keys
 
-        inputs["required"].update({"output": output})
+    if isinstance(output[0], list):
+        if output[0][-1] == "none":
+            output[0][-1] = "custom"
+
+    inputs["required"].update({"output": output})
 
     # Handle custom output
-    if isinstance(output, list) and isinstance(output[0], list):
+    if isinstance(output[0], list):
         custom_output = format_value("custom_output", self.data.get(
             "custom_output", concatenated_keys))
         inputs["required"].update({"custom_output": custom_output})
