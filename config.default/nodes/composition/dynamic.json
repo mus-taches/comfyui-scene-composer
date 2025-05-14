@@ -24,9 +24,15 @@
       "probability": 0.5,
       "number": 2,
       "tags": {
-        "sound_effects": ["sound effects", "speech bubble", "spoken heart"],
+        "sound_effects": [
+          "sound effects",
+          "speech bubble",
+          "spoken heart",
+          "spoken sound effect"
+        ],
         "language": {
           "probability": 0.5,
+          "distribution": [0.7, 0.3],
           "tags": ["japanese", "english"],
           "suffix": " text"
         }
