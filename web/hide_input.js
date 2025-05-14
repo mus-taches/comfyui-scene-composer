@@ -50,7 +50,7 @@ const nodeWidgetHandlers = {
 function widgetLogic(node, widget) {
     // Retrieve the handler function for the current node title and widget name
     // const handler = nodeWidgetHandlers[node.title]?.[widget.name];
-    
+
     // Trigger toggleCustomOutput for each "output" widget
     if (widget.name === "output") {
         toggleCustomOutput(node, widget);
@@ -69,41 +69,8 @@ function toggleCustomOutput(node, widget) {
 app.registerExtension({
     name: "scenecomposer.widgethider",
     nodeCreated(node) {
-        for (const w of node.widgets || []) {
-            let widgetValue = w.value;
-
-            // Store the original descriptor if it exists
-            let originalDescriptor = Object.getOwnPropertyDescriptor(w, "value");
-            if (!originalDescriptor) {
-                originalDescriptor = Object.getOwnPropertyDescriptor(
-                    w.constructor.prototype,
-                    "value"
-                );
-            }
-
-            widgetLogic(node, w);
-
-            Object.defineProperty(w, "value", {
-                get() {
-                    // If there's an original getter, use it. Otherwise, return widgetValue.
-                    let valueToReturn =
-                        originalDescriptor && originalDescriptor.get
-                            ? originalDescriptor.get.call(w)
-                            : widgetValue;
-
-                    return valueToReturn;
-                },
-                set(newVal) {
-                    // If there's an original setter, use it. Otherwise, set widgetValue.
-                    if (originalDescriptor && originalDescriptor.set) {
-                        originalDescriptor.set.call(w, newVal);
-                    } else {
-                        widgetValue = newVal;
-                    }
-
-                    widgetLogic(node, w);
-                },
-            });
+        for (const widget of node.widgets || []) {
+            widget.callback = function () { widgetLogic(node, widget) }
         }
     },
 });
