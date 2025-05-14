@@ -29,10 +29,10 @@
           "tags": ["holding book", "reading book"]
         },
         "drinking": {
-          "number": [1, 2],
+          "number": 2,
           "tags": {
-            "drink": "drinking",
-            "hold": ["beer mug", "sake bottle", "coffee mug", "soda can"]
+            "drink": "drinking,holding drink",
+            "drink_type": ["beer mug", "sake bottle", "coffee mug", "soda can"]
           }
         }
       }

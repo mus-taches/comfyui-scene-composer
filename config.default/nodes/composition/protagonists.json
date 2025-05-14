@@ -1,10 +1,21 @@
 {
   "name": "👥 Protagonists",
+  "settings": {
+    "show_variables": true
+  },
   "variables": {
     "solo_focus": {
-      "show": true,
       "probability": 0.8,
       "tags": { "solo_focus": "solo focus" }
+    },
+    "disembodied_penis": {
+      "probability": 0.2,
+      "tags": { "disembodied penis": "disembodied penis" }
+    },
+    "penis_size": {
+      "probability": 0.7,
+      "distribution": [0.1, 0.6, 0.2, 0.1],
+      "tags": ["small", "large", "huge", "gigantic"]
     }
   },
   "tags": {
@@ -21,6 +32,10 @@
         },
         "fat": "fat male"
       }
+    },
+    "penis": {
+      "show": false,
+      "tags": "{disembodied}, {penis_size} penis"
     }
   }
 }

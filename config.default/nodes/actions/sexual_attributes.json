@@ -1,15 +1,6 @@
 {
   "name": "🍑 Sexual Attributes",
   "tags": {
-    "penis_size": {
-      "probability": 0.7,
-      "distribution": [0.1, 0.6, 0.2, 0.1],
-      "tags": ["small", "large", "huge", "gigantic"]
-    },
-    "disembodied": {
-      "probability": 0.2,
-      "tags": { "disembodied penis": "disembodied penis" }
-    },
     "nipple_color": {
       "probability": 0.2,
       "distribution": [0.95, 0.05],
@@ -41,10 +32,6 @@
         "excessive pubic hair",
         "heart-shaped pubic hair"
       ]
-    },
-    "penis": {
-      "show": false,
-      "tags": "{disembodied}, {penis_size} penis"
     },
     "pussy": {
       "show": false,

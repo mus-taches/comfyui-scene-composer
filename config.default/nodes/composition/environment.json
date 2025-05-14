@@ -62,6 +62,7 @@
   },
   "output": {
     "group_labels": true,
+    "distribution": [0.45, 0.45, 0.1],
     "tags": {
       "indoors": "indoors,{indoors_location}",
       "outdoors": "outdoors,{outdoors_location},{weather}",
