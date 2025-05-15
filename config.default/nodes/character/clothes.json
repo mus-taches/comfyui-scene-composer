@@ -23,7 +23,7 @@
       "{length_clothes} skirt",
       "leggings"
     ],
-    "clevage": {
+    "cleavage": {
       "probability": 0.5,
       "distribution": [0.5],
       "tags": [
@@ -39,9 +39,9 @@
     "type": {
       "group_labels": true,
       "tags": {
-        "casual": "{color_clothes_1} {top_casual_clothes}, {color_clothes_2} {bottom_casual_clothes}",
+        "casual": "{color_clothes_1} {top_casual_clothes}, {cleavage}, {color_clothes_2} {bottom_casual_clothes}",
         "dress": {
-          "prefix": "{color_clothes_1} dress, {length_clothes} dress,",
+          "prefix": "{color_clothes_1} dress, {length_clothes} dress, {cleavage},",
           "tags": [
             "dress",
             "sleeveless dress",
@@ -55,7 +55,7 @@
         },
         "uniform": {
           "tags": ["school", "police", "military", "gym"],
-          "suffix": " uniform, {color_clothes_1} uniform"
+          "suffix": " uniform, {color_clothes_1} uniform, {cleavage}"
         },
         "underwear": "{color_clothes_1} bra, {color_clothes_1} panties"
       }
