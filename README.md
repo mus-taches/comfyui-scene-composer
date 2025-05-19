@@ -1,3 +1,6 @@
+>[!WARNING]
+>Most of the nodes from v0.1.x are now deprecated. Please update your workflow with the new nodes from v0.2.x Check the [workflow.json](workflow.json) for an example of utilisation.
+
 # ComfyUI Scene Composer
 
 A collection of [ComfyUI](https://github.com/comfyanonymous/ComfyUI) nodes to create explicit NSFW scenes with random procedural generation.
@@ -27,7 +30,7 @@ $ pip install -r requirements.txt
 
 ## Usage
 
-The best way to gettint stat is to use the provided [`workflow.json`](workflow.json), which you can import in ComfyUI. You can play a bit with the parameters to see how they affect the generation.
+The best way to getting started is to use the provided [`workflow.json`](workflow.json), which you can import in ComfyUI. You can play a bit with the parameters to see how they affect the generation.
 
 You can check out the full NSFW workflow here: [civitai.com/models/579396](https://civitai.com/models/579396)
 
