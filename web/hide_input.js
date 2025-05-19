@@ -10,7 +10,7 @@ const doesInputWithNameExist = (node, name) => {
     return false;
 };
 
-const HIDDEN_TAG = "tschide";
+const HIDDEN_TAG = "schide";
 
 // Toggle Widget + change size
 function toggleWidget(node, widget, show = false, suffix = "") {
@@ -69,8 +69,11 @@ function toggleCustomOutput(node, widget) {
 app.registerExtension({
     name: "scenecomposer.widgethider",
     nodeCreated(node) {
-        for (const widget of node.widgets || []) {
-            widget.callback = function () { widgetLogic(node, widget) }
+        const customnodes_package_name = node.properties.cnr_id
+        if (customnodes_package_name == "comfyui-scene-composer") {
+            for (const widget of node.widgets || []) {
+                widget.callback = function () { widgetLogic(node, widget) }
+            }
         }
     },
 });
