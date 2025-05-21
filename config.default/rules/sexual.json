@@ -47,14 +47,5 @@
         }
       }
     ]
-  },
-  {
-    "triggers": ["disembodied penis"],
-    "actions": [
-      {
-        "type": "remove",
-        "value": ["*male*", "*boy*"]
-      }
-    ]
   }
 ]

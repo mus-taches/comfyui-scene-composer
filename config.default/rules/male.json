@@ -1,0 +1,21 @@
+[
+  {
+    "triggers": ["disembodied penis"],
+    "actions": [
+      {
+        "type": "remove",
+        "value": ["*male*", "*boy*"]
+      }
+    ]
+  },
+  {
+    "triggers": ["giant male"],
+    "actions": [
+      {
+        "type": "replace",
+        "value": "small penis",
+        "new_value": "penis"
+      }
+    ]
+  }
+]
