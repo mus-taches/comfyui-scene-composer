@@ -3,12 +3,8 @@
   "output": {
     "group_labels": true,
     "tags": {
-      "generic": "{body},{hair},{eyes},{attitude}",
-      "princess_peach": "princess peach, {body}, blonde hair, blue eyes",
-      "princess_peach_char": {
-        "character": "princess peach, {body}, blonde hair, blue eyes",
-        "clothes": "pink dress, white gloves, crown"
-      }
+      "generic": "original,{body},{hair},{eyes}",
+      "princess_peach": "princess peach, {body}, blonde hair, blue eyes"
     },
     "suffix": ",{attitude}"
   },

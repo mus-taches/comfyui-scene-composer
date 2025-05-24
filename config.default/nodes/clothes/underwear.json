@@ -1,0 +1,60 @@
+{
+  "name": "🩲 Underwear",
+  "settings": {
+    "show_variables": true
+  },
+  "variables": {
+    "color_main": ["{color}"],
+    "cleavage": {
+      "probability": 0.75,
+      "tags": { "cleavage": "cleavage" }
+    }
+  },
+  "tags": {
+    "lingerie": {
+      "probability": 0.5,
+      "tags": { "lace": "lingerie,lace" }
+    },
+    "crotchless": {
+      "probability": 0.3,
+      "tags": { "crotchless": "crotchless,{pussy}" }
+    },
+    "bra": {
+      "group_labels": true,
+      "prefix": "{color_main} ",
+      "tags": {
+        "bra": "bra, {cleavage}",
+        "bustier": "bustier, {cleavage}",
+        "corset": "corset, {cleavage}"
+      }
+    },
+    "panties": {
+      "group_labels": true,
+      "prefix": "{color_main} ",
+      "tags": ["panties", "thong", "g-string"]
+    },
+    "leotard": {
+      "group_labels": true,
+      "tags": {
+        "colored": "{color_main} leotard",
+        "fishnet": "fishnet leotard"
+      },
+      "suffix": ", no neckwear, {cleavage}"
+    },
+    "legwear": {
+      "tags": ["lace-trimmed", "lace-up", "ribbon-trimmed"],
+      "suffix": " thighhighs"
+    },
+    "accessories": ["garter belt", "garter straps"]
+  },
+  "output": {
+    "group_labels": true,
+    "tags": {
+      "standard": "{panties}, {bra}",
+      "standard_with_legwear": "{panties}, {bra}, {legwear}, {accessories}",
+      "one-piece": "{leotard}",
+      "one-piece_with_legwear": "{leotard}, {legwear}, {accessories}"
+    }
+  },
+  "custom_output": "{panties}, {bra}, {legwear}, {accessories}"
+}

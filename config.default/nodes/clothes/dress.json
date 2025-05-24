@@ -1,0 +1,45 @@
+{
+  "name": "👗 Dress",
+  "tags": {
+    "dress_color": { "tags": ["{color}"], "suffix": " dress" },
+    "dress_length": ["microdress", "short dress", "medium dress", "long dress"],
+    "style": [
+      "pleated dress",
+      "latex dress",
+      "lace-trimmed dress",
+      "layered dress",
+      "tight dress",
+      "taut dress",
+      "chinese dress"
+    ],
+    "sleeves": {
+      "probability": 0.3,
+      "tags": ["sleeveless dress", "long sleeve", "short sleeve"]
+    },
+    "cut": {
+      "probability": 0.5,
+      "tags": [
+        "off-shoulder dress",
+        "strapless dress",
+        "plunging neckline",
+        "backless",
+        "side slit"
+      ]
+    },
+    "cleavage": {
+      "probability": 0.5,
+      "distribution": [0.5],
+      "tags": [
+        "cleavage",
+        "see-through cleavage",
+        "cleavage cutout",
+        "sideboob"
+      ]
+    },
+    "no_bra": {
+      "probability": 0.2,
+      "number": [1, 2],
+      "tags": ["no bra", "covered nipples"]
+    }
+  }
+}

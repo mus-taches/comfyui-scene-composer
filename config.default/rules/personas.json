@@ -1,0 +1,33 @@
+[
+  {
+    "triggers": ["original", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "{clothes_type}"
+      }
+    ]
+  },
+  {
+    "triggers": ["original"],
+    "actions": [
+      {
+        "type": "remove",
+        "value": "original"
+      }
+    ]
+  },
+  {
+    "triggers": ["princess peach", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "pink dress, white gloves, crown"
+      }
+    ]
+  }
+]

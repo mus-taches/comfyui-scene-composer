@@ -1,0 +1,59 @@
+{
+  "name": "👕 Casual clothes",
+  "settings": {
+    "show_variables": true
+  },
+  "variables": {
+    "color_main": { "tags": ["{color}"] },
+    "color_secondary": { "tags": ["{color}"] },
+    "bottom_high": {
+      "probability": 0.5,
+      "tags": ["lowleg", "high-waist"]
+    },
+    "skirt_length": { "tags": ["microskirt", "short", "medium", "long"] },
+    "cleavage": {
+      "probability": 0.5,
+      "tags": { "cleavage": "cleavage" }
+    },
+    "no_bra": {
+      "probability": 0.2,
+      "number": [1, 2],
+      "tags": ["no bra", "covered nipples"]
+    }
+  },
+  "tags": {
+    "top": {
+      "prefix": "{color_main} ",
+      "tags": [
+        "shirt,{cleavage}",
+        "crew shirt",
+        "t-shirt",
+        "polo shirt",
+        "oversized shirt",
+        "dress shirt,{cleavage}",
+        "blouse, {cleavage}",
+        "tank top, {cleavage}",
+        "turtleneck",
+        "crop top, {cleavage}, ",
+        "hoodie",
+        "sweater"
+      ],
+      "suffix": ",{no_bra}"
+    },
+    "bottom": {
+      "prefix": "{color_secondary} ",
+      "tags": [
+        "{bottom_high} pants",
+        "{bottom_high} shorts",
+        "jeans",
+        "{length_clothes} skirt",
+        "leggings"
+      ]
+    },
+    "vest": {
+      "probability": 0.1,
+      "prefix": "{color_secondary} ",
+      "tags": ["jacket", "suite jacket", "leather jacket", "blazer", "coat"]
+    }
+  }
+}
