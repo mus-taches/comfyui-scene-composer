@@ -113,6 +113,10 @@ def format_value(key, value):
             updated_value = []
             for item in value:
                 text_has_changed, processed_item = spread_variables(item)
+
+                if isinstance(processed_item, dict) and "tags" in processed_item:
+                    processed_item = processed_item["tags"]
+
                 if isinstance(processed_item, list):
                     updated_value.extend(processed_item)
                 else:

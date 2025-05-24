@@ -54,7 +54,7 @@ class ApplyRules:
 
         # Put prompt in a tag list
         tags = [tag.strip() for tag in prompt.replace(
-            "\n", ", ").split(", ") if tag.strip()]
+            "\n", ", ").split(",") if tag.strip()]
 
         # Merge rule config files
         if ruleset == "all":
@@ -87,7 +87,7 @@ class ApplyRules:
 
         if variables:
             tags = apply_variables(rng, tags, variables)
-            
+
         tags = stringify_tags(tags, separator=", ")
         return (tags,)
 
