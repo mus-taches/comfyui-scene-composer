@@ -33,6 +33,7 @@
         "dress shirt,{cleavage}",
         "blouse, {cleavage}",
         "tank top, {cleavage}",
+        "tube top, {cleavage}",
         "turtleneck",
         "crop top, {cleavage}, ",
         "hoodie",
@@ -47,7 +48,8 @@
         "{bottom_high} shorts",
         "jeans",
         "{length_clothes} skirt",
-        "leggings"
+        "leggings",
+        "loincloth"
       ]
     },
     "vest": {
