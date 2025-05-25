@@ -4,13 +4,16 @@
     "show_variables": true
   },
   "variables": {
-    "clothes_type": [
-      "{casual}",
-      "{dress}",
-      "{swimwear}",
-      "{uniform}",
-      "{underwear}"
-    ],
+    "clothes_type": {
+      "group_labels": true,
+      "tags": {
+        "casual": "{casual}",
+        "dress": "{dress}",
+        "swimsuit": "{swimsuit}",
+        "uniform": "{uniform}",
+        "underwear": "{underwear}"
+      }
+    },
     "cleavage": {
       "probability": 0.5,
       "distribution": [0.5],
