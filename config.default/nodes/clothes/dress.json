@@ -3,7 +3,7 @@
   "tags": {
     "dress_color": { "tags": ["{color}"], "suffix": " dress" },
     "dress_length": ["microdress", "short dress", "medium dress", "long dress"],
-    "style": [
+    "dress_style": [
       "pleated dress",
       "latex dress",
       "lace-trimmed dress",
