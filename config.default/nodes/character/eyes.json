@@ -1,39 +1,47 @@
 {
   "name": "👁️ Eyes",
+  "settings": {
+    "show_variables": true
+  },
   "variables": {
-    "makeup-color": {
-      "hide": true,
-      "tags": ["black", "blue", "aqua", "red", "green", "purple"]
+    "makeup_type": ["eyeliner", "eyeshadow", "mascara"],
+    "makeup_color": ["{color}"],
+    "eyewear_type": {
+      "group_labels": true,
+      "distribution": [0.5, 0.3],
+      "tags": {
+        "regular": "glasses",
+        "sunglasses": "sunglasses",
+        "tinted_glasses": "glasses, tinted eyewear",
+        "eyepatch": "eyepatch",
+        "googles": ["googles on head", "googles around neck"]
+      }
+    },
+    "eyewear_color": {
+      "tags": ["{color}"],
+      "suffix": " eyewear"
+    },
+    "eyewear_shape": {
+      "tags": ["rectangular", "round"],
+      "suffix": " eyewear"
     }
   },
   "tags": {
     "eye_color": {
-      "tags": "{color}",
+      "tags": ["{color}"],
       "suffix": " eyes"
-    },
-    "eyewear": {
-      "probability": 0.2,
-      "number": [1, 2],
-      "prefix": ", {color} eyewear, ",
-      "tags": {
-        "eyewear-style": {
-          "distribution": [0.8],
-          "tags": ["glasses", "sunglasses", "tinted glasses"]
-        },
-        "eyewear-shape": ["rectangular eyewear", "round eyewear"]
-      }
     },
     "makeup": {
       "probability": 0.2,
-      "tags": {
-        "eyeliner": "{makeup-color} eyeliner",
-        "eyeshadow": "{makeup-color} eyeshadow",
-        "mascara": "{makeup-color} mascara"
-      }
+      "tags": { "makeup": "{makeup_color} {makeup_type}" }
+    },
+    "eyewear": {
+      "probability": 0.2,
+      "tags": { "eyewear": "{eyewear_type}, {eyewear_color}, {eyewear_shape}" }
     },
     "eye_effect": {
-      "probability": 0.05,
-      "tags": ["glowing eyes", "no pupils"]
+      "probability": 0.1,
+      "tags": { "eye_effect": ["glowing eyes", "no pupils", "sparkling eyes"] }
     }
   }
 }

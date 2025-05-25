@@ -1,25 +1,32 @@
 {
   "name": "🪮 Hair",
-  "tags": {
-    "hair-color": {
-      "tags": [
-        "blonde",
-        "ginger",
-        "{color}"
-      ],
+  "settings": {
+    "show_variables": true
+  },
+  "variables": {
+    "hair_main_color": {
+      "output": true,
+      "tags": ["blonde", "ginger", "{color}"],
       "suffix": " hair"
     },
-    "multicolored": {
+    "hair_secondary_color": {
+      "tags": ["blonde", "ginger", "{color}"],
+      "suffix": " hair"
+    }
+  },
+  "tags": {
+    "hair_color": { "show": false, "tags": "{hair_main_color}" },
+    "multicolored_hair": {
       "probability": 0.1,
-      "prefix": "{color} hair, multicolored hair,",
-      "tags": ["colored tips", "gradient hair"]
+      "prefix": "{hair_secondary_color} hair, multicolored hair,",
+      "tags": { "multicolored": ["colored tips", "gradient hair"] }
     },
-    "hair-length": {
+    "hair_length": {
       "distribution": [0.3, 0.3, 0.3, 0.1],
       "tags": ["short", "medium", "long", "very long", "big"],
       "suffix": " hair"
     },
-    "hair-style": {
+    "hair_style": {
       "probability": 0.4,
       "tags": [
         "afro",

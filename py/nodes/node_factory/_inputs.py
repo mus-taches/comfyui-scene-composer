@@ -161,14 +161,14 @@ def format_subtags(key, value):
     # Display true/false checkbox as input
     input = format_value(key, True)
 
+    # Display a custom probability is set, show a float as input
+    if probability_key != 1:
+        input = format_value(key, probability_key)
+
     # Display subtags labels as input
     if display_group_labels:
         tags_keys = list(value["tags"].keys())
         input = format_value(key, tags_keys)
-
-    # Display a custom probability is set, show a float as input
-    if probability_key != 1:
-        input = format_value(key, probability_key)
 
     return input
 

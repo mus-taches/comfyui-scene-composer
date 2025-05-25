@@ -75,7 +75,7 @@
     ]
   },
   {
-    "triggers": ["hinata", "official costume"],
+    "triggers": ["hinata hyuga", "official costume"],
     "logic": "AND",
     "actions": [
       {
@@ -97,7 +97,7 @@
     ]
   },
   {
-    "triggers": ["kim_possible", "official costume"],
+    "triggers": ["kim possible", "official costume"],
     "logic": "AND",
     "actions": [
       {
@@ -157,7 +157,7 @@
     ]
   },
   {
-    "triggers": ["sakura", "haruno", "official costume"],
+    "triggers": ["sakura haruno", "official costume"],
     "logic": "AND",
     "actions": [
       {
