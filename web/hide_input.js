@@ -68,9 +68,11 @@ function toggleCustomOutput(node, widget) {
 
 app.registerExtension({
     name: "scenecomposer.widgethider",
-    nodeCreated(node) {
-        const customnodes_package_name = node.properties.cnr_id
-        if (customnodes_package_name == "comfyui-scene-composer") {
+    async nodeCreated(node) {
+        console.log(node)
+        const customnodes_package_name = node.properties.aux_id
+        console.log(customnodes_package_name)
+        if (customnodes_package_name == "mus-taches/comfyui-scene-composer") {
             for (const widget of node.widgets || []) {
                 widget.callback = function () { widgetLogic(node, widget) }
             }
