@@ -2,6 +2,7 @@
   "name": "👤 Character",
   "output": {
     "group_labels": true,
+    "distribution": [0.9],
     "tags": {
       "generic": "original,{body},{hair},{eyes}",
       "2b": "2b, nier automata, small breasts, short hair, white hair, black hairband, black blindfold, mole under mouth",

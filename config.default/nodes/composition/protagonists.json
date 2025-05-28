@@ -25,6 +25,11 @@
       "prefix": "1boy,{solo_focus},",
       "tags": {
         "standard": "",
+        "muscular": {
+          "prefix": "muscular male,",
+          "number": [0, 2],
+          "tags": ["thick arms", "large hands"]
+        },
         "giant": {
           "prefix": "giant male, size difference,",
           "number": [0, 2],

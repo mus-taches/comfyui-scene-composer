@@ -28,6 +28,7 @@
   },
   "output": {
     "group_labels": true,
+    "distribution": [0.4, 0.6],
     "tags": {
       "generic": "{clothes_type}",
       "persona": "official costume"
