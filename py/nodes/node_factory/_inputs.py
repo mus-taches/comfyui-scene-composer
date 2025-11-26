@@ -1,4 +1,4 @@
-import dpath.util as dpath
+import dpath
 from ._variables import spread_variables
 
 
