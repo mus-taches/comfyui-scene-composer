@@ -36,7 +36,7 @@
         "after": {
           "number": 5,
           "tags": {
-            "after_action": "after {penetration_type},",
+            "after_action": "after {penetration_type}, {pussy}",
             "after_penis": "{penis},penis head,",
             "after_penis_state": {
               "number": [0, 2],
