@@ -55,7 +55,7 @@ def main(seed, verbose, with_inputs, with_rules, node_output):
         prompt = output_node.build_prompt(
             seed=seed, variables=nodes_variables)[0]
     else:
-        prompt = " ".join(prompts)
+        prompt = ",".join(prompts)
 
     if with_rules:
         prompt = rules.apply_rules(prompt, "all", seed)

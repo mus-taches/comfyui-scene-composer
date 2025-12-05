@@ -1,0 +1,214 @@
+[
+  {
+    "triggers": ["original", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "{clothes_type}"
+      }
+    ]
+  },
+  {
+    "triggers": ["original"],
+    "actions": [
+      {
+        "type": "remove",
+        "value": "original"
+      }
+    ]
+  },
+  {
+    "triggers": ["2b", "nier automata", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "black dress, black thighhighs, high heel, thigh boots"
+      }
+    ]
+  },
+  {
+    "triggers": ["android 18", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "blue jacket, denim jacket, black tank top, white sleeves, stripped sleeves, cleavage, blue jeans"
+      }
+    ]
+  },
+  {
+    "triggers": ["bowsette", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "black dress, sleevless dress, off-shoulder dress, long dress"
+      }
+    ]
+  },
+  {
+    "triggers": ["chel", "el dorado", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "pink tube top, loin cloth, pelvic curtain"
+      }
+    ]
+  },
+  {
+    "triggers": ["chun-li", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "blue dress, china dress, puffy short sleeves, side slit, brown pantyhose"
+      }
+    ]
+  },
+  {
+    "triggers": ["hinata hyuga", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "purple jacket, white sleeves, dark blue pants"
+      }
+    ]
+  },
+  {
+    "triggers": ["jinx", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "brown crop top, purple pants, striped pants"
+      }
+    ]
+  },
+  {
+    "triggers": ["kim possible", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "black crop top, long sleeve, gray gloves, green cargo pants"
+      }
+    ]
+  },
+  {
+    "triggers": ["lara croft", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "cyan tank top, brown shorts, short shorts, brown belt, thigh straps, holster"
+      }
+    ]
+  },
+  {
+    "triggers": ["princess daisy", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "yellow dress, white gloves"
+      }
+    ]
+  },
+  {
+    "triggers": ["princess zelda", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": {
+          "tags": [
+            "blue shirt, white collar, golden belt, black pants",
+            "pink dress, white dress, long dress, bracelet"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "triggers": ["raven", "dc comics", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "purple cloak, hooded cloak, black leotard, long sleeves"
+      }
+    ]
+  },
+  {
+    "triggers": ["sakura haruno", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "red dress, sleevless dress, short dress, black shorts, black gloves"
+      }
+    ]
+  },
+  {
+    "triggers": ["samus aran", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "zero suit, blue bodysuit, long sleeve,"
+      }
+    ]
+  },
+  {
+    "triggers": ["tsunade", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "green coat, gray kimono, cleavage, blue belt, blue shorts"
+      }
+    ]
+  },
+  {
+    "triggers": ["velma", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "orange sweater, orange turtleneck, red skirt, short skirt, orange socks, kneehighs"
+      }
+    ]
+  },
+  {
+    "triggers": ["princess peach", "official costume"],
+    "logic": "AND",
+    "actions": [
+      {
+        "type": "replace",
+        "value": "official costume",
+        "new_value": "pink dress, white gloves, crown"
+      }
+    ]
+  }
+]

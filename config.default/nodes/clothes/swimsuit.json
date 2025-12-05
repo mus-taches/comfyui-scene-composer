@@ -1,0 +1,16 @@
+{
+  "name": "👙 Swimsuit",
+  "tags": {
+    "swimsuit_color": { "tags": ["{color}"], "suffix": " swimsuit" },
+    "bikini_type": [
+      "bikini",
+      "one-piece swimsuit",
+      "highleg bikini",
+      "highleg one-piece swimsuit",
+      "lowleg bikini",
+      "micro bikini",
+      "thong bikini",
+      "slingshot swimsuit"
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-import dpath.util as dpath
+import dpath
 from ._variables import spread_variables
 
 
@@ -113,6 +113,10 @@ def format_value(key, value):
             updated_value = []
             for item in value:
                 text_has_changed, processed_item = spread_variables(item)
+
+                if isinstance(processed_item, dict) and "tags" in processed_item:
+                    processed_item = processed_item["tags"]
+
                 if isinstance(processed_item, list):
                     updated_value.extend(processed_item)
                 else:
@@ -157,14 +161,14 @@ def format_subtags(key, value):
     # Display true/false checkbox as input
     input = format_value(key, True)
 
+    # Display a custom probability is set, show a float as input
+    if probability_key != 1:
+        input = format_value(key, probability_key)
+
     # Display subtags labels as input
     if display_group_labels:
         tags_keys = list(value["tags"].keys())
         input = format_value(key, tags_keys)
-
-    # Display a custom probability is set, show a float as input
-    if probability_key != 1:
-        input = format_value(key, probability_key)
 
     return input
 

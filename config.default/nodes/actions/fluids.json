@@ -10,8 +10,16 @@
       "tags": ["cum bubble", "cum string"]
     },
     "sweat": {
-      "number": [1, 3],
-      "tags": ["sweat", "sweating profusely", "wet"]
+      "number": [1, 4],
+      "tags": [
+        "sweat",
+        "very sweaty",
+        "sparkling sweat",
+        "sweating profusely",
+        "wet",
+        "hot",
+        "shiny skin"
+      ]
     },
     "pussy_juice": {
       "number": [1, 3],

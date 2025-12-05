@@ -1,0 +1,72 @@
+{
+  "name": "🧢 Accessories",
+  "settings": {
+    "show_variables": true
+  },
+  "variables": {
+    "headwear_color": ["{color}"],
+    "hat": {
+      "group_labels": true,
+      "tags": {
+        "backwards cap": "baseball cap, backwards hat, {headwear_color}",
+        "bandana": "bandana, {headwear_color}",
+        "beanie": "beanie, {headwear_color}",
+        "bucket hat": "bucket hat, {headwear_color}",
+        "cap": "baseball cap, {headwear_color}",
+        "cowboy": "cowboy hat",
+        "diadem": {
+          "tags": ["diadem", "tiara"],
+          "suffix": ", {headwear_color}"
+        },
+        "fedora": "fedora, {headwear_color}",
+        "headphones (on)": "headphones, {headwear_color}",
+        "headphones (around neck)": "headphones around neck, {headwear_color}",
+        "newsboy": "newsboy cap, {headwear_color}",
+        "rice hat": "rice hat",
+        "straw hat": "straw hat"
+      }
+    },
+    "hairband": {
+      "group_labels": true,
+      "tags": {
+        "hairband": "{headwear_color} hairband",
+        "headband": "{headwear_color} headband",
+        "hair_bow": "hair bow, {headwear_color} bow",
+        "hair_ribbon": "hair ribbon, {headwear_color} ribbon",
+        "hair_stick": "hair stick",
+        "hairpin": ["hairpin", "hairclip"]
+      }
+    },
+    "earrings": [
+      "floating earring",
+      "hoop earring",
+      "stud earring",
+      "earpiercing"
+    ],
+    "neckwear_color": ["{color}"],
+    "neckwear_type": {
+      "group_labels": true,
+      "tags": {
+        "choker": "{neckwear_color} choker",
+        "dog tags": "dog tags, {neckwear_color} neckwear",
+        "lace-trimmed": "lace-trimmed collar, {neckwear_color} neckwear",
+        "necklace (chain)": "chain necklace",
+        "necklace (tooth)": "tooth necklace",
+        "necklace": "necklace, {neckwear_color} neckwear",
+        "o-ring": "o-ring collar, {neckwear_color} neckwear",
+        "ribbon": "neck ribbon, {neckwear_color} ribbon",
+        "spiked": "spiked collar"
+      }
+    }
+  },
+  "tags": {
+    "headwear_type": {
+      "group_labels": true,
+      "probability": 0.2,
+      "tags": {
+        "hairband": "{hairband}",
+        "hat": "{headwear} headwear"
+      }
+    }
+  }
+}
