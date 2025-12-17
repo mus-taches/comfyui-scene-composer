@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-scene-composer"
 description = "A collection of nodes to facilitate the creation of explicit NSFW scenes in ComfyUI."
-version = "0.2.0"
+version = "0.3.0"
 license = { file = "LICENSE" }
 dependencies = ["dpath", "numpy", "toml"]
 
