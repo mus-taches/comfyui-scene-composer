@@ -1,5 +1,5 @@
 >[!WARNING]
->Most of the nodes from v0.1.x are now deprecated. Please update your workflow with the new nodes from v0.2.x Check the [workflow.json](workflow.json) for an example of utilisation.
+>`v0.3.x` use the new sub-graph system to simplify the workflow and avoid too much custom node dependencies. Old workflows are expected to break. Please, use the repo's [workflow.json](workflow.json) as a basis. Some features are not there anymore for now (e.g. CivitAI metadatas parser); they will be added over time.
 
 # ComfyUI Scene Composer
 
